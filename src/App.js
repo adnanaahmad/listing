@@ -1,10 +1,10 @@
-import './App.css';
-import Button from '@mui/material/Button';
+import classes from './App.module.css';
+import MenuBar from './shared/components/menu-bar/index'
 
 function App() {
   return (
     <div>
-      <Button variant="contained">Hello World</Button>
+      <MenuBar/>
     </div>
   );
 }
