@@ -25,7 +25,7 @@ export default function FooterPrimary() {
                     <Typography variant="h5">Your Email</Typography>
                 </Stack>
                 <Button variant="contained" sx={{px: 5, py: 1, borderRadius: 2}}>
-                    <Typography variant="h6" sx={{fontWeight: 600, textTransform: 'none'}}>Book A Meeting</Typography>
+                    <Typography variant="h6" sx={{fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap'}}>Book A Meeting</Typography>
                 </Button>
             </Stack>
         </Container>
