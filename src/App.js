@@ -1,10 +1,9 @@
-import classes from './App.module.css';
-import MenuBar from './shared/components/menu-bar/index'
+import PageOne from './pages/page-one/page-one'
 
 function App() {
   return (
     <div>
-      <MenuBar/>
+      <PageOne/>
     </div>
   );
 }
