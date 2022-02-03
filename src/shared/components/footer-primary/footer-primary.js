@@ -38,44 +38,44 @@ export default function FooterPrimary() {
             >
                 <HomeOutlinedIcon sx={{ fontSize: 200 }}/>
                 <Stack spacing={2}>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         Services
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         Landlords
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         Tenants
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         Management
                     </Typography>
                 </Stack>
                 <Stack spacing={2}>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         RESOURCES
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         FAQs
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         Management
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         Privacy Policy
                     </Typography>
                 </Stack>
                 <Stack spacing={2}>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         CONTACT
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         hk@friendlyflats.co.nz
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         0800 123 4567
                     </Typography>
-                    <Typography variant="h5" disableGutters component="div" sx={{fontWeight: 700}}>
+                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                         Auckland City
                     </Typography>
                 </Stack>
