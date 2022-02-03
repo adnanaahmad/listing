@@ -23,11 +23,11 @@ function PageOne() {
       <Stack direction="row" justifyContent="space-between" sx={{ border: '1px solid red'}}>
         <ThemeProvider theme={BrownTheme}>
           <Stack justifyContent="space-between" sx={{ border: '1px solid green', width: '60%', paddingLeft: '10px', paddingTop: '20px'}}>
-            <Stack direction="row" alignItems="center" spacing={2} sx={{ border: '1px solid purple'}}>
-              <HomeOutlinedIcon sx={{ fontSize: 65, color: 'rgb(155 85 30)'}}/>
+            <Stack direction="row" alignItems="center" sx={{ border: '1px solid purple'}}>
+              <HomeOutlinedIcon sx={{ fontSize: '4rem', color: 'rgb(155 85 30)', marginRight: '5%'}}/>
               <MenuBar/>
             </Stack>
-            <Stack spacing={8} sx={{border: 1, paddingBottom: '50px'}}>
+            <Stack justifyContent="space-between" sx={{border: 1, paddingBottom: '5%', height: '50%'}}>
               <div>
                 <Typography variant="h2" color="primary">New Zealand</Typography>
                 <Typography variant="h1" color="primary" sx={{fontWeight: 600}}>Friendly Flats</Typography>
@@ -55,9 +55,7 @@ function PageOne() {
           alt="The house from the offer."
           src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&w=350&dpr=2"
         />
-        <Box sx={{ width: '5%', border: 1}}>
-          <Typography>sss</Typography>
-        </Box>
+        <Box sx={{ width: '5%', border: 1}}></Box>
       </Stack>
       <FooterPrimary/>
     </React.Fragment>
