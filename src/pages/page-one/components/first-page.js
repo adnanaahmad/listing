@@ -6,6 +6,7 @@ import {ThemeProvider, styled } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
 import {BrownTheme} from './../../../shared/styles/themes/brown-theme'
+import {toggleBorder} from './../../../shared/styles/debugging-border'
 
 const FirstPageButton = styled(Button)(({ theme }) => ({
   color: 'primary',
@@ -17,21 +18,22 @@ const FirstPageButton = styled(Button)(({ theme }) => ({
 }));
 
 function FirstPage() {
+  const isBorder = toggleBorder;
   return (
     <React.Fragment>
-      <Stack direction="row" justifyContent="space-between" sx={{ border: '1px solid red', height: '100vh',}}>
+      <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh',}}>
         <ThemeProvider theme={BrownTheme}>
-          <Stack justifyContent="space-between" sx={{ border: '1px solid green', width: '60%', paddingLeft: '10px', paddingTop: '20px'}}>
-            <Stack direction="row" alignItems="center" sx={{ border: '1px solid purple'}}>
+          <Stack justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none', width: '60%', paddingLeft: '10px', paddingTop: '20px'}}>
+            <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
               <HomeOutlinedIcon sx={{ fontSize: '4rem', color: 'rgb(155 85 30)', marginRight: '5%'}}/>
               <MenuBar/>
             </Stack>
-            <Stack justifyContent="space-between" sx={{border: 1, paddingBottom: '5%', height: '50%'}}>
+            <Stack justifyContent="space-between" sx={{border: isBorder ? 1 : 'none', paddingBottom: '5%', height: '50%'}}>
               <div>
                 <Typography variant="h2" color="primary">New Zealand</Typography>
                 <Typography variant="h1" color="primary" sx={{fontWeight: 600}}>Friendly Flats</Typography>
               </div>
-              <Stack direction="row" spacing={2} sx={{ border: 1}}>
+              <Stack direction="row" spacing={2} sx={{ border: isBorder ? 1 : 'none'}}>
                 <FirstPageButton>Rent a Room</FirstPageButton> 
                 <FirstPageButton>Rent a House</FirstPageButton> 
                 <FirstPageButton>List a Property</FirstPageButton>       
@@ -47,14 +49,14 @@ function FirstPage() {
         <Box component="img"
           sx={{
             height: '100%',
-            border: '2px solid red',
+            border: isBorder ? '2px solid red' : 'none',
             width: '30%',
             objectFit: 'cover'
           }}
           alt="The house from the offer."
           src="https://images.pexels.com/photos/1906795/pexels-photo-1906795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
         />
-        <Box sx={{ width: '5%', border: 1}}></Box>
+        <Box sx={{ width: '5%', border: isBorder ? 1 : 'none'}}></Box>
       </Stack>
     </React.Fragment>
   );
