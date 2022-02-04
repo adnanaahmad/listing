@@ -51,7 +51,9 @@ function FirstPage() {
             height: '100%',
             border: isBorder ? '2px solid red' : 'none',
             width: '30%',
-            objectFit: 'cover'
+            objectFit: 'cover',
+            borderBottomRightRadius: '40px',
+            borderBottomLeftRadius: '40px',
           }}
           alt="The house from the offer."
           src="https://images.pexels.com/photos/1906795/pexels-photo-1906795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
