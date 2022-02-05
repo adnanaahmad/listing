@@ -12,12 +12,12 @@ function ThirdPage() {
     ];
     return (
     <React.Fragment>
-        <Stack direction="column" justifyContent="center" alignItems="center"sx={{ border: isBorder ? '1px solid red' : 'none', height: '90vh'}} spacing={'2rem'}>
+        <Stack direction="column" justifyContent="center" alignItems="center"sx={{ border: isBorder ? '1px solid red' : 'none', height: '78vh'}} spacing={'2rem'}>
             <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px'}}>Our Listing Process</Typography>
             <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none', maxWidth: '68%',  height: '45%'}} spacing={'2rem'}>
             {
                 Cards.map((card, i) => (
-                    <Stack direction="column" justifyContent="center" alignItems="center" sx={{
+                    <Stack key={i} direction="column" justifyContent="center" alignItems="center" sx={{
                         border: isBorder ? 1 : 'none',
                         maxWidth: '30%',
                         borderTopRightRadius: '40px',

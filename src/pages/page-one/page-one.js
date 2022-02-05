@@ -1,6 +1,7 @@
 import * as React from 'react';
 import FooterPrimary from './../../shared/components/footer-primary/footer-primary'
 import FirstPage from './components/first-page';
+import FourthPage from './components/fourth-page';
 import SecondPage from './components/second-page';
 import ThirdPage from './components/third-page';
 
@@ -10,6 +11,7 @@ function PageOne() {
       <FirstPage/>
       <SecondPage/>
       <ThirdPage/>
+      <FourthPage/>
       <FooterPrimary/>
     </React.Fragment>
   );
