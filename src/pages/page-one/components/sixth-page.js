@@ -39,7 +39,7 @@ function SixthPage() {
     const isBorder = toggleBorder;
     return (
     <React.Fragment>
-        <Stack direction="row" alignItems="center" justifyContent="center" spacing={'2rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: '84vh', backgroundColor: WhiteTheme.palette.primary.contrastText}}>
+        <Stack direction="row" alignItems="center" justifyContent="center" spacing={'2rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: '86vh', backgroundColor: WhiteTheme.palette.primary.contrastText}}>
             <Stack direction="row" alignItems="stretch" justifyContent="space-between" spacing={'2rem'} sx={{ border: isBorder ? '1px solid yellow' : 'none', width: '80%', height: '80%'}}>
                 <ThemeProvider theme={WhiteTheme}>
                     <Box 
