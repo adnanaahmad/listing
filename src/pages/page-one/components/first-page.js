@@ -28,21 +28,25 @@ function FirstPage() {
               <HomeOutlinedIcon sx={{ fontSize: '4rem', color: 'rgb(155 85 30)', marginRight: '5%'}}/>
               <MenuBar/>
             </Stack>
-            <Stack justifyContent="space-between" sx={{border: isBorder ? 1 : 'none', paddingBottom: '5%', height: '50%'}}>
-              <div>
-                <Typography variant="h2" color="primary">New Zealand</Typography>
-                <Typography variant="h1" color="primary" sx={{fontWeight: 600}}>Friendly Flats</Typography>
-              </div>
-              <Stack direction="row" spacing={2} sx={{ border: isBorder ? 1 : 'none'}}>
-                <FirstPageButton>Rent a Room</FirstPageButton> 
-                <FirstPageButton>Rent a House</FirstPageButton> 
-                <FirstPageButton>List a Property</FirstPageButton>       
+            <Box sx={{height: '15%', border: isBorder ? 1 : 'none'}}>
+            </Box>
+            <Stack justifyContent="center" alignItems="flex-start" sx={{border: isBorder ? '1px solid red' : 'none', height: '100%'}}>
+              <Stack justifyContent="space-between" sx={{border: isBorder ? 1 : 'none', minWidth: '70%', height: '50%'}} spacing={'1rem'}>
+                <div>
+                  <Typography variant="h2" color="primary">New Zealand</Typography>
+                  <Typography variant="h1" color="primary" sx={{fontWeight: 600}}>Friendly Flats</Typography>
+                </div>
+                <Stack direction="row" spacing={2} sx={{ border: isBorder ? 1 : 'none'}}>
+                  <FirstPageButton>Rent a Room</FirstPageButton> 
+                  <FirstPageButton>Rent a House</FirstPageButton> 
+                  <FirstPageButton>List a Property</FirstPageButton>       
+                </Stack>
+                <Typography variant="h6" color="primary" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
+                  Once you are in contact with us, one of our friendly property
+                  managers will talk you through the process of listing your property.
+                  We offer you an appraisal a
+                </Typography>
               </Stack>
-              <Typography variant="h6" color="primary" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
-                Once you are in contact with us, one of our friendly property
-                managers will talk you through the process of listing your property.
-                We offer you an appraisal a
-              </Typography>
             </Stack>
           </Stack>
         </ThemeProvider>
@@ -52,8 +56,8 @@ function FirstPage() {
             border: isBorder ? '2px solid red' : 'none',
             width: '30%',
             objectFit: 'cover',
-            borderBottomRightRadius: '40px',
-            borderBottomLeftRadius: '40px',
+            borderBottomRightRadius: '30px',
+            borderBottomLeftRadius: '30px',
           }}
           alt="The house from the offer."
           src="https://images.pexels.com/photos/1906795/pexels-photo-1906795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
