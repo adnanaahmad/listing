@@ -4,6 +4,7 @@ import FifthPage from './components/fifth-page';
 import FirstPage from './components/first-page';
 import FourthPage from './components/fourth-page';
 import SecondPage from './components/second-page';
+import SixthPage from './components/sixth-page';
 import ThirdPage from './components/third-page';
 
 function PageOne() {
@@ -14,6 +15,7 @@ function PageOne() {
       <ThirdPage/>
       <FourthPage/>
       <FifthPage/>
+      <SixthPage/>
       <FooterPrimary/>
     </React.Fragment>
   );
