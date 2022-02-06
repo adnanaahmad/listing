@@ -21,7 +21,7 @@ function SecondPage() {
         <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'2rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh'}}>
         <Box component="img"
             sx={{
-                height: '96%',
+                height: '90%',
                 borderTopRightRadius: "40px",
                 borderBottomRightRadius: "40px",
                 width: '38%',
