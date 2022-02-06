@@ -5,82 +5,89 @@ import Stack from '@mui/material/Stack';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
+import {toggleBorder} from './../../../shared/styles/debugging-border';
+import {ThemeProvider} from '@mui/material/styles';
+import {WhiteTheme} from './../../../shared/styles/themes/white-theme'
+
+const isBorder = toggleBorder;
+const classes = {
+    paperContainer: {
+        height: '100%',
+        backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeYyENyinGl3gYIURglQQKaIN0ul-T9AsWow&usqp=CAU")',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        border: isBorder ? '2px solid red' : 'none',
+    }
+};
 
 export default function FooterPrimary() {
-  return (
-    <React.Fragment>
-        <Container disableGutters maxWidth="xlg" sx={{ border: 1, minHeight: '70px', padding: '50px'}}>
-            <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                sx={{ border: 1, height: '100%'}}
-            >
-                <Stack>
-                    <Typography variant="h4" sx={{fontWeight: 600}}>Want To Find</Typography>
-                    <Typography variant="h4" sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
+    const firstColumn = ['Services', 'Landlords', 'Tenants', 'Management'];
+    const secondColumn = ['RESOURCES', 'FAQs', 'Management', 'Privacy Policy'];
+    const thirdColumn = ['CONTACT', 'hk@friendlyflats.co.nz', '0800 123 4567', 'Auckland City'];
+    return (
+        <React.Fragment>
+            <div style={classes.paperContainer}>
+                <ThemeProvider theme={WhiteTheme}>
+                    <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', height: '100%', padding: '50px'}}>
+                        <Stack
+                            direction="row"
+                            justifyContent="space-between"
+                            alignItems="center"
+                            sx={{ border: isBorder ? 1: 'none', height: '100%'}}
+                            spacing={'1rem'}
+                        >
+                            <Stack>
+                                <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>Want To Find</Typography>
+                                <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
+                            </Stack>
+                            <Stack color="primary" direction="row" alignItems="center" sx={{ border: 1, borderColor: WhiteTheme.palette.primary.main, borderRadius: 2, minWidth: '50%', py: 1, px: 4}}>
+                                <SearchIcon color="primary" fontSize='large'/>
+                                <Typography color="primary" variant="h5">Your Email</Typography>
+                            </Stack>
+                            <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
+                                Book A Meeting
+                            </Button>
+                        </Stack>
+                    </Container>
+                </ThemeProvider>
+            </div>
+            <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', minHeight: '100px', padding: '50px'}}>
+                <Stack
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{ border: isBorder ? 1: 'none', height: '100%'}}
+                >
+                    <HomeOutlinedIcon sx={{ fontSize: 200 }}/>
+                    <Stack spacing={2}>
+                        {
+                            firstColumn.map((item, i) => (
+                                <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
+                                    {item}
+                                </Typography>
+                            ))
+                        }
+                    </Stack>
+                    <Stack spacing={2}>
+                        {
+                            secondColumn.map((item, i) => (
+                                <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
+                                    {item}
+                                </Typography>
+                            ))
+                        }
+                    </Stack>
+                    <Stack spacing={2}>
+                       {
+                            thirdColumn.map((item, i) => (
+                                <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
+                                    {item}
+                                </Typography>
+                            ))
+                        }
+                    </Stack>
                 </Stack>
-                <Stack direction="row" alignItems="center" sx={{ border: 1, borderRadius: 2, minWidth: '50%', py: 1, px: 4}}>
-                    <SearchIcon fontSize='large'/>
-                    <Typography variant="h5">Your Email</Typography>
-                </Stack>
-                <Button variant="contained" sx={{px: 5, py: 1, borderRadius: 2}}>
-                    <Typography variant="h6" sx={{fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap'}}>Book A Meeting</Typography>
-                </Button>
-            </Stack>
-        </Container>
-        <Container disableGutters maxWidth="xlg" sx={{ border: 1, minHeight: '100px', padding: '50px'}}>
-            <Stack
-                direction="row"
-                justifyContent="space-between"
-                alignItems="center"
-                sx={{ border: 1, height: '100%'}}
-            >
-                <HomeOutlinedIcon sx={{ fontSize: 200 }}/>
-                <Stack spacing={2}>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        Services
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        Landlords
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        Tenants
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        Management
-                    </Typography>
-                </Stack>
-                <Stack spacing={2}>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        RESOURCES
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        FAQs
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        Management
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        Privacy Policy
-                    </Typography>
-                </Stack>
-                <Stack spacing={2}>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        CONTACT
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        hk@friendlyflats.co.nz
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        0800 123 4567
-                    </Typography>
-                    <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
-                        Auckland City
-                    </Typography>
-                </Stack>
-            </Stack>
-        </Container>
-    </React.Fragment>
-  );
+            </Container>
+        </React.Fragment>
+    );
 }
