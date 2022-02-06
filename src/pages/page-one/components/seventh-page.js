@@ -19,18 +19,18 @@ function SeventhPage() {
         <Stack direction="column" justifyContent="center" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh'}}>
             <Stack direction="column" justifyContent="center" alignItems="center" sx={{ border: isBorder ? '1px solid maroon' : 'none', height: '75%'}} spacing={'2rem'}>
                 <Typography variant="h3">Hear From Our Clients</Typography>
-                <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'2rem'} sx={{ border: isBorder ? '1px solid orange' : 'none', width: '70%', height: '80%'}}>
+                <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'2rem'} sx={{ border: isBorder ? '1px solid orange' : 'none', width: '90%', height: '80%'}}>
                     <Box component="img"
                         sx={{
-                            height: '80%',
+                            height: '500px',
                             borderTopRightRadius: "40px",
                             borderBottomLeftRadius: "40px",
-                            width: '50%',
+                            width: '500px',
                             objectFit: 'cover',
                             borderRadius: '40px'
                         }}
                         alt="The house from the offer."
-                        src="https://images.unsplash.com/photo-1520942702018-0862200e6873?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
+                        src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
                     />
                     <Stack direction="column" justifyContent="space-between" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '40%'}} spacing={'1rem'}>
                         <Typography variant="h5" sx={{fontWeight: 500}}>Matthew VanSant</Typography>
