@@ -1,5 +1,5 @@
 import * as React from 'react';
-import FooterPrimary from '../../shared/components/footer-primary/footer-primary'
+import FooterPrimary from '../../shared/components/footer-primary/footer-primary';
 import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
