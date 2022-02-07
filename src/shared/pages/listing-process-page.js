@@ -1,9 +1,9 @@
 import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import {toggleBorder} from '../../../shared/styles/debugging-border';
+import {toggleBorder} from '../styles/debugging-border';
 import Icon from '@mui/material/Icon';
 
-function ThirdPage() {
+function ListingProcessPage() {
     const isBorder = toggleBorder;
     let Cards = [
         {title : 'MEET THE TEAM', icon: 'group', text: 'Come and meet our team! Get to know your property manager before getting down to business'},
@@ -39,4 +39,4 @@ function ThirdPage() {
     );
 }
 
-export default ThirdPage;
+export default ListingProcessPage;

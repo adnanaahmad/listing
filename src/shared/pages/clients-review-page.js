@@ -1,13 +1,13 @@
 import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import {toggleBorder} from '../../../shared/styles/debugging-border';
+import {toggleBorder} from '../styles/debugging-border';
 import {ThemeProvider} from '@mui/material/styles';
-import {GreenTheme} from '../../../shared/styles/themes/green-theme'
+import {GreenTheme} from '../styles/themes/green-theme'
 import Box from '@mui/material/Box';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CircleIcon from '@mui/icons-material/Circle';
 
-function SeventhPage() {
+function ClientsReviewPage() {
     const isBorder = toggleBorder;
     // let Cards = [
     //     {title : 'MEET THE TEAM', icon: 'group', text: 'Come and meet our team! Get to know your property manager before getting down to business'},
@@ -54,4 +54,4 @@ function SeventhPage() {
     );
 }
 
-export default SeventhPage;
+export default ClientsReviewPage;

@@ -1,12 +1,12 @@
 import * as React from 'react';
-import MenuBar from '../../../shared/components/menu-bar/menu-bar'
+import MenuBar from '../components/menu-bar/menu-bar'
 import { Stack, Typography } from '@mui/material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import {ThemeProvider, styled } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-import {BrownTheme} from '../../../shared/styles/themes/brown-theme'
-import {toggleBorder} from '../../../shared/styles/debugging-border'
+import {BrownTheme} from '../styles/themes/brown-theme'
+import {toggleBorder} from '../styles/debugging-border'
 
 const FirstPageButton = styled(Button)(({ theme }) => ({
   color: 'primary',
@@ -17,7 +17,7 @@ const FirstPageButton = styled(Button)(({ theme }) => ({
   width: '30%'
 }));
 
-function FirstPage() {
+function WelcomePageVariantOne() {
   const isBorder = toggleBorder;
   return (
     <React.Fragment>
@@ -68,4 +68,4 @@ function FirstPage() {
   );
 }
 
-export default FirstPage;
+export default WelcomePageVariantOne;

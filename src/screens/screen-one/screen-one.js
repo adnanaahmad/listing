@@ -1,23 +1,23 @@
 import * as React from 'react';
 import FooterPrimary from '../../shared/components/footer-primary/footer-primary'
+import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
+import ClientsReviewPage from '../../shared/pages/clients-review-page';
+import ListingProcessPage from '../../shared/pages/listing-process-page';
 import FifthPage from './components/fifth-page';
-import FirstPage from './components/first-page';
 import FourthPage from './components/fourth-page';
 import SecondPage from './components/second-page';
 import SixthPage from './components/sixth-page';
-import ThirdPage from './components/third-page';
-import SeventhPage from './components/seventh-page';
 
 function PageOne() {
   return (
     <React.Fragment>
-      <FirstPage/>
+      <WelcomePageVariantOne/>
       <SecondPage/>
-      <ThirdPage/>
+      <ListingProcessPage/>
       <FourthPage/>
       <FifthPage/>
       <SixthPage/>
-      <SeventhPage/>
+      <ClientsReviewPage/>
       <FooterPrimary/>
     </React.Fragment>
   );
