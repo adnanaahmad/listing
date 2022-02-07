@@ -4,6 +4,7 @@ import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
 import SecondPage from './components/second-page';
+import FourthPage from './components/fourth-page';
 
 function ScreenTwo() {
     const welcomePage = {
@@ -17,6 +18,7 @@ function ScreenTwo() {
         <WelcomePageVariantOne data = {welcomePage}/>
         <SecondPage/>
         <ListingProcessPage/>
+        <FourthPage/>
         <ClientsReviewPage/>
         <FooterPrimary/>
         </React.Fragment>
