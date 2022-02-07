@@ -52,12 +52,12 @@ function FirstPage() {
         </ThemeProvider>
         <Box component="img"
           sx={{
-            height: '100%',
+            height: '95%',
             border: isBorder ? '2px solid red' : 'none',
             width: '30%',
             objectFit: 'cover',
-            borderBottomRightRadius: '30px',
-            borderBottomLeftRadius: '30px',
+            borderBottomRightRadius: '50px',
+            borderBottomLeftRadius: '50px',
           }}
           alt="The house from the offer."
           src="https://images.pexels.com/photos/1906795/pexels-photo-1906795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
