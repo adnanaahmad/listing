@@ -1,4 +1,4 @@
-import ScreenOne from './screens/screen-one/screen-one';
+// import ScreenOne from './screens/screen-one/screen-one';
 import ScreenTwo from './screens/screen-two/screen-two';
 
 function App() {
