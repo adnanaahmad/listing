@@ -1,12 +1,12 @@
 import * as React from 'react';
-import MenuBar from './../../../shared/components/menu-bar/menu-bar'
+import MenuBar from '../../../shared/components/menu-bar/menu-bar'
 import { Stack, Typography } from '@mui/material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import {ThemeProvider, styled } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-import {BrownTheme} from './../../../shared/styles/themes/brown-theme'
-import {toggleBorder} from './../../../shared/styles/debugging-border'
+import {BrownTheme} from '../../../shared/styles/themes/brown-theme'
+import {toggleBorder} from '../../../shared/styles/debugging-border'
 
 const FirstPageButton = styled(Button)(({ theme }) => ({
   color: 'primary',

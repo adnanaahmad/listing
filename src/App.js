@@ -1,4 +1,4 @@
-import PageOne from './pages/page-one/page-one'
+import PageOne from './screens/screen-one/screen-one'
 
 function App() {
   return (

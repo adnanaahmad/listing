@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import {toggleBorder} from './../../../shared/styles/debugging-border';
+import {toggleBorder} from '../../../shared/styles/debugging-border';
 import Icon from '@mui/material/Icon';
 
 function ThirdPage() {

@@ -3,8 +3,8 @@ import { Stack, Typography } from '@mui/material';
 import {ThemeProvider, styled, createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-import {WhiteTheme} from './../../../shared/styles/themes/white-theme'
-import {toggleBorder} from './../../../shared/styles/debugging-border'
+import {WhiteTheme} from '../../../shared/styles/themes/white-theme'
+import {toggleBorder} from '../../../shared/styles/debugging-border'
 
 const SixthButton = styled(Button)(({ theme }) => ({
     color: 'primary',

@@ -62,7 +62,7 @@ export default function FooterPrimary() {
                     <Stack spacing={2}>
                         {
                             firstColumn.map((item, i) => (
-                                <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
+                                <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
                                     {item}
                                 </Typography>
                             ))
@@ -71,7 +71,7 @@ export default function FooterPrimary() {
                     <Stack spacing={2}>
                         {
                             secondColumn.map((item, i) => (
-                                <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
+                                <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
                                     {item}
                                 </Typography>
                             ))
@@ -80,7 +80,7 @@ export default function FooterPrimary() {
                     <Stack spacing={2}>
                        {
                             thirdColumn.map((item, i) => (
-                                <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
+                                <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
                                     {item}
                                 </Typography>
                             ))

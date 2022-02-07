@@ -3,8 +3,8 @@ import { Stack, Typography } from '@mui/material';
 import {ThemeProvider, styled } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-import {GreenTheme} from './../../../shared/styles/themes/green-theme'
-import {toggleBorder} from './../../../shared/styles/debugging-border'
+import {GreenTheme} from '../../../shared/styles/themes/green-theme'
+import {toggleBorder} from '../../../shared/styles/debugging-border'
 
 const SecondPageButton = styled(Button)(({ theme }) => ({
     color: 'primary',
