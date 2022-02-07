@@ -57,7 +57,7 @@ function SecondPage() {
                             src={card.image}
                         />
                     </Stack>
-                    <Stack direction="column" alignItems="flex-start" alignItems="center" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%'}} spacing={'3rem'}>
+                    <Stack direction="column" alignItems="center" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%'}} spacing={'3rem'}>
                         <Typography variant="h4" sx={{fontWeight: 500}}>{card.title}</Typography>
                         <ThemeProvider theme={TypographyTheme}>
                             <Typography variant="body1" display="block">
