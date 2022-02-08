@@ -5,6 +5,7 @@ import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
 import {GreenTheme} from '../../../shared/styles/themes/green-theme'
 import {toggleBorder} from '../../../shared/styles/debugging-border'
+import BranchImage from '../../../assets/Index Assets/Mask Group 3@2x.png'
 
 const SecondPageButton = styled(Button)(({ theme }) => ({
     color: 'primary',
@@ -28,7 +29,7 @@ function SecondPage() {
                 objectFit: 'cover'
             }}
             alt="The house from the offer."
-            src="https://images.unsplash.com/photo-1492541853549-a99003b3284b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+            src={BranchImage}
             />
             <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
                 <Typography variant="h4" sx={{fontWeight: 500}}>We Work With You</Typography>

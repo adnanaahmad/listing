@@ -7,13 +7,14 @@ import FifthPage from './components/fifth-page';
 import FourthPage from './components/fourth-page';
 import SecondPage from './components/second-page';
 import SixthPage from './components/sixth-page';
+import WelcomeImage from '../../assets/Index Assets/Mask-Group-2.png'
 
 function ScreenOne() {
   const welcomePage = {
     titleOne: "New Zealand",
     titleTwo: "Friendly Flats",
     description: "Once you are in contact with us, one of our friendly property managers will talk you through the process of listing your property. We offer you an appraisal a",
-    image: "https://images.pexels.com/photos/1906795/pexels-photo-1906795.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    image: WelcomeImage,
   }
   return (
     <React.Fragment>

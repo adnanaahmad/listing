@@ -5,14 +5,16 @@ import {toggleBorder} from '../../../shared/styles/debugging-border';
 import BedIcon from '@mui/icons-material/Bed';
 import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
+import homeImageOne from '../../../assets/Homeowners Assets/Mask Group 4@2x.png'
+import homeImageTwo from '../../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png'
 
 function FourthPage() {
     const isBorder = toggleBorder;
     let Cards = [
-        {price : '$450', address: '230 Queen Street', bed: 2, bath: 1, image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8aW50ZXJpb3IlMjBkZXNpZ258ZW58MHx8MHx8&w=1000&q=80'},
-        {price : '$300', address: '120 Shortlant Street', bed: 5, bath: 2, image: 'http://cdn.home-designing.com/wp-content/uploads/2020/11/black-and-grey-living-room-575x325.jpg'},
-        {price : '$500', address: '4 Alma Street', bed: 3, bath: 1, image: 'https://media.istockphoto.com/photos/luxury-modern-bedroom-interior-at-night-picture-id1318363878?b=1&k=20&m=1318363878&s=170667a&w=0&h=N8ZrWT759EQeCpSmLsh2j08HBPEtMDBr-h1r6d4CDQk='},
-        {price : '$230', address: '4 Ewan Street', bed: 2, bath: 1, image: 'https://hgtvhome.sndimg.com/content/dam/images/hgtv/fullset/2016/6/16/0/FOD16_assemblageSTUDIO_Tresarca_1.jpg.rend.hgtvcom.1280.720.suffix/1466101947835.jpeg'},
+        {price : '$450', address: '230 Queen Street', bed: 2, bath: 1, image: homeImageOne},
+        {price : '$300', address: '120 Shortlant Street', bed: 5, bath: 2, image: homeImageTwo},
+        {price : '$500', address: '4 Alma Street', bed: 3, bath: 1, image: homeImageOne},
+        {price : '$230', address: '4 Ewan Street', bed: 2, bath: 1, image: homeImageTwo}
     ];
     return (
         <React.Fragment>
@@ -38,7 +40,7 @@ function FourthPage() {
                             }}>
                                 <Box component="img"
                                     sx={{
-                                        height: '100%',
+                                        height: '80%',
                                         borderTopRightRadius: '40px',
                                         borderBottomLeftRadius: '40px', 
                                         width: '100%',

@@ -3,8 +3,9 @@ import { Stack, Typography } from '@mui/material';
 import {ThemeProvider, styled, createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-import {WhiteTheme} from '../../../shared/styles/themes/white-theme'
-import {toggleBorder} from '../../../shared/styles/debugging-border'
+import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
+import {toggleBorder} from '../../../shared/styles/debugging-border';
+import BeachImage from '../../../assets/Index Assets/DSC00380@2x.png';
 
 const SixthButton = styled(Button)(({ theme }) => ({
     color: 'primary',
@@ -61,7 +62,7 @@ function SixthPage() {
                                 objectFit: 'cover'
                             }}
                             alt="The house from the offer."
-                            src="https://images.unsplash.com/photo-1520942702018-0862200e6873?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTB8fHxlbnwwfHx8fA%3D%3D&w=1000&q=80"
+                            src={BeachImage}
                         />
                     </Box>
                     {/* <Box sx={{width: '5%'}}/> */}

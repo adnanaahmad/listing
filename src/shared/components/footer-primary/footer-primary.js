@@ -8,12 +8,13 @@ import Button from '@mui/material/Button';
 import {toggleBorder} from './../../../shared/styles/debugging-border';
 import {ThemeProvider} from '@mui/material/styles';
 import {WhiteTheme} from './../../../shared/styles/themes/white-theme'
+import divImage from './../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png'
 
 const isBorder = toggleBorder;
 const classes = {
     paperContainer: {
         height: '100%',
-        backgroundImage: 'url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeYyENyinGl3gYIURglQQKaIN0ul-T9AsWow&usqp=CAU")',
+        backgroundImage: `url(${divImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         border: isBorder ? '2px solid red' : 'none',
