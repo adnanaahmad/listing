@@ -12,16 +12,16 @@ const Item = styled(Button)(({ theme }) => ({
   width: '30%'
 }));
 
-export default function MenuBar() {
+export default function MenuBar(props) {
   const isBorder = toggleBorder;
   return (
     <React.Fragment>
         <Stack direction="row" spacing={'.5rem'} justifyContent="space-between" sx={{ border: isBorder ? 1 : 'none', width: '100%' }}>
-            <Item>House Owners</Item>
-            <Item>Flatmates</Item>
-            <Item>Maintainance</Item>
-            <Item>Property Management</Item>
-            <Item>FAQs</Item>
+        {
+          props.data.map((item, i) => (
+            <Item key={i}>{item}</Item>
+          ))
+        }
         </Stack>
     </React.Fragment>
   );

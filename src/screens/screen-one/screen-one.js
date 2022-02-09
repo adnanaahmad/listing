@@ -15,6 +15,8 @@ function ScreenOne() {
     titleTwo: "Friendly Flats",
     description: "Once you are in contact with us, one of our friendly property managers will talk you through the process of listing your property. We offer you an appraisal a",
     image: WelcomeImage,
+    showButtonGroup: true,
+    menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management']
   }
   return (
     <React.Fragment>
