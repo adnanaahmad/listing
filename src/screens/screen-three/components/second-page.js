@@ -11,6 +11,21 @@ import {ThemeProvider } from '@mui/material/styles';
 import homeImageOne from '../../../assets/Homeowners Assets/Mask Group 4@2x.png'
 import homeImageTwo from '../../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png'
 import ListCard from '../../../shared/components/list-card/list-card';
+import {WhiteTheme} from '../../../shared/styles/themes/white-theme'
+import divImage from '../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png'
+import Container from '@mui/material/Container';
+
+const isBorder = toggleBorder;
+const classes = {
+    paperContainer: {
+        height: '220px',
+        backgroundImage: `url(${divImage})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        border: isBorder ? '2px solid yellow' : 'none',
+        width: '100%'
+    }
+};
 
 function MenuCard() {
     const filter = ['all locations', 'any price', 'any bed', 'any bath', 'parking'];
@@ -43,8 +58,33 @@ function MenuCard() {
     );
 }
 
+function Footer() {
+    return (
+        <div style={classes.paperContainer}>
+            <ThemeProvider theme={WhiteTheme}>
+                <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', height: '100%', padding: '50px'}}>
+                    <Stack
+                        direction="row"
+                        justifyContent="space-between"
+                        alignItems="center"
+                        sx={{ border: isBorder ? 1: 'none', height: '100%', width: '60%', margin: 'auto'}}
+                        spacing={'1rem'}
+                    >
+                        <Stack>
+                            <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>Need To Chat</Typography>
+                            <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>About Budget?</Typography>
+                        </Stack>
+                        <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
+                            Book A Meeting
+                        </Button>
+                    </Stack>
+                </Container>
+            </ThemeProvider>
+        </div>
+    );
+}
+
 function SecondPage() {
-    const isBorder = toggleBorder;
     const sortBy = ['Highest Price', 'Lowest Price', 'Earliest Move In', 'Recently Listed'];
     let Cards = [
         {price : '$450', address: '230 Queen Street', bed: 2, bath: 1, image: homeImageOne},
@@ -53,7 +93,7 @@ function SecondPage() {
     ];
     return (
     <React.Fragment>
-        <Stack spacing={10} direction="column" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: '185vh'}}>
+        <Stack spacing={15} direction="column" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: '218vh'}}>
             <Stack spacing={3} style={{maxWidth: '1440px', width: '100%', border: isBorder ? '2px solid yellow' : 'none',}}>
                 <Stack direction="row" justifyContent="center" sx={{width: '100%'}}>
                     <Box sx={{width: '10%', minWidth: '5%', border: isBorder ? '1px solid purple' : 'none',}}/>
@@ -87,10 +127,11 @@ function SecondPage() {
                 </Stack>
             </Stack>
             <ThemeProvider theme={GreenTheme}>
-                    <Button variant="contained" sx={{borderRadius: '30px', paddingX: '25px'}}>
-                        View more
-                    </Button>
-                </ThemeProvider>
+                <Button variant="contained" sx={{borderRadius: '30px', paddingX: '25px'}}>
+                    View more
+                </Button>
+            </ThemeProvider>
+            <Footer/>
         </Stack>        
     </React.Fragment>
     );
