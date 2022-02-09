@@ -15,6 +15,7 @@ export default function ListCard(props) {
             borderBottomLeftRadius: '40px',                                
             padding: '.7rem',
             backgroundColor: 'white',
+            boxShadow: props.boxShadow ? 'rgb(203 146 108 / 35%) 0px 4px 12px' : 'none',
         }}>
             <Box component="img"
                 sx={{

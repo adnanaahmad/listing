@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import Box from '@mui/material/Box';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import homeImageOne from '../../../assets/Homeowners Assets/Mask Group 4@2x.png'
@@ -29,7 +28,7 @@ function FourthPage() {
                     <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: '80%'}} spacing={'2rem'}>
                     {
                         Cards.map((card, i) => (
-                            <ListCard key={i} data = {card} />
+                            <ListCard boxShadow={false} key={i} data = {card} />
                         )
                     )}
                     </Stack>
