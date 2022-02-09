@@ -1,13 +1,13 @@
-// import ScreenOne from './screens/screen-one/screen-one';
+import ScreenOne from './screens/screen-one/screen-one';
 //import ScreenTwo from './screens/screen-two/screen-two';
-import ScreenThree from "./screens/screen-three/screen-three";
+//import ScreenThree from "./screens/screen-three/screen-three";
 
 function App() {
   return (
     <div>
-      {/* <ScreenOne/> */}
+      <ScreenOne/>
       {/* <ScreenTwo/> */}
-      <ScreenThree/>
+      {/* <ScreenThree/> */}
     </div>
   );
 }
