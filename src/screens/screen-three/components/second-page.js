@@ -47,7 +47,7 @@ function SecondPage() {
     return (
     <React.Fragment>
         <Stack direction="column" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: '140vh'}}>
-            <div style={{maxWidth: '1440px', width: '100%'}}>
+            <div style={{maxWidth: '1440px', width: '100%', border: isBorder ? '2px solid yellow' : 'none',}}>
                 <Stack direction="row" justifyContent="center" sx={{width: '100%'}}>
                     <Box sx={{width: '10%', minWidth: '5%', border: isBorder ? '1px solid purple' : 'none',}}/>
                     <div style={{width: '80%', border: isBorder ? '1px solid orange' : 'none'}}>
@@ -61,6 +61,12 @@ function SecondPage() {
                             ))
                         }
                     </Stack>
+                </Stack>
+                <Stack direction="column" alignItems="center" style={{width: '80%', border: isBorder ? '2px solid orange' : 'none', margin: 'auto'}}>
+                    <div style={{width: '80%', border: isBorder ? '2px solid purple' : 'none',}}>
+                        <Typography variant="body1" sx={{fontWeight: 500, fontSize: '1.1rem', fontFamily: 'inherit'}}>Showing 1 - 48 Of 100 Properties</Typography>
+
+                    </div>                    
                 </Stack>
             </div>
         </Stack>        
