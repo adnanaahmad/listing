@@ -5,6 +5,7 @@ import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import WelcomeImage from '../../assets/All Listings Assets/backpack.jpg'
 import SecondPage from './components/second-page';
 import ThirdPage from './components/third-page';
+import FourthPage from './components/fourth-page';
 
 function ScreenFour() {
   const welcomePage = {
@@ -20,6 +21,7 @@ function ScreenFour() {
       <WelcomePageVariantOne data = {welcomePage}/>
       <SecondPage/>
       <ThirdPage/>
+      <FourthPage/>
       <ClientsReviewPage/>
       <FooterPrimary/>
     </React.Fragment>
