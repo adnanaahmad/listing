@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import {ThemeProvider, createTheme } from '@mui/material/styles';
+import {ThemeProvider } from '@mui/material/styles';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
 import {BrownTheme} from '../../../shared/styles/themes/brown-theme';
 
