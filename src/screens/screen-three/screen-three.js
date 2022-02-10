@@ -5,6 +5,7 @@ import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
 import WelcomeImage from '../../assets/All Listings Assets/backpack.jpg'
 import SecondPage from './components/second-page';
+import FourthPage from './components/fourth-page';
 
 function ScreenThree() {
   const welcomePage = {
@@ -20,6 +21,7 @@ function ScreenThree() {
       <WelcomePageVariantOne data = {welcomePage}/>
       <SecondPage/>
       <ListingProcessPage/>
+      <FourthPage/>
       <ClientsReviewPage/>
       <FooterPrimary/>
     </React.Fragment>
