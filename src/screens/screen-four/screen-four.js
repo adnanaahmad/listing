@@ -4,6 +4,7 @@ import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import WelcomeImage from '../../assets/All Listings Assets/backpack.jpg'
 import SecondPage from './components/second-page';
+import ThirdPage from './components/third-page';
 
 function ScreenFour() {
   const welcomePage = {
@@ -18,6 +19,7 @@ function ScreenFour() {
     <React.Fragment>
       <WelcomePageVariantOne data = {welcomePage}/>
       <SecondPage/>
+      <ThirdPage/>
       <ClientsReviewPage/>
       <FooterPrimary/>
     </React.Fragment>
