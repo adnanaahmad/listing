@@ -6,14 +6,10 @@ import {GreenTheme} from '../styles/themes/green-theme'
 import Box from '@mui/material/Box';
 import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import CircleIcon from '@mui/icons-material/Circle';
+import clientImage from '../../assets/All Listings Assets/client.png';
 
 function ClientsReviewPage() {
     const isBorder = toggleBorder;
-    // let Cards = [
-    //     {title : 'MEET THE TEAM', icon: 'group', text: 'Come and meet our team! Get to know your property manager before getting down to business'},
-    //     {title : 'SHOWCASE', icon: 'home', text: 'We offer appraisals at no cost to you Showcase your home to your dedicated property manager and they will get you set up with the perfect investment.'},
-    //     {title : 'LIST PROPERTY', icon: 'summarize', text: 'List your property on our site and we vow to find you the perfect tenants to suit your home. Leave it to us!'}
-    // ];
     return (
     <React.Fragment>
         <Stack direction="column" justifyContent="center" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh'}}>
@@ -30,7 +26,7 @@ function ClientsReviewPage() {
                             borderRadius: '40px'
                         }}
                         alt="The house from the offer."
-                        src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cHJvZmlsZXxlbnwwfHwwfHw%3D&w=1000&q=80"
+                        src={clientImage}
                     />
                     <Stack direction="column" justifyContent="space-between" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '40%'}} spacing={'1rem'}>
                         <Typography variant="h5" sx={{fontWeight: 500}}>Matthew VanSant</Typography>
