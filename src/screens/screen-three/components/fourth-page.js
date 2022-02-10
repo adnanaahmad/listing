@@ -11,6 +11,7 @@ import Container from '@mui/material/Container';
 import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
 import divImage from '../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
 import sofaImage from '../../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png';
+import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const TypographyTheme = createTheme();
 const isBorder = toggleBorder;
@@ -40,7 +41,7 @@ const classes = {
         position: 'absolute'
     },
     paperContainer: {
-        height: '220px',
+        height: '300px',
         backgroundImage: `url(${divImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
@@ -53,21 +54,35 @@ function Footer() {
     return (
         <div style={classes.paperContainer}>
             <ThemeProvider theme={WhiteTheme}>
-                <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', height: '100%', padding: '50px'}}>
+                <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', height: '100%', paddingY: '50px'}}>
                     <Stack
-                        direction="row"
-                        justifyContent="space-between"
+                        direction="column"
+                        justifyContent="center"
                         alignItems="center"
-                        sx={{ border: isBorder ? 1: 'none', height: '100%', width: '60%', margin: 'auto'}}
+                        sx={{ border: isBorder ? 1: 'none', height: '100%', width: '100%', margin: 'auto'}}
                         spacing={'1rem'}
                     >
-                        <Stack>
-                            <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>Need To Chat</Typography>
-                            <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>About Budget?</Typography>
+                        <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>PRICE GUARENTEE</Typography>
+                        <Stack
+                          direction="row"
+                          justifyContent="space-between"
+                          alignItems="center"
+                          sx={{border: isBorder ? '2px solid yellow' : 'none', width: '100%'}}
+                        >
+                            <div style = {{borderBottom:'4px solid #ea9760', width: '48%', height: '2rem'}}></div>
+                            <HomeOutlinedIcon sx={{color: '#ea9760', fontSize: '4rem'}} />
+                            <div style = {{borderBottom:'4px solid #ea9760', width: '48%', height: '2rem'}}></div>
                         </Stack>
-                        <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
-                            Book A Meeting
-                        </Button>
+                        <Stack
+                          direction="column"
+                          justifyContent="center"
+                          alignItems="center"
+                          sx={{width: '100%'}}
+                        >
+                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit'}}>We're committed to offering NZ's most affordable rentals.</Typography>
+                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit'}}>If you find a business who you think provides a better service, let us know.</Typography>
+                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit'}}>We are not just friendly, but flexible too!</Typography>
+                        </Stack>
                     </Stack>
                 </Container>
             </ThemeProvider>
