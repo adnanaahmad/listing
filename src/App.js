@@ -1,14 +1,15 @@
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
 import ScreenOne from './screens/screen-one/screen-one';
 import ScreenTwo from './screens/screen-two/screen-two';
 import ScreenThree from "./screens/screen-three/screen-three";
 import ScreenFour from "./screens/screen-four/screen-four";
 import ScreenFive from "./screens/screen-five/screen-five";
 import FixedBottomNavigation from "./shared/components/bottom-navigation/bottom-navigation";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-} from "react-router-dom";
+import ScreenSix from './screens/screen-six/screen-six';
 function App() {
   return (
     <Router>
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route path="/5">
             <ScreenFive/>
+          </Route>
+          <Route path="/6">
+            <ScreenSix/>
           </Route>
         </Switch>
       </div>
