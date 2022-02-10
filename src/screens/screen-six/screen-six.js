@@ -3,6 +3,7 @@ import FooterPrimary from '../../shared/components/footer-primary/footer-primary
 import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import WelcomeImage from '../../assets/All Listings Assets/flower.png';
+import SecondPage from './components/second-page';
 
 function ScreenSix() {
   const welcomePage = {
@@ -16,6 +17,7 @@ function ScreenSix() {
   return (
     <React.Fragment>
       <WelcomePageVariantOne data = {welcomePage}/>
+      <SecondPage/>
       <ClientsReviewPage/>
       <FooterPrimary/>
     </React.Fragment>
