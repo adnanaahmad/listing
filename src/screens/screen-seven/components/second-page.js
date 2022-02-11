@@ -7,7 +7,8 @@ import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
 import {DarkGreenTheme} from '../../../shared/styles/themes/dark-green-theme';
 import {ThemeProvider} from '@mui/material/styles';
 import Button from '@mui/material/Button';
-
+import Box from '@mui/material/Box';
+import mapsImage from '../../../assets/All Listings Assets/maps.png';
 
 export default function SecondPage() {
     const isBorder = toggleBorder;
@@ -20,7 +21,7 @@ export default function SecondPage() {
     ]
     return (
         <React.Fragment>
-            <Stack direction="row" justifyContent="center" sx={{border: isBorder ? 'px solid red' : 'none', height: 'fitContent'}}>
+            <Stack spacing={'5rem'} direction="column" justifyContent="center" alignItems="center" sx={{border: isBorder ? 'px solid red' : 'none', height: 'fitContent', paddingY: '4rem'}}>
                 <Stack direction="column" justifyContent="space-between" alignItems="center" 
                 spacing={'4rem'}
                 sx={{
@@ -96,6 +97,15 @@ export default function SecondPage() {
                         </Stack>
                     </Stack>
                 </Stack>
+                <Box component="img"
+                sx={{
+                  height: '450px',
+                  width: '100%',
+                  objectFit: 'cover',
+                }}
+                alt="The house from the offer."
+                src={mapsImage}
+              />
             </Stack>
         </React.Fragment>
     )
