@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Stack, Typography } from '@mui/material';
+import { Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
 import SeaImage from '../../../assets/About Us Assets/DSC00378@2x.png';

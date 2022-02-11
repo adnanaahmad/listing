@@ -2,7 +2,7 @@ import * as React from 'react';
 import { Stack } from '@mui/material';
 import Box from '@mui/material/Box';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
-import houseImage from '../../../assets/About Us Assets/house.png';
+import houseImage from '../../../assets/About Us Assets/houses.png';
 import VisionCard from '../../../shared/components/vision-card/vision-card';
 
 function ThirdPage() {

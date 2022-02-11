@@ -5,6 +5,7 @@ import FooterSecondary from '../../shared/components/footer-secondary/footer-sec
 import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import SecondPage from './components/second-page';
+import ThirdPage from './components/third-page';
 
 function ScreenNine() {
   const welcomePage = {
@@ -21,6 +22,7 @@ function ScreenNine() {
     <React.Fragment>
       <WelcomePageVariantTwo data = {welcomePage}/>
       <SecondPage/>
+      <ThirdPage/>
       <FooterSecondary/>
     </React.Fragment>
   );
