@@ -21,7 +21,7 @@ function ContentCard  (props) {
             <Typography sx={{color: 'white', marginBottom: '2rem'}}variant="body1" display="block">{props.data.subTitle}</Typography>        
             {
                 (props.data.paragraph).map((item, i) => (
-                    <Stack direction="row" alignItems="center" spacing={'1rem'}>
+                    <Stack key={i} direction="row" alignItems="center" spacing={'1rem'}>
                         <FiberManualRecordIcon sx={{color: 'white', fontSize: '.3rem'}}/>
                         <Typography sx={{color: 'white'}} key={i} variant="body1" display="block">
                             {item}
@@ -81,7 +81,7 @@ function FourthPage() {
                         padding: '2rem 4rem',
                     }}
                  >      
-                    <ContentCard id = {1} data = {Cards[0]}/>
+                    <ContentCard data = {Cards[0]}/>
                 </Stack>
                 <Stack 
                     direction="column" 
@@ -95,7 +95,7 @@ function FourthPage() {
                         padding: '2rem 4rem',
                     }}
                 >      
-                    <ContentCard id = {2} data = {Cards[1]}/>
+                    <ContentCard data = {Cards[1]}/>
                 </Stack>
             </Stack>
         </Stack>

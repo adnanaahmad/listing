@@ -10,6 +10,7 @@ import ScreenFour from "./screens/screen-four/screen-four";
 import ScreenFive from "./screens/screen-five/screen-five";
 import FixedBottomNavigation from "./shared/components/bottom-navigation/bottom-navigation";
 import ScreenSix from './screens/screen-six/screen-six';
+import ScreenSeven from "./screens/screen-seven/screen-seven";
 function App() {
   return (
     <Router>
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/6">
             <ScreenSix/>
+          </Route>
+          <Route path="/7">
+            <ScreenSeven/>
           </Route>
         </Switch>
       </div>
