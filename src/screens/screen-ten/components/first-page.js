@@ -11,12 +11,13 @@ import LeftLeaf from '../../../assets/Index Assets/Path 19@2x.png';
 import TextField from '@mui/material/TextField';
 import {BrownTheme} from '../../../shared/styles/themes/brown-theme';
 import {DarkGreenTheme} from '../../../shared/styles/themes/dark-green-theme';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 
 function FirstPage(props) {
   const isBorder = toggleBorder;
   return (
     <React.Fragment>
-        <Stack spacing={'2rem'} direction="column" sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh', width: '100%'}}>
+        <Stack spacing={'2rem'} direction="column" sx={{ border: isBorder ? '1px solid red' : 'none', height: '140vh', width: '100%'}}>
             {/* menu */}
             <ThemeProvider theme={props.data.menuTheme}>
                 <Stack spacing={'1rem'} direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid orange' : 'none', height: 'fitContent', width: '90%', marginX: 'auto'}}>       
@@ -72,7 +73,7 @@ function FirstPage(props) {
                                     />
                                 </Stack>
                                 <div style={{borderBottom: '1.5px solid ' + DarkGreenTheme.palette.primary.main, width: '100%', marginBottom: '3rem'}}></div>
-                                <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Name</Typography>
+                                <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Name *</Typography>
                                 <Stack spacing={'1rem'} sx={{border: isBorder ? '2px solid orange' : 'none', marginBottom: '2rem'}} direction="row" justifyContent="space-between">
                                     <div style={{}}>
                                         <TextField color="primary" id="outlined-size-small" placeholder="First Name" size="small" 
@@ -93,7 +94,7 @@ function FirstPage(props) {
                                         />
                                     </div>
                                 </Stack>
-                                <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Email</Typography>
+                                <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Email *</Typography>
                                 <div style={{width: '100%', marginBottom: '2rem'}}>
                                     <TextField fullWidth color="primary" id="outlined-size-small" size="small"
                                         sx={{
@@ -132,6 +133,48 @@ function FirstPage(props) {
                                             }}
                                         />
                                     </div>
+                                </Stack>
+                                <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Time</Typography>
+                                <Stack direction="row" alignItems="center" spacing={'.25rem'} sx={{border: isBorder ? '2px solid orange' : 'none', marginBottom: '2rem', width: '150px'}}>
+                                    <TextField fullWidth color="primary" id="outlined-size-small" placeholder="Choose" size="small"
+                                        sx={{
+                                            "& ::-webkit-input-placeholder": {
+                                                color: BrownTheme.palette.primary.main + '!important'
+                                            }
+                                        }}
+                                    />
+                                    <KeyboardArrowDownOutlinedIcon sx={{color: BrownTheme.palette.primary.main}}/>
+                                </Stack>
+                                <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Property Manager *</Typography>
+                                <Stack direction="row" alignItems="center" spacing={'.25rem'} sx={{border: isBorder ? '2px solid orange' : 'none', marginBottom: '2rem', width: '250px'}}>
+                                    <TextField fullWidth color="primary" id="outlined-size-small" placeholder="Choose" size="small"
+                                        sx={{
+                                            "& ::-webkit-input-placeholder": {
+                                                color: BrownTheme.palette.primary.main + '!important'
+                                            }
+                                        }}
+                                    />
+                                    <KeyboardArrowDownOutlinedIcon sx={{color: BrownTheme.palette.primary.main}}/>
+                                </Stack>
+                                <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>What would you like to talk about? *</Typography>
+                                <div style={{width: '100%', marginBottom: '3rem'}}>
+                                    <TextField fullWidth color="primary" size="small"
+                                        id="outlined-multiline-flexible"
+                                        multiline
+                                        rows={4}
+                                        placeholder="E.g I would like advice about listing an apartment in Grey Lynn, Auckland."
+                                        sx={{
+                                            "& ::-webkit-input-placeholder": {
+                                                color: BrownTheme.palette.primary.main + '!important'
+                                            }
+                                        }}
+                                    />
+                                </div>
+                                <div style={{borderBottom: '1.5px solid ' + DarkGreenTheme.palette.primary.main, width: '100%', marginBottom: '3rem'}}></div>
+                                <Stack direction="row" justifyContent="center" sx={{width: 'fitContent'}}>
+                                    <ThemeProvider theme={DarkGreenTheme}>
+                                        <Button variant='contained' color="primary" size="large" sx={{padding: '.5rem 2rem', borderRadius: '30px', fontSize: '1.2rem', textTransform: 'none'}}>Book</Button>
+                                    </ThemeProvider>
                                 </Stack>
                             </Stack>
                         </Stack>
