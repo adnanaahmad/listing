@@ -45,7 +45,7 @@ function FirstPage(props) {
                         alt="The house from the offer."
                         src={BookMeetingImage}
                 />
-                <div style={{position: 'absolute', top: '50%',left: '50%', transform: 'translate(-50%, -50%)', width: '50%', maxWidth: '1024px'}}>
+                <div style={{position: 'absolute', top: '50%',left: '50%', transform: 'translate(-50%, -50%)', width: '60%', maxWidth: '1024px'}}>
                     
                     <ThemeProvider theme={BrownTheme}>
                         <Stack direction="row" justifyContent="center" sx= {{border: isBorder ? '2px solid orange' : 'none', width: '100%'}}>
@@ -76,7 +76,7 @@ function FirstPage(props) {
                                 <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Name *</Typography>
                                 <Stack spacing={'1rem'} sx={{border: isBorder ? '2px solid orange' : 'none', marginBottom: '2rem'}} direction="row" justifyContent="space-between">
                                     <div style={{}}>
-                                        <TextField color="primary" id="outlined-size-small" placeholder="First Name" size="small" 
+                                        <TextField color="primary" placeholder="First Name" size="small" 
                                             sx={{
                                                 "& ::-webkit-input-placeholder": {
                                                     color: BrownTheme.palette.primary.main + '!important'
@@ -85,7 +85,7 @@ function FirstPage(props) {
                                         />
                                     </div>
                                     <div style={{width: '70%'}}>
-                                        <TextField fullWidth color="primary" id="outlined-size-small" placeholder="Last Name" size="small"
+                                        <TextField fullWidth color="primary" placeholder="Last Name" size="small"
                                             sx={{
                                                 "& ::-webkit-input-placeholder": {
                                                     color: BrownTheme.palette.primary.main + '!important'
@@ -96,7 +96,7 @@ function FirstPage(props) {
                                 </Stack>
                                 <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Email *</Typography>
                                 <div style={{width: '100%', marginBottom: '2rem'}}>
-                                    <TextField fullWidth color="primary" id="outlined-size-small" size="small"
+                                    <TextField fullWidth color="primary" size="small"
                                         sx={{
                                             "& ::-webkit-input-placeholder": {
                                                 color: BrownTheme.palette.primary.main + '!important'
@@ -107,7 +107,7 @@ function FirstPage(props) {
                                 <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Date</Typography>
                                 <Stack spacing={'1rem'} sx={{border: isBorder ? '2px solid orange' : 'none', marginBottom: '2rem', width: '250px'}} direction="row">
                                     <div style={{}}>
-                                        <TextField color="primary" id="outlined-size-small" placeholder="DD" size="small" 
+                                        <TextField color="primary" placeholder="DD" size="small" 
                                             sx={{
                                                 "& ::-webkit-input-placeholder": {
                                                     color: BrownTheme.palette.primary.main + '!important'
@@ -116,7 +116,7 @@ function FirstPage(props) {
                                         />
                                     </div>
                                     <div style={{}}>
-                                        <TextField color="primary" id="outlined-size-small" placeholder="MM" size="small"
+                                        <TextField color="primary" placeholder="MM" size="small"
                                             sx={{
                                                 "& ::-webkit-input-placeholder": {
                                                     color: BrownTheme.palette.primary.main + '!important'
@@ -125,7 +125,7 @@ function FirstPage(props) {
                                         />
                                     </div>
                                     <div style={{width: '110%'}}>
-                                        <TextField fullWidth color="primary" id="outlined-size-small" placeholder="YY" size="small"
+                                        <TextField fullWidth color="primary" placeholder="YY" size="small"
                                             sx={{
                                                 "& ::-webkit-input-placeholder": {
                                                     color: BrownTheme.palette.primary.main + '!important'
@@ -136,7 +136,7 @@ function FirstPage(props) {
                                 </Stack>
                                 <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Time</Typography>
                                 <Stack direction="row" alignItems="center" spacing={'.25rem'} sx={{border: isBorder ? '2px solid orange' : 'none', marginBottom: '2rem', width: '150px'}}>
-                                    <TextField fullWidth color="primary" id="outlined-size-small" placeholder="Choose" size="small"
+                                    <TextField fullWidth color="primary" placeholder="Choose" size="small"
                                         sx={{
                                             "& ::-webkit-input-placeholder": {
                                                 color: BrownTheme.palette.primary.main + '!important'
@@ -147,7 +147,7 @@ function FirstPage(props) {
                                 </Stack>
                                 <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>Property Manager *</Typography>
                                 <Stack direction="row" alignItems="center" spacing={'.25rem'} sx={{border: isBorder ? '2px solid orange' : 'none', marginBottom: '2rem', width: '250px'}}>
-                                    <TextField fullWidth color="primary" id="outlined-size-small" placeholder="Choose" size="small"
+                                    <TextField fullWidth color="primary" placeholder="Choose" size="small"
                                         sx={{
                                             "& ::-webkit-input-placeholder": {
                                                 color: BrownTheme.palette.primary.main + '!important'
@@ -159,7 +159,6 @@ function FirstPage(props) {
                                 <Typography variant='body1' sx={{color: '#999999', fontWeight: 500}}>What would you like to talk about? *</Typography>
                                 <div style={{width: '100%', marginBottom: '3rem'}}>
                                     <TextField fullWidth color="primary" size="small"
-                                        id="outlined-multiline-flexible"
                                         multiline
                                         rows={4}
                                         placeholder="E.g I would like advice about listing an apartment in Grey Lynn, Auckland."
