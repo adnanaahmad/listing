@@ -14,6 +14,7 @@ import ScreenSeven from "./screens/screen-seven/screen-seven";
 import ScreenEight from "./screens/screen-eight/screen-eight";
 import ScreenNine from "./screens/screen-nine/screen-nine";
 import ScreenTen from "./screens/screen-ten/screen-ten";
+import ScreenEleven from "./screens/screen-eleven/screen-eleven";
 function App() {
   return (
     <Router>
@@ -48,6 +49,9 @@ function App() {
           </Route>
           <Route path="/10">
             <ScreenTen/>
+          </Route>
+          <Route path="/11">
+            <ScreenEleven/>
           </Route>
         </Switch>
       </div>
