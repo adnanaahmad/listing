@@ -7,7 +7,11 @@ import FifthPage from './components/fifth-page';
 import FourthPage from './components/fourth-page';
 import SecondPage from './components/second-page';
 import SixthPage from './components/sixth-page';
-import WelcomeImage from '../../assets/Index Assets/Mask-Group-2.png'
+import WelcomeImage from '../../assets/Index Assets/Mask-Group-2.png';
+import LeftLeaf from '../../assets/Property Management Assets/leaf.png';
+import iconOne from '../../assets/Property Management Assets/one.png';
+import iconTwo from '../../assets/Property Management Assets/two.png';
+import iconThree from '../../assets/Property Management Assets/three.png';
 
 function ScreenOne() {
   const welcomePage = {
@@ -18,11 +22,24 @@ function ScreenOne() {
     showButtonGroup: true,
     menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management']
   }
+  const listingProcess = {
+    title: 'Our Listing Process',
+    titleTheme: 'black',
+    cards: [
+        {title : 'MEET THE TEAM', icon: iconOne, text: 'Come and meet our team! Get to know your property manager before getting down to business'},
+        {title : 'SHOWCASE', icon: iconTwo, text: 'We offer appraisals at no cost to you. Showcase your home to your dedicated property manager and they will get you set up with the perfect investment.'},
+        {title : 'LIST PROPERTY', icon: iconThree, text: 'List your property on our site and we vow to find you the perfect tenants to suit your home. Leave it to us!'}
+    ],
+    cardTheme: 'black',
+    boxShadow: 'rgb(203 146 108 / 35%) 0px 4px 12px',
+    leafImage: LeftLeaf,
+    leafOpacity: '1'
+  }
   return (
     <React.Fragment>
       <WelcomePageVariantOne data = {welcomePage}/>
       <SecondPage/>
-      <ListingProcessPage/>
+      <ListingProcessPage data={listingProcess} />
       <FourthPage/>
       <FifthPage/>
       <SixthPage/>
