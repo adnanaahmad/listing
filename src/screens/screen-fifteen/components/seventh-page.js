@@ -55,7 +55,7 @@ function SeventhPage() {
                     </Stack>
                     {
                         content.map((item, i) => (
-                            <Stack spacing={'1rem'} sx={{width: '100%', border: isBorder ? '1px solid green' : 'none', marginBottom: '3rem'}}>
+                            <Stack key={i} spacing={'1rem'} sx={{width: '100%', border: isBorder ? '1px solid green' : 'none', marginBottom: '3rem'}}>
                                 <Stack sx={{width: '100%', background: BrownTheme.palette.primary.main, paddingY: 1, borderRadius: '10px'}}>
                                     <Typography sx={{color: 'white', marginLeft: 3, fontWeight: 500}}>{item.title}</Typography>
                                 </Stack>                       

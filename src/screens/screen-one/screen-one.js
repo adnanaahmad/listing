@@ -4,14 +4,16 @@ import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
 import FifthPage from './components/fifth-page';
-import FourthPage from './components/fourth-page';
-import SecondPage from './components/second-page';
 import SixthPage from './components/sixth-page';
 import WelcomeImage from '../../assets/Index Assets/Mask-Group-2.png';
 import LeftLeaf from '../../assets/Property Management Assets/leaf.png';
 import iconOne from '../../assets/Property Management Assets/one.png';
 import iconTwo from '../../assets/Property Management Assets/two.png';
 import iconThree from '../../assets/Property Management Assets/three.png';
+import WorkPage from '../../shared/pages/work-page';
+import {GreenTheme} from '../../shared/styles/themes/green-theme';
+import {LightTheme} from '../../shared/styles/themes/light-theme';
+import RecentlyListedPage from '../../shared/pages/recently-listed-page';
 
 function ScreenOne() {
   const welcomePage = {
@@ -35,12 +37,19 @@ function ScreenOne() {
     leafImage: LeftLeaf,
     leafOpacity: '1'
   }
+  const work = {
+    buttonTheme: GreenTheme,
+    contentTheme: LightTheme
+  }
+  const recentlyListed = {
+    theme: LightTheme
+  }
   return (
     <React.Fragment>
       <WelcomePageVariantOne data = {welcomePage}/>
-      <SecondPage/>
+      <WorkPage data={work}/>
       <ListingProcessPage data={listingProcess} />
-      <FourthPage/>
+      <RecentlyListedPage data = {recentlyListed}/>
       <FifthPage/>
       <SixthPage/>
       <ClientsReviewPage/>

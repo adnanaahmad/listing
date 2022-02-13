@@ -38,7 +38,7 @@ function EighthPage() {
                                     <CircleIcon color="primary" sx={{fontSize: 'small'}}/>
                                     {
                                         [1,2,3,4,5].map((item, i) => (
-                                            <CircleIcon color="primary" sx={{fontSize: 'small', opacity: .3}}/>
+                                            <CircleIcon key={i} color="primary" sx={{fontSize: 'small', opacity: .3}}/>
                                         ))
                                     }
                                 </ThemeProvider>

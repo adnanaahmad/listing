@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import {toggleBorder} from '../../../shared/styles/debugging-border';
+import {toggleBorder} from '../styles/debugging-border';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import homeImageOne from '../../../assets/Homeowners Assets/Mask Group 4@2x.png'
-import homeImageTwo from '../../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png'
-import ListCard from '../../../shared/components/list-card/list-card';
+import homeImageOne from '../../assets/Homeowners Assets/Mask Group 4@2x.png'
+import homeImageTwo from '../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png'
+import ListCard from '../components/list-card/list-card';
 
-function FourthPage() {
+function RecentlyListedPage(props) {
     const isBorder = toggleBorder;
     let Cards = [
         {price : '$450', address: '230 Queen Street', bed: 2, bath: 1, image: homeImageOne},
@@ -28,7 +28,7 @@ function FourthPage() {
                     <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: '80%'}} spacing={'2rem'}>
                     {
                         Cards.map((card, i) => (
-                            <ListCard boxShadow={false} key={i} data = {card} />
+                            <ListCard boxShadow={false} key={i} theme={props.data.theme} data = {card} />
                         )
                     )}
                     </Stack>
@@ -38,4 +38,4 @@ function FourthPage() {
         );
 }
 
-export default FourthPage;
+export default RecentlyListedPage;

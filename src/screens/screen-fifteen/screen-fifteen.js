@@ -11,6 +11,8 @@ import iconTwo from '../../assets/Index Assets/Group 5@2x.png';
 import iconThree from '../../assets/Index Assets/Group 4@2x.png';
 import SeventhPage from './components/seventh-page';
 import EighthPage from './components/eighth-page';
+import WorkPage from '../../shared/pages/work-page';
+import RecentlyListedPage from '../../shared/pages/recently-listed-page';
 
 
 function ScreenFifteen() {
@@ -38,10 +40,19 @@ function ScreenFifteen() {
         leafImage: LeftLeaf,
         leafOpacity: '1'
     }
+    const work = {
+        buttonTheme: DarkGreenTheme,
+        contentTheme: BrownTheme
+    }
+    const recentlyListed = {
+        theme: BrownTheme
+    }
     return (
         <React.Fragment>
         <WelcomePageVariantTwo data = {welcomePage}/>
+        <WorkPage data={work}/>
         <ListingProcessPage data={listingProcess}/>
+        <RecentlyListedPage data = {recentlyListed} />
         <SeventhPage/>
         <EighthPage/>
         <FooterSecondary/>

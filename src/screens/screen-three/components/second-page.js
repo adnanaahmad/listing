@@ -8,11 +8,12 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import {LightGreenTheme} from '../../../shared/styles/themes/light-green-theme';
 import {GreenTheme} from '../../../shared/styles/themes/green-theme';
 import {ThemeProvider } from '@mui/material/styles';
-import homeImageOne from '../../../assets/Homeowners Assets/Mask Group 4@2x.png'
-import homeImageTwo from '../../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png'
+import homeImageOne from '../../../assets/Homeowners Assets/Mask Group 4@2x.png';
+import homeImageTwo from '../../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png';
 import ListCard from '../../../shared/components/list-card/list-card';
-import {WhiteTheme} from '../../../shared/styles/themes/white-theme'
-import divImage from '../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png'
+import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
+import {LightTheme} from '../../../shared/styles/themes/light-theme';
+import divImage from '../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
 import Container from '@mui/material/Container';
 
 const isBorder = toggleBorder;
@@ -117,7 +118,7 @@ function SecondPage() {
                                 <Stack key={y} direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: '400px'}} spacing={'2rem'}>
                                     {
                                         Cards.map((card, i) => (
-                                            <ListCard key={i} boxShadow = {true} data = {card} />
+                                            <ListCard key={i} boxShadow = {true} theme={LightTheme} data = {card} />
                                         )
                                     )}
                                 </Stack>

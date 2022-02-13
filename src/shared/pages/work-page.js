@@ -3,9 +3,8 @@ import { Stack, Typography } from '@mui/material';
 import {ThemeProvider, styled } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-import {GreenTheme} from '../../../shared/styles/themes/green-theme'
-import {toggleBorder} from '../../../shared/styles/debugging-border'
-import BranchImage from '../../../assets/Index Assets/Mask Group 3@2x.png'
+import {toggleBorder} from '../styles/debugging-border';
+import BranchImage from '../../assets/Index Assets/Mask Group 3@2x.png';
 
 const SecondPageButton = styled(Button)(({ theme }) => ({
     color: 'primary',
@@ -15,7 +14,7 @@ const SecondPageButton = styled(Button)(({ theme }) => ({
     borderRadius: '40px'
   }));
 
-function SecondPage() {
+function WorkPage(props) {
     const isBorder = toggleBorder;
     return (
     <React.Fragment>
@@ -32,14 +31,16 @@ function SecondPage() {
             src={BranchImage}
             />
             <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
-                <Typography variant="h4" sx={{fontWeight: 500}}>We Work With You</Typography>
-                <Typography variant="h6" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
-                    Every person has different wants, needs and budgets when it comes to housing in New Zealand.
-                </Typography>
-                <Typography variant="h6" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
-                    Whether you a looking to put your property up for rent, or finding a good flat that suits your needs, we know how important it is to get it right the first time. finding a good flat that suits your needs, we know how important it is to get it right the first time.
-                </Typography>
-                <ThemeProvider theme={GreenTheme}>
+                <ThemeProvider theme={props.data.contentTheme}>
+                    <Typography color="primary" variant="h4" sx={{fontWeight: 500}}>We Work With You</Typography>
+                    <Typography color="primary" variant="h6" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
+                        Every person has different wants, needs and budgets when it comes to housing in New Zealand.
+                    </Typography>
+                    <Typography color="primary" variant="h6" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
+                        Whether you a looking to put your property up for rent, or finding a good flat that suits your needs, we know how important it is to get it right the first time. finding a good flat that suits your needs, we know how important it is to get it right the first time.
+                    </Typography>
+                </ThemeProvider>
+                <ThemeProvider theme={props.data.buttonTheme}>
                     <SecondPageButton variant="contained">Learn More</SecondPageButton>
                 </ThemeProvider>
             </Stack>
@@ -49,4 +50,4 @@ function SecondPage() {
     );
 }
 
-export default SecondPage;
+export default WorkPage;
