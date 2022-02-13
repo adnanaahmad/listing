@@ -9,6 +9,7 @@ import LeftLeaf from '../../assets/Index Assets/Path 19@2x.png';
 import iconOne from '../../assets/Index Assets/Group 3@2x.png';
 import iconTwo from '../../assets/Index Assets/Group 5@2x.png';
 import iconThree from '../../assets/Index Assets/Group 4@2x.png';
+import SeventhPage from './components/seventh-page';
 
 
 function ScreenFifteen() {
@@ -40,6 +41,7 @@ function ScreenFifteen() {
         <React.Fragment>
         <WelcomePageVariantTwo data = {welcomePage}/>
         <ListingProcessPage data={listingProcess}/>
+        <SeventhPage/>
         <FooterSecondary/>
         </React.Fragment>
     );
