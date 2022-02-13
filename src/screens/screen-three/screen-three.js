@@ -3,7 +3,7 @@ import FooterPrimary from '../../shared/components/footer-primary/footer-primary
 import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
-import WelcomeImage from '../../assets/All Listings Assets/backpack.jpg'
+import WelcomeImage from '../../assets/All Listings Assets/backpack.png';
 import SecondPage from './components/second-page';
 import FourthPage from './components/fourth-page';
 import LeftLeaf from '../../assets/Index Assets/Path 19@2x.png';

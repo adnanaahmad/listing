@@ -11,13 +11,14 @@ import LeftLeaf from '../../assets/Property Management Assets/leaf.png';
 import iconOne from '../../assets/Property Management Assets/one.png';
 import iconTwo from '../../assets/Property Management Assets/two.png';
 import iconThree from '../../assets/Property Management Assets/three.png';
+import WelcomeImage from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
 
 function ScreenTwo() {
     const welcomePage = {
         titleOne: "Home Owners",
         titleTwo: "Friendly Flats",
         description: "Once you are in contact with us, one of our friendly property managers will talk you through the process of listing your property. We offer you an appraisal a",
-        image: "https://wallpaperaccess.com/full/2890506.jpg",
+        image: WelcomeImage,
         showButtonGroup: false,
         menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management']
     }

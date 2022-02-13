@@ -2,7 +2,7 @@ import * as React from 'react';
 import FooterPrimary from '../../shared/components/footer-primary/footer-primary';
 import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
-import WelcomeImage from '../../assets/All Listings Assets/backpack.jpg'
+import WelcomeImage from '../../assets/All Listings Assets/boat.png';
 import SecondPage from './components/second-page';
 import ThirdPage from './components/third-page';
 import FourthPage from './components/fourth-page';
