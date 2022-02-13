@@ -10,6 +10,7 @@ import iconOne from '../../assets/Index Assets/Group 3@2x.png';
 import iconTwo from '../../assets/Index Assets/Group 5@2x.png';
 import iconThree from '../../assets/Index Assets/Group 4@2x.png';
 import SeventhPage from './components/seventh-page';
+import EighthPage from './components/eighth-page';
 
 
 function ScreenFifteen() {
@@ -42,6 +43,7 @@ function ScreenFifteen() {
         <WelcomePageVariantTwo data = {welcomePage}/>
         <ListingProcessPage data={listingProcess}/>
         <SeventhPage/>
+        <EighthPage/>
         <FooterSecondary/>
         </React.Fragment>
     );
