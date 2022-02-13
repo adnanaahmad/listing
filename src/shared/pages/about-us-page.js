@@ -3,9 +3,9 @@ import { Stack, Typography } from '@mui/material';
 import {ThemeProvider, styled, createTheme } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
-import {toggleBorder} from '../../../shared/styles/debugging-border';
-import BeachImage from '../../../assets/Index Assets/DSC00380@2x.png';
+import {WhiteTheme} from '../styles/themes/white-theme';
+import {toggleBorder} from '../styles/debugging-border';
+import BeachImage from '../../assets/Index Assets/DSC00380@2x.png';
 
 const SixthButton = styled(Button)(({ theme }) => ({
     color: 'primary',
@@ -36,7 +36,7 @@ const SixthButton = styled(Button)(({ theme }) => ({
         maxWidth: '600px',
       },
   };
-function SixthPage() {
+function AboutUsPage() {
     const isBorder = toggleBorder;
     return (
     <React.Fragment>
@@ -92,4 +92,4 @@ function SixthPage() {
     );
 }
 
-export default SixthPage;
+export default AboutUsPage;

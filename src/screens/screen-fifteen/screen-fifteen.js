@@ -13,6 +13,8 @@ import SeventhPage from './components/seventh-page';
 import EighthPage from './components/eighth-page';
 import WorkPage from '../../shared/pages/work-page';
 import RecentlyListedPage from '../../shared/pages/recently-listed-page';
+import AboutUsPage from '../../shared/pages/about-us-page';
+import SpacePage from '../../shared/pages/space-page';
 
 
 function ScreenFifteen() {
@@ -47,12 +49,18 @@ function ScreenFifteen() {
     const recentlyListed = {
         theme: BrownTheme
     }
+    const space = {
+        theme: BrownTheme,
+        buttonTheme: DarkGreenTheme
+    }
     return (
         <React.Fragment>
         <WelcomePageVariantTwo data = {welcomePage}/>
         <WorkPage data={work}/>
         <ListingProcessPage data={listingProcess}/>
         <RecentlyListedPage data = {recentlyListed} />
+        <SpacePage data={space}/>
+        <AboutUsPage/>
         <SeventhPage/>
         <EighthPage/>
         <FooterSecondary/>

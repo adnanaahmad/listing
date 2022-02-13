@@ -3,8 +3,6 @@ import FooterPrimary from '../../shared/components/footer-primary/footer-primary
 import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
-import FifthPage from './components/fifth-page';
-import SixthPage from './components/sixth-page';
 import WelcomeImage from '../../assets/Index Assets/Mask-Group-2.png';
 import LeftLeaf from '../../assets/Property Management Assets/leaf.png';
 import iconOne from '../../assets/Property Management Assets/one.png';
@@ -14,6 +12,8 @@ import WorkPage from '../../shared/pages/work-page';
 import {GreenTheme} from '../../shared/styles/themes/green-theme';
 import {LightTheme} from '../../shared/styles/themes/light-theme';
 import RecentlyListedPage from '../../shared/pages/recently-listed-page';
+import AboutUsPage from '../../shared/pages/about-us-page';
+import SpacePage from '../../shared/pages/space-page';
 
 function ScreenOne() {
   const welcomePage = {
@@ -44,14 +44,18 @@ function ScreenOne() {
   const recentlyListed = {
     theme: LightTheme
   }
+  const space = {
+    theme: LightTheme,
+    buttonTheme: GreenTheme
+  }
   return (
     <React.Fragment>
       <WelcomePageVariantOne data = {welcomePage}/>
       <WorkPage data={work}/>
       <ListingProcessPage data={listingProcess} />
       <RecentlyListedPage data = {recentlyListed}/>
-      <FifthPage/>
-      <SixthPage/>
+      <SpacePage data={space}/>
+      <AboutUsPage/>
       <ClientsReviewPage/>
       <FooterPrimary/>
     </React.Fragment>

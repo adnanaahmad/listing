@@ -10,9 +10,9 @@ import {toggleBorder} from '../styles/debugging-border'
 
 const FirstPageButton = styled(Button)(({ theme }) => ({
   color: 'primary',
-  border: '3px solid', 
+  border: '2px solid', 
   borderRadius: '50px', 
-  fontSize: '22px', 
+  fontSize: '1.2rem', 
   textTransform: 'none', 
   width: '30%'
 }));

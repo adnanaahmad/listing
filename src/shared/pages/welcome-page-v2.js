@@ -32,7 +32,7 @@ function WelcomePageVariantTwo(props) {
                         <Stack direction="row" spacing={3} sx={{ border: isBorder ? 1 : 'none'}}>
                             {
                                 props.data.buttonGroup.map((item, i) => (
-                                    <Button variant='contained' key={i} sx={{fontSize:'1.2rem', borderRadius: '25px', padding: '.5rem 1rem', textTransform: 'none', }}>{item}</Button> 
+                                    <Button variant='contained' key={i} sx={{fontSize:'1.2rem', borderRadius: '25px', padding: '.5rem 1rem', textTransform: 'none', whiteSpace: 'nowrap' }}>{item}</Button> 
                                 ))
                             }                                
                         </Stack>
@@ -50,7 +50,7 @@ function WelcomePageVariantTwo(props) {
                 sx={{
                     height: '95%',
                     border: isBorder ? '2px solid red' : 'none',
-                    width: '30%',
+                    width: '29%',
                     objectFit: 'cover',
                     borderBottomRightRadius: '50px',
                     borderBottomLeftRadius: '50px',
