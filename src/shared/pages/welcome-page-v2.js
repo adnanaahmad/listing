@@ -2,19 +2,10 @@ import * as React from 'react';
 import MenuBar from '../components/menu-bar/menu-bar'
 import { Stack, Typography } from '@mui/material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import {ThemeProvider, styled } from '@mui/material/styles';
+import {ThemeProvider } from '@mui/material/styles';
 import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
-import {toggleBorder} from '../styles/debugging-border'
-
-const FirstPageButton = styled(Button)(({ theme }) => ({
-  color: 'primary',
-  border: '3px solid', 
-  borderRadius: '50px', 
-  fontSize: '22px', 
-  textTransform: 'none', 
-  width: '30%'
-}));
+import {toggleBorder} from '../styles/debugging-border';
 
 function WelcomePageVariantTwo(props) {
   const isBorder = toggleBorder;
@@ -38,10 +29,12 @@ function WelcomePageVariantTwo(props) {
                             </ThemeProvider>
                         </div>
                         { props.data.showButtonGroup &&
-                        <Stack direction="row" spacing={2} sx={{ border: isBorder ? 1 : 'none'}}>
-                        <FirstPageButton>Rent a Room</FirstPageButton> 
-                        <FirstPageButton>Rent a House</FirstPageButton> 
-                        <FirstPageButton>List a Property</FirstPageButton>       
+                        <Stack direction="row" spacing={3} sx={{ border: isBorder ? 1 : 'none'}}>
+                            {
+                                props.data.buttonGroup.map((item, i) => (
+                                    <Button variant='contained' key={i} sx={{fontSize:'1.2rem', borderRadius: '25px', padding: '.5rem 1rem', textTransform: 'none', }}>{item}</Button> 
+                                ))
+                            }                                
                         </Stack>
                         }
                         <ThemeProvider theme={props.data.headingTheme}>
