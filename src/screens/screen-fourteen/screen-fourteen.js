@@ -8,6 +8,7 @@ import WelcomeImage from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
 import imageOne from '../../assets/Homeowners Assets/DSC02202@2x.png';
 import imageTwo from '../../assets/Homeowners Assets/jack-levick-4qWq1poO-Qw-unsplash@2x.png';
 import CommitmentWorkPage from '../../shared/pages/commitment-work-page';
+import PropertiesTcoPage from '../../shared/pages/properties-tco-page';
 
 function ScreenFourteen() {
     const welcomePage = {
@@ -25,11 +26,13 @@ function ScreenFourteen() {
         imageTwo,
         theme: BrownTheme
     }
+    const showHouse = false;
     return (
         <React.Fragment>
         <WelcomePageVariantTwo data = {welcomePage}/>
         <CommitmentWorkPage data = {commitmentWorkPage}/>
         <ListingProcessPage/>
+        <PropertiesTcoPage data = {showHouse}/>
         <FooterSecondary/>
         </React.Fragment>
     );

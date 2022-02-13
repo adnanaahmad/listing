@@ -3,10 +3,10 @@ import FooterPrimary from '../../shared/components/footer-primary/footer-primary
 import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
-import FourthPage from './components/fourth-page';
 import CommitmentWorkPage from '../../shared/pages/commitment-work-page';
 import imageTwo from '../../assets/Homeowners Assets/jack-levick-4qWq1poO-Qw-unsplash@2x.png';
 import imageOne from '../../assets/All Listings Assets/laugh.jpg';
+import PropertiesTcoPage from '../../shared/pages/properties-tco-page';
 
 
 function ScreenTwo() {
@@ -23,12 +23,13 @@ function ScreenTwo() {
         imageTwo,
         theme: null
     }
+    const showHouse = true;
     return (
         <React.Fragment>
         <WelcomePageVariantOne data = {welcomePage}/>
         <CommitmentWorkPage data = {commitmentWorkPage}/>
         <ListingProcessPage/>
-        <FourthPage/>
+        <PropertiesTcoPage data = {showHouse}/>
         <ClientsReviewPage/>
         <FooterPrimary/>
         </React.Fragment>
