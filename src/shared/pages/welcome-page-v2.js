@@ -44,9 +44,11 @@ function WelcomePageVariantTwo(props) {
                         <FirstPageButton>List a Property</FirstPageButton>       
                         </Stack>
                         }
-                        <Typography variant="h6" color="primary" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
-                        {props.data.description}
-                        </Typography>
+                        <ThemeProvider theme={props.data.headingTheme}>
+                            <Typography variant="body1" color="primary" display="block" sx={{maxWidth: '550px', fontWeight: 500}}>
+                            {props.data.description}
+                            </Typography>
+                        </ThemeProvider>
                     </Stack>
                     </Stack>
                 </Stack>
