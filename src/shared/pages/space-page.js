@@ -3,8 +3,10 @@ import { Stack, Typography } from '@mui/material';
 import BedIcon from '@mui/icons-material/Bed';
 import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
 import {ThemeProvider, styled } from '@mui/material/styles';
-import Button from '@mui/material/Button'
-import {toggleBorder} from '../styles/debugging-border'
+import Button from '@mui/material/Button';
+import {toggleBorder} from '../styles/debugging-border';
+import divImage from '../../assets/Index Assets/Mask Group 9@2x.png';
+import Box from '@mui/material/Box';
 
 const isBorder = toggleBorder;
 const ViewListingsButton = styled(Button)(({ theme }) => ({
@@ -16,13 +18,6 @@ const ViewListingsButton = styled(Button)(({ theme }) => ({
   }));
 
 const classes = {
-    paperContainer: {
-        height: '200vh',
-        backgroundImage: 'url("https://static.vecteezy.com/system/resources/previews/002/909/528/original/abstract-rendering-3d-shape-for-products-display-presentation-modern-white-and-gray-cube-step-pedestal-podium-empty-room-background-minimal-wall-scene-studio-room-concept-eps10-vector.jpg")',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        border: isBorder ? '2px solid red' : 'none',
-    },
     infoTab: {
         background: '#ea9760',
         color: 'white',
@@ -35,62 +30,73 @@ const classes = {
 function SpacePage(props) {
     return (
     <React.Fragment>
-        <div style={classes.paperContainer}>
-            {/* page 1 */}
-            <div style={{height: '100vh', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none'}}>
-                <Stack direction="row" alignItems="center" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%'}}>
-                    <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
-                        <ThemeProvider theme={props.data.theme}>
-                            <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block', width: '30rem'}}>We'll Find A Space That Suits You</Typography>
-                            <Typography color="primary" variant="h6" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
-                            Every person has different wants, needs and budgets when it comes to housing in New Zealand.
-                            </Typography>
-                            <Typography color="primary" variant="h6" display="block" sx={{maxWidth: '550px', fontWeight: 400}}>
-                            Whether you a looking to put your property up for rent, or finding a good flat that suits your needs, we know how important it is to get it right the first time. finding a good flat that suits your needs, we know how important it is to get it right the first time.
-                            </Typography>
-                        </ThemeProvider>
-                        <ThemeProvider theme={props.data.buttonTheme}>
-                            <ViewListingsButton variant="contained">View Listings</ViewListingsButton>
-                        </ThemeProvider>
-                    </Stack>
-                    <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'1rem'} sx={{ border: isBorder ? 1 : 'none'}}>
-                        <Stack direction="row" alignItems="center" style={classes.infoTab}>
-                            <Typography variant="body1" sx={{fontSize: '3rem'}}>1</Typography>
-                            <BathtubOutlinedIcon sx={{fontSize: '3rem'}}/>
-                        </Stack>
-                        <Stack direction="row" alignItems="center" style={classes.infoTab}>
-                            <Typography variant="body1" sx={{fontSize: '3rem',}}>2</Typography>
-                            <BedIcon sx={{fontSize: '3rem'}}/>
-                        </Stack>
-                        <Stack direction="row" alignItems="center" style={classes.infoTab}>
-                            <Typography variant="body1" sx={{fontSize: '3rem',}}>$235</Typography>
-                        </Stack>
-                    </Stack>
-                </Stack>
-            </div>
-            {/* page 2 */}
-            <div style={{height: '100vh', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none'}}>
-                <ThemeProvider theme={props.data.theme}>
-                    <Stack direction="column" alignItems="start" justifyContent="center" spacing={'3rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%'}}>
+        <Stack sx={{border: isBorder ? '2px solid red' : 'none', height: '150vh', position: 'relative'}}>
+            <Box component="img"
+                sx={{
+                    height: '70%',
+                    objectFit: 'contain',
+                    marginLeft: 'auto'
+                }}
+                alt="The house from the offer."
+                src={divImage}
+            />
+            <Stack>
+                {/* page 1 */}
+                <div style={{height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none', position: 'absolute', top: 0}}>
+                    <Stack direction="row" alignItems="center" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%'}}>
                         <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
-                            <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block'}}>Tenants To Trust</Typography>
-                            <Typography color="primary" variant="h6" display="block" sx={{maxWidth: '800px', fontWeight: 400}}>
-                                We offer rigorous tenant selection processes, have access to the latest market data to assist in setting the right rent, and carry out regular inspections and rent reviews to make sure your rental property is meeting its potential.
-                            </Typography>
-                        </Stack>
-                        <Stack sx={{ border: isBorder ? '1px solid yellow' : 'none'}} spacing={'2rem'}>
-                            <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block'}}>Friendly Expertise</Typography>
-                            <Typography color="primary" variant="h6" display="block" sx={{maxWidth: '800px', fontWeight: 400}}>
-                                Make your time your own again, while we use our experience in managing over 17,000 rental properties to carry out all day-to-day property management and maintenance, from answering your tenants queries to overseeing maintenance quotes and managing tradespeople.
-                            </Typography>
+                            <ThemeProvider theme={props.data.theme}>
+                                <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block', width: '30rem'}}>We'll Find A Space That Suits You</Typography>
+                                <Typography color="primary" variant="body1" display="block" sx={{maxWidth: '550px', fontWeight: 500}}>
+                                Every person has different wants, needs and budgets when it comes to housing in New Zealand.
+                                </Typography>
+                                <Typography color="primary" variant="body1" display="block" sx={{maxWidth: '550px', fontWeight: 500}}>
+                                Whether you a looking to put your property up for rent, or finding a good flat that suits your needs, we know how important it is to get it right the first time. finding a good flat that suits your needs, we know how important it is to get it right the first time.
+                                </Typography>
+                            </ThemeProvider>
                             <ThemeProvider theme={props.data.buttonTheme}>
-                                <ViewListingsButton variant="contained">Learn More</ViewListingsButton>
+                                <ViewListingsButton variant="contained">View Listings</ViewListingsButton>
                             </ThemeProvider>
                         </Stack>
+                        <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'1rem'} sx={{ border: isBorder ? 1 : 'none'}}>
+                            <Stack direction="row" alignItems="center" style={classes.infoTab}>
+                                <Typography variant="body1" sx={{fontSize: '3rem'}}>1</Typography>
+                                <BathtubOutlinedIcon sx={{fontSize: '3rem'}}/>
+                            </Stack>
+                            <Stack direction="row" alignItems="center" style={classes.infoTab}>
+                                <Typography variant="body1" sx={{fontSize: '3rem',}}>2</Typography>
+                                <BedIcon sx={{fontSize: '3rem'}}/>
+                            </Stack>
+                            <Stack direction="row" alignItems="center" style={classes.infoTab}>
+                                <Typography variant="body1" sx={{fontSize: '3rem',}}>$235</Typography>
+                            </Stack>
+                        </Stack>
                     </Stack>
-                </ThemeProvider>
-            </div>
-        </div>
+                </div>
+                {/* page 2 */}
+                <div style={{height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none', position: 'absolute', top: '50%'}}>
+                    <ThemeProvider theme={props.data.theme}>
+                        <Stack direction="column" alignItems="start" justifyContent="center" spacing={'3rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%'}}>
+                            <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
+                                <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block'}}>Tenants To Trust</Typography>
+                                <Typography color="primary" variant="body1" display="block" sx={{maxWidth: '800px', fontWeight: 500}}>
+                                    We offer rigorous tenant selection processes, have access to the latest market data to assist in setting the right rent, and carry out regular inspections and rent reviews to make sure your rental property is meeting its potential.
+                                </Typography>
+                            </Stack>
+                            <Stack sx={{ border: isBorder ? '1px solid yellow' : 'none'}} spacing={'2rem'}>
+                                <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block'}}>Friendly Expertise</Typography>
+                                <Typography color="primary" variant="body1" display="block" sx={{maxWidth: '800px', fontWeight: 500}}>
+                                    Make your time your own again, while we use our experience in managing over 17,000 rental properties to carry out all day-to-day property management and maintenance, from answering your tenants queries to overseeing maintenance quotes and managing tradespeople.
+                                </Typography>
+                                <ThemeProvider theme={props.data.buttonTheme}>
+                                    <ViewListingsButton variant="contained">Learn More</ViewListingsButton>
+                                </ThemeProvider>
+                            </Stack>
+                        </Stack>
+                    </ThemeProvider>
+                </div>
+            </Stack>
+        </Stack>
     </React.Fragment>
     );
 }
