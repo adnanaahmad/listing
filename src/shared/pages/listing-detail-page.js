@@ -5,12 +5,13 @@ import BedIcon from '@mui/icons-material/Bed';
 import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
 import {WhiteTheme} from '../styles/themes/white-theme';
 import {DarkGreenTheme} from '../styles/themes/dark-green-theme';
+import {BrownTheme} from '../styles/themes/brown-theme';
 import {ThemeProvider} from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import mapsImage from '../../assets/All Listings Assets/maps.png';
 
-export default function ListingDetailPage() {
+export default function ListingDetailPage(props) {
     const isBorder = toggleBorder;
     const paragrpahs = [
         'Comfortable City Centre Apartment', 
@@ -30,49 +31,53 @@ export default function ListingDetailPage() {
                     maxWidth: '1440px',
                     height: '100%'
                 }}>
-                    {/* first component */}
-                    <Stack direction="row" justifyContent="space-between" sx={{border: isBorder ? '1px solid blue' : 'none', width: '100%'}}>
-                        <Stack sx={{border: isBorder ? '1px solid red' : 'none'}} spacing={'4rem'}>
-                            <Stack spacing={'.5rem'}>
-                                <Typography variant="h3" sx={{fontWeight: 500}}>Lovely 3 Bedroom Apartment</Typography>
-                                <Typography variant="h3" sx={{fontWeight: 500, fontSize: '2.5rem'}}>230 Queen Street</Typography>
+                    <ThemeProvider theme={props.data.theme}>        
+                        {/* first component */}
+                        <Stack direction="row" justifyContent="space-between" sx={{border: isBorder ? '1px solid blue' : 'none', width: '100%'}}>
+                            <Stack sx={{border: isBorder ? '1px solid red' : 'none'}} spacing={'4rem'}>
+                                <Stack spacing={'.5rem'}>
+                                    <Typography color="primary" variant="h3" sx={{fontWeight: 500}}>Lovely 3 Bedroom Apartment</Typography>
+                                    <Typography color="primary" variant="h3" sx={{fontWeight: 500, fontSize: '2.5rem'}}>230 Queen Street</Typography>
+                                </Stack>
+                                <Stack direction="row" alignItems="flex-end">
+                                    <BedIcon sx={{fontSize: '3rem'}}/>
+                                    <Typography color="primary" variant="body1" sx={{fontSize: '1.8rem', marginRight: '1rem'}}>2 Beds</Typography>
+                                    <BathtubOutlinedIcon  sx={{fontSize: '3rem'}}/>
+                                    <Typography color="primary" variant="body1" sx={{fontSize: '1.8rem'}}>1 Bath</Typography>
+                                </Stack>
                             </Stack>
-                            <Stack direction="row" alignItems="flex-end">
-                                <BedIcon sx={{fontSize: '3rem'}}/>
-                                <Typography variant="body1" sx={{fontSize: '1.8rem', marginRight: '1rem'}}>2 Beds</Typography>
-                                <BathtubOutlinedIcon  sx={{fontSize: '3rem'}}/>
-                                <Typography variant="body1" sx={{fontSize: '1.8rem'}}>1 Bath</Typography>
+                            <Stack alignItems="flex-end" spacing={'.5rem'} sx={{border: isBorder ? '1px solid red' : 'none'}}>
+                                <Typography color="primary" variant="h3" sx={{fontWeight: 500}}>$230</Typography>
+                                <Typography color="primary" variant="h3" sx={{fontWeight: 500, fontSize: '2rem'}}>per week</Typography>
                             </Stack>
                         </Stack>
-                        <Stack alignItems="flex-end" spacing={'.5rem'} sx={{border: isBorder ? '1px solid red' : 'none'}}>
-                            <Typography variant="h3" sx={{fontWeight: 500}}>$230</Typography>
-                            <Typography variant="h3" sx={{fontWeight: 500, fontSize: '2rem'}}>per week</Typography>
+                        {/* second component */}
+                        <Stack direction="row" sx={{borderTop: 2, borderBottom: 2, width: '100%', paddingY: '.7rem'}}>
+                            <Stack direction="row" spacing={'1rem'} alignItems="center" sx={{border: isBorder ? 1 : 'none',}}>
+                                <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>Available</Typography>
+                                <Typography variant="body1" sx={{fontSize: '1.8rem'}}>|</Typography>
+                                <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>Mon, 08 Mar 2021</Typography>
+                            </Stack>
+                            <Stack direction="row" spacing={'1rem'} alignItems="center" sx={{border: isBorder ? 1 : 'none', marginLeft: 'auto'}}>
+                                <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>Property ID#</Typography>
+                                <Typography variant="body1" sx={{fontSize: '1.8rem'}}>|</Typography>
+                                <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>HCJ703</Typography>
+                            </Stack>
                         </Stack>
-                    </Stack>
-                    {/* second component */}
-                    <Stack direction="row" sx={{borderTop: 2, borderBottom: 2, width: '100%', paddingY: '.7rem'}}>
-                        <Stack direction="row" spacing={'1rem'} alignItems="center" sx={{border: isBorder ? 1 : 'none',}}>
-                            <Typography variant="body1" sx={{fontSize: '1.2rem'}}>Available</Typography>
-                            <Typography variant="body1" sx={{fontSize: '1.8rem'}}>|</Typography>
-                            <Typography variant="body1" sx={{fontSize: '1.2rem'}}>Mon, 08 Mar 2021</Typography>
-                        </Stack>
-                        <Stack direction="row" spacing={'1rem'} alignItems="center" sx={{border: isBorder ? 1 : 'none', marginLeft: 'auto'}}>
-                            <Typography variant="body1" sx={{fontSize: '1.2rem'}}>Property ID#</Typography>
-                            <Typography variant="body1" sx={{fontSize: '1.8rem'}}>|</Typography>
-                            <Typography variant="body1" sx={{fontSize: '1.2rem'}}>HCJ703</Typography>
-                        </Stack>
-                    </Stack>
+                    </ThemeProvider>
                     {/* third component */}
                     <Stack direction="row" justifyContent="flex-end" sx={{border: isBorder ? 1 : 'none', width: '100%', height: 'fitContent'}}>
-                        <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '400px', marginX: 'auto'}} spacing={'2rem'}>                        
-                            {
-                                paragrpahs.map((item, y) => (                                
-                                    <Typography key={y} variant="body1" display="block">
-                                        {item}
-                                    </Typography> 
-                                ))
-                            }
-                        </Stack>
+                        <ThemeProvider theme={props.data.theme}>
+                            <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '400px', marginX: 'auto'}} spacing={'2rem'}>                        
+                                {
+                                    paragrpahs.map((item, y) => (                                
+                                        <Typography key={y} color="primary" variant="body1" display="block">
+                                            {item}
+                                        </Typography> 
+                                    ))
+                                }
+                            </Stack>
+                        </ThemeProvider>
                         <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: '30%', maxWidth: '350px'}}>
                             <Stack spacing={'1rem'} alignItems="center" sx={{border: isBorder ? '2px solid orange' : 'none', borderRadius: '10px', height: 'fitContent', backgroundColor: WhiteTheme.palette.primary.contrastText, padding: '1rem 2rem'}} >
                                 <Typography variant="h5" display="block" sx={{color: 'white'}}>Enquire</Typography>
@@ -84,6 +89,17 @@ export default function ListingDetailPage() {
                                             <Stack style={{border: `.5px solid ${WhiteTheme.palette.primary.contrastText}`, width: '100%'}}></Stack>
                                             <Typography sx={{paddingLeft: '1rem'}} color="primary" variant="caption">Phone Number</Typography>
                                         </Stack>
+                                        {
+                                            props.data.showButtonGroup &&
+                                            <Stack spacing={'1rem'} direction="row" justifyContent="space-between" sx={{width: '100%'}}>
+                                                <ThemeProvider theme={BrownTheme}>
+                                                    <Button variant='contained' sx={{whiteSpace: 'nowrap', fontSize: '.8rem', textTransform: 'none', borderRadius: 2}}>Book a viewing</Button>
+                                                </ThemeProvider>
+                                                <ThemeProvider theme={WhiteTheme}>
+                                                    <Button variant='contained' sx={{whiteSpace: 'nowrap', fontSize: '.8rem', textTransform: 'none', borderRadius: 2}} color="primary">Ask a question</Button>
+                                                </ThemeProvider>
+                                            </Stack>
+                                        }
                                         <Stack sx={{border: isBorder ? 1 : 'none', backgroundColor: 'white', width: '100%', borderRadius: '10px', padding: '.5rem 0', height: '80px'}}>
                                             <Typography sx={{paddingX: '1rem'}} color="primary" variant="caption" display="block">Ask a question or request a viewing...</Typography>
                                         </Stack>
