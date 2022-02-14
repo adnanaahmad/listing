@@ -49,7 +49,7 @@ export default function FooterSecondary() {
                                 <Typography color="primary" variant="h5">Your Email</Typography>
                             </Stack>
                             <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
-                                Book A Meeting
+                                Enquire
                             </Button>
                         </Stack>
                     </Container>
