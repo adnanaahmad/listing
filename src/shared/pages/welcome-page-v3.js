@@ -1,15 +1,14 @@
 import * as React from 'react';
-import MenuBar from '../../../shared/components/menu-bar/menu-bar';
-import { Stack } from '@mui/material';
+import MenuBar from '../components/menu-bar/menu-bar';
+import { Button, Stack } from '@mui/material';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 import {ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import {BrownTheme} from '../../../shared/styles/themes/brown-theme';
-import {toggleBorder} from '../../../shared/styles/debugging-border';
-import sofaImage from '../../../assets/Homeowners Assets/sofa.png';
-import doorImage from '../../../assets/Homeowners Assets/Mask Group 4@2x.png';
+import {toggleBorder} from '../styles/debugging-border';
+import sofaImage from '../../assets/Homeowners Assets/sofa.png';
+import doorImage from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
 
-function FirstPage(props) {
+function WelcomePageVariantThree(props) {
   const isBorder = toggleBorder;
   const coverPhotos = [
     {
@@ -27,13 +26,14 @@ function FirstPage(props) {
   ];
   return (
     <React.Fragment>
-      <Stack direction="column" justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh'}}>
-        <ThemeProvider theme={BrownTheme}>
-          <Stack justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none', width: '75%', marginY: 'auto', maxWidth: '1440px'}}>
-            <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
-              <HomeOutlinedIcon sx={{ fontSize: '4rem', color: 'rgb(155 85 30)', marginRight: '5%', marginLeft: '10%'}}/>
+      <Stack direction="column" justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh', width: '100%'}}>
+        <ThemeProvider theme={props.data.theme}>
+          <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid orange' : 'none', width: '90%', margin: 'auto'}}>
+            <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none', width: '70%', maxWidth: '900px'}}>
+              <HomeOutlinedIcon color="primary" sx={{ fontSize: '4rem'}}/>
               <MenuBar data = {['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] }/>
             </Stack>
+            <Button variant='contained' size='large' sx={{height: 'fit-content', borderRadius: '2rem', textTransform: 'none', opacity: props.data.showButton ? 1 : 0}}>Enquire</Button>
           </Stack>
         </ThemeProvider>
         <Stack direction="row" alignItems="flex-end" sx={{ border: isBorder ? '1px solid green' : 'none', height: '85%'}}>
@@ -57,4 +57,4 @@ function FirstPage(props) {
   );
 }
 
-export default FirstPage;
+export default WelcomePageVariantThree;

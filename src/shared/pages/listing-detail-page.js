@@ -1,16 +1,16 @@
 import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import {toggleBorder} from '../../../shared/styles/debugging-border';
+import {toggleBorder} from '../styles/debugging-border';
 import BedIcon from '@mui/icons-material/Bed';
 import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
-import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
-import {DarkGreenTheme} from '../../../shared/styles/themes/dark-green-theme';
+import {WhiteTheme} from '../styles/themes/white-theme';
+import {DarkGreenTheme} from '../styles/themes/dark-green-theme';
 import {ThemeProvider} from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import mapsImage from '../../../assets/All Listings Assets/maps.png';
+import mapsImage from '../../assets/All Listings Assets/maps.png';
 
-export default function SecondPage() {
+export default function ListingDetailPage() {
     const isBorder = toggleBorder;
     const paragrpahs = [
         'Comfortable City Centre Apartment', 
