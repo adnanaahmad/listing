@@ -1,3 +1,7 @@
+import flowerImage from '../../assets/Maintenance Assets/DSC02898@2x.png';
+import fenceImage from '../../assets/Maintenance Assets/fence.png';
+import boyImage from '../../assets/Maintenance Assets/DSC02212@2x.png';
+
 export const CardsContent = [
     {
         title: 'Collection Of Information',
@@ -35,5 +39,31 @@ export const CardsContent = [
             'If you have questions or complains about our privacy policy, please email us at info@friendlyflats.co.nz',
             'Private Policy is available on the Consol website. Friendly Flats retains the right to change this privacy policy from time to time. All updated versions of this policy will be posted and kept up to date on the website.',
         ]        
+    },
+];
+
+export const CommitmentCards = [
+    {
+        title: "Committed To All Of You",
+        image: flowerImage,
+        paraOne: "We're committed to making the moving and living process as hassle free as possible, and to do that we provide fantastic management and maintenance of your home or flat.",
+    },
+    {
+        title: "Client Satisfaction",
+        image: fenceImage,
+        paraOne: "To put it briefly, our mission is fulfilled when we see our tenants and homeowners satisfied with smiles on their faces. We believe in providing excellent and quality maintenance services to all our customers. We aim at becoming a company with team work that will encourage all the people to grow and prosper.",
+    },
+];
+
+export const CommitmentCardsTwo = [
+    {
+        title: "Committed To All Of You",
+        image: flowerImage,
+        paraOne: "We're committed to making the moving and living process as hassle free as possible, and to do that we provide fantastic management and maintenance of your home or flat.",
+    },
+    {
+        title: "Client Satisfaction",
+        image: boyImage,
+        paraOne: "To put it briefly, our mission is fulfilled when we see our tenants and homeowners satisfied with smiles on their faces. We believe in providing excellent and quality maintenance services to all our customers. We aim at becoming a company with team work that will encourage all the people to grow and prosper.",
     },
 ];
