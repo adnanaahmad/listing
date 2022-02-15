@@ -6,6 +6,7 @@ import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import { CommitmentCardsTwo } from '../../shared/core/constant';
 import CommitmentSatisfactionPage from '../../shared/pages/commitment-satisfaction-page';
+import ThirdPage from './components/third-page';
 
 function ScreenTwenty() {
     const welcomePage = {
@@ -27,6 +28,7 @@ function ScreenTwenty() {
         <React.Fragment>
             <WelcomePageVariantTwo data = {welcomePage} />
             <CommitmentSatisfactionPage data={commitment} />
+            <ThirdPage/>
             <FooterSecondary/>
         </React.Fragment>
     );
