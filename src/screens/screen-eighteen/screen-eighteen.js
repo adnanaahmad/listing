@@ -10,6 +10,7 @@ import LeftLeaf from '../../assets/Index Assets/Path 19@2x.png';
 import iconOne from '../../assets/All Listings Assets/Group 3@2x.png';
 import iconTwo from '../../assets/All Listings Assets/Group 60@2x.png';
 import iconThree from '../../assets/All Listings Assets/Group 4@2x.png';
+import FlatListingPage from '../../shared/pages/flat-listing-page';
 
 
 function ScreenEighteen() {
@@ -43,9 +44,17 @@ function ScreenEighteen() {
         showButton: false,
         showBottomBar: false
     }
+    const flatListing = {
+        headingTheme: BrownTheme,
+        menuBarTheme: DarkGreenTheme,
+        filterTheme: DarkGreenTheme,
+        menuBoxShadow: 'rgb(203 146 108 / 35%) 0px 4px 12px',
+        cardTheme: BrownTheme,
+    }
     return (
         <React.Fragment>
         <WelcomePageVariantTwo data = {welcomePage}/>
+        <FlatListingPage data={flatListing}/>
         <ListingProcessPage data={listingProcess}/>
         <SecondSpacePage data={spacePage}/>
         <FooterSecondary/>
