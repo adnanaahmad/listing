@@ -28,6 +28,12 @@ function WelcomePageVariantTwo(props) {
                                 <Typography variant="h1" color="primary" sx={{fontWeight: 600}}>{props.data.titleTwo}</Typography>
                             </ThemeProvider>
                         </div>
+                        {
+                            props.data.descriptionTwo &&
+                            <ThemeProvider theme={props.data.headingTheme}>
+                                <Typography variant="h6" color="primary" sx={{fontWeight: 500}}>{props.data.descriptionTwo}</Typography>
+                            </ThemeProvider>
+                        }
                         { props.data.showButtonGroup &&
                         <Stack direction="row" spacing={3} sx={{ border: isBorder ? 1 : 'none'}}>
                             {
