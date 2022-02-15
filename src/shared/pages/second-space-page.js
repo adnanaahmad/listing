@@ -103,11 +103,11 @@ function SecondSpacePage(props) {
             <Stack direction="row" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '2px solid orange' : 'none', width: '70%', height: 'fitContent', maxWidth: '1440px'}}>
                 <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%', maxWidth: '400px'}} spacing={'2rem'}>
                     <ThemeProvider theme={props.data.theme}>
-                        <Typography variant="h4" sx={{fontWeight: 500}}>{Card.title}</Typography>
-                        <Typography variant="body1" display="block">
+                        <Typography color="primary" variant="h4" sx={{fontWeight: 500}}>{Card.title}</Typography>
+                        <Typography color="primary" variant="body1" display="block">
                             {Card.paraOne}
                         </Typography>
-                        <Typography variant="body1" display="block">
+                        <Typography color="primary" variant="body1" display="block">
                             {Card.paraTwo}
                         </Typography>  
                     </ThemeProvider>
