@@ -5,11 +5,12 @@ import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
 import WelcomeImage from '../../assets/All Listings Assets/backpack.png';
 import SecondPage from './components/second-page';
-import FourthPage from './components/fourth-page';
 import LeftLeaf from '../../assets/Index Assets/Path 19@2x.png';
 import iconOne from '../../assets/All Listings Assets/Group 3@2x.png';
 import iconTwo from '../../assets/All Listings Assets/Group 60@2x.png';
 import iconThree from '../../assets/All Listings Assets/Group 4@2x.png';
+import SecondSpacePage from '../../shared/pages/second-space-page';
+import { LightTheme } from '../../shared/styles/themes/light-theme';
 
 function ScreenThree() {
   const welcomePage = {
@@ -33,12 +34,17 @@ function ScreenThree() {
     leafImage: LeftLeaf,
     leafOpacity: '.1'
   }
+  const spacePage = {
+    theme: LightTheme,
+    showButton: true,
+    showBottomBar: true
+  }
   return (
     <React.Fragment>
       <WelcomePageVariantOne data = {welcomePage}/>
       <SecondPage/>
       <ListingProcessPage data={listingProcess}/>
-      <FourthPage/>
+      <SecondSpacePage data={spacePage}/>
       <ClientsReviewPage/>
       <FooterPrimary/>
     </React.Fragment>

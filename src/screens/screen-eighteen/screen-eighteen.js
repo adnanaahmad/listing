@@ -4,6 +4,7 @@ import WelcomePageVariantTwo from '../../shared/pages/welcome-page-v2';
 import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import WelcomeImage from '../../assets/Property Management Assets/DSC00024@2x.png';
+import SecondSpacePage from '../../shared/pages/second-space-page';
 
 
 function ScreenEighteen() {
@@ -19,9 +20,15 @@ function ScreenEighteen() {
         menuTheme: DarkGreenTheme,
         headingTheme: BrownTheme,
     }
+    const spacePage = {
+        theme: BrownTheme,
+        showButton: false,
+        showBottomBar: false
+    }
     return (
         <React.Fragment>
         <WelcomePageVariantTwo data = {welcomePage}/>
+        <SecondSpacePage data={spacePage}/>
         <FooterSecondary/>
         </React.Fragment>
     );

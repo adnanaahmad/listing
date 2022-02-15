@@ -3,14 +3,14 @@ import { Stack, Typography } from '@mui/material';
 import {ThemeProvider, createTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import {GreenTheme} from '../../../shared/styles/themes/green-theme';
-import {toggleBorder} from '../../../shared/styles/debugging-border';
+import {GreenTheme} from '../styles/themes/green-theme';
+import {toggleBorder} from '../styles/debugging-border';
 import BedIcon from '@mui/icons-material/Bed';
 import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
 import Container from '@mui/material/Container';
-import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
-import divImage from '../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
-import sofaImage from '../../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png';
+import {WhiteTheme} from '../styles/themes/white-theme';
+import divImage from '../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
+import sofaImage from '../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const TypographyTheme = createTheme();
@@ -90,7 +90,7 @@ function Footer() {
     );
 }
 
-function FourthPage() {
+function SecondSpacePage(props) {
     const Card = {
         title: "We'll Find You A Space That Suits You Best",
         image: sofaImage,
@@ -99,10 +99,10 @@ function FourthPage() {
     };
     return (
     <React.Fragment>
-        <Stack direction="column" alignItems="center" justifyContent="space-between" spacing={'2rem'} sx={{ border: isBorder ? '2px solid red' : 'none', height: '100vh'}}>
+        <Stack direction="column" alignItems="center" justifyContent={props.data.showBottomBar ? 'space-between' : 'center'} spacing={'2rem'} sx={{ border: isBorder ? '2px solid red' : 'none', height: '100vh'}}>
             <Stack direction="row" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '2px solid orange' : 'none', width: '70%', height: 'fitContent', maxWidth: '1440px'}}>
                 <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%', maxWidth: '400px'}} spacing={'2rem'}>
-                    <ThemeProvider theme={TypographyTheme}>
+                    <ThemeProvider theme={props.data.theme}>
                         <Typography variant="h4" sx={{fontWeight: 500}}>{Card.title}</Typography>
                         <Typography variant="body1" display="block">
                             {Card.paraOne}
@@ -111,11 +111,14 @@ function FourthPage() {
                             {Card.paraTwo}
                         </Typography>  
                     </ThemeProvider>
-                    <ThemeProvider theme={GreenTheme}>
-                        <Button variant="contained" sx={{borderRadius: '30px', paddingX: '25px'}}>
-                            View more
-                        </Button>
-                    </ThemeProvider>                    
+                    {
+                        props.data.showButton &&
+                        <ThemeProvider theme={GreenTheme}>
+                            <Button variant="contained" sx={{borderRadius: '30px', paddingX: '25px'}}>
+                                View more
+                            </Button>
+                        </ThemeProvider>      
+                    }              
                 </Stack>
                 <Stack sx={{width: '35%', border: isBorder ? '1px solid green' : 'none', position: 'relative'}}>
                     <Box component="img"
@@ -144,10 +147,13 @@ function FourthPage() {
                     </Stack>
                 </Stack>
             </Stack>
-            <Footer/>        
+            {
+                props.data.showBottomBar &&
+                <Footer/>  
+            }      
         </Stack>
     </React.Fragment>
     );
 }
 
-export default FourthPage;
+export default SecondSpacePage;
