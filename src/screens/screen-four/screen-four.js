@@ -4,10 +4,11 @@ import WelcomePageVariantOne from '../../shared/pages/welcome-page-v1';
 import ClientsReviewPage from '../../shared/pages/clients-review-page';
 import WelcomeImage from '../../assets/All Listings Assets/boat.png';
 import ThirdPage from './components/third-page';
-import FourthPage from './components/fourth-page';
 import { LightTheme } from '../../shared/styles/themes/light-theme';
 import CommitmentSatisfactionPage from '../../shared/pages/commitment-satisfaction-page';
 import { CommitmentCards } from '../../shared/core/constant';
+import BulbImage from '../../assets/All Listings Assets/bulb.png';
+import MaintenancePage from '../../shared/pages/maintenance-page';
 
 function ScreenFour() {
   const welcomePage = {
@@ -23,12 +24,18 @@ function ScreenFour() {
     cards: CommitmentCards,
     theme: LightTheme
   };
+  const maintenance = {
+    screen: 'four',
+    listTheme: LightTheme,
+    theme: LightTheme,
+    image: BulbImage
+  }
   return (
     <React.Fragment>
       <WelcomePageVariantOne data = {welcomePage}/>
       <CommitmentSatisfactionPage data={commitment} />
       <ThirdPage/>
-      <FourthPage/>
+      <MaintenancePage data={maintenance} />
       <ClientsReviewPage/>
       <FooterPrimary/>
     </React.Fragment>

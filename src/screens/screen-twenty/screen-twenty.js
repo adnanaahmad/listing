@@ -7,6 +7,8 @@ import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import { CommitmentCardsTwo } from '../../shared/core/constant';
 import CommitmentSatisfactionPage from '../../shared/pages/commitment-satisfaction-page';
 import ThirdPage from './components/third-page';
+import lightImage from '../../assets/Maintenance Assets/DSC02466@2x.png';
+import MaintenancePage from '../../shared/pages/maintenance-page';
 
 function ScreenTwenty() {
     const welcomePage = {
@@ -24,11 +26,18 @@ function ScreenTwenty() {
         cards: CommitmentCardsTwo,
         theme: BrownTheme
     };
+    const maintenance = {
+        screen: 'twenty',
+        listTheme: DarkGreenTheme,
+        theme: BrownTheme,
+        image: lightImage
+    }
     return (
         <React.Fragment>
             <WelcomePageVariantTwo data = {welcomePage} />
             <CommitmentSatisfactionPage data={commitment} />
             <ThirdPage/>
+            <MaintenancePage data={maintenance} />
             <FooterSecondary/>
         </React.Fragment>
     );

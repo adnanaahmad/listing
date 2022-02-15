@@ -1,49 +1,31 @@
 import * as React from 'react';
 import { Stack, Typography } from '@mui/material';
-import {ThemeProvider, createTheme } from '@mui/material/styles';
+import {ThemeProvider} from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import {toggleBorder} from '../../../shared/styles/debugging-border'
-import BulbImage from '../../../assets/All Listings Assets/bulb.png'
+import {toggleBorder} from '../styles/debugging-border';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
-const TypographyTheme = createTheme();
 const isBorder = toggleBorder;
 
-TypographyTheme.typography.body1 = {
-    fontSize: '1.2rem',
-    maxWidth: '600px',
-    '@media (min-width:600px)': {
-        fontSize: '1rem',
-        maxWidth: '600px',
-    },
-    [TypographyTheme.breakpoints.up('xl')]: {
-        fontSize: '1.5rem',
-        maxWidth: '600px',
-    },
-    [TypographyTheme.breakpoints.up('lg')]: {
-        fontSize: '1.3rem',
-        maxWidth: '600px',
-    },
-};
-
-function ContentCard  (props) {
+function ContentCard(props) {
     return(
         <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '600px'}} spacing={'2rem'}>
-            <ThemeProvider theme={TypographyTheme}>
-                <Typography variant="h4" sx={{fontWeight: 500}}>{props.data.title}</Typography>
+            <ThemeProvider theme={props.theme}>
+                <Typography color="primary" variant="h4" sx={{fontWeight: 500}}>{props.data.title}</Typography>
                 {
                     (props.data.paragraph).map((item, i) => (
-                        <Typography key={i} variant="body1" display="block">
+                        <Typography color="primary" key={i} variant="body1" display="block">
                             {item}
                         </Typography> 
                     ))
                 }
-            </ThemeProvider>                  
+            </ThemeProvider>
         </Stack>
     )
 }
 
 
-function FourthPage() {
+function MaintenancePage(props) {
     
     const SecondComponentCard = 
         {
@@ -73,11 +55,24 @@ function FourthPage() {
             <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'4rem'} sx={{border: isBorder ? '1px solid yellow' : 'none', maxWidth: '1440px', paddingRight: '30px'}}>
                 <Stack sx={{border: isBorder ? '1px solid blue' : 'none', width: '50%', margin: 'auto'}}>
                     <Stack sx={{border: isBorder ? '1px solid pink' : 'none', margin: 'auto'}}>
-                        <Typography sx={{width: 'fitContent', fontSize:'1.2rem'}}>List of property maintenance services </Typography>
-                        <Typography sx={{width: 'fitContent', fontSize:'1.2rem', marginBottom: '2rem'}}>Friendly Flats provides: </Typography>
+                        {
+                            props.data.screen === 'four' &&
+                            <React.Fragment>
+                                <Typography sx={{width: 'fitContent', fontSize:'1.2rem'}}>List of property maintenance services </Typography>
+                                <Typography sx={{width: 'fitContent', fontSize:'1.2rem', marginBottom: '2rem'}}>Friendly Flats provides: </Typography>
+                            </React.Fragment>
+                        }
                         {
                             ServicesList.map((item, i) => (
-                                <Typography sx={{width: 'fitContent', fontSize:'1.2rem'}} key={i}>{item}</Typography>
+                                <Stack direction="row" alignItems={'center'} key={i}>
+                                    <ThemeProvider theme={props.data.listTheme}>
+                                        {
+                                            props.data.screen !== 'four' &&
+                                            <FiberManualRecordIcon color="primary" sx={{fontSize:'1rem', marginRight: '1rem'}}/>
+                                        }                                        
+                                        <Typography color="primary" sx={{width: 'fitContent', fontSize:'1.2rem'}}>{item}</Typography>   
+                                    </ThemeProvider>
+                                </Stack>
                             ))
                         }
                     </Stack>
@@ -85,7 +80,7 @@ function FourthPage() {
                 <Stack sx={{border: isBorder ? '1px solid purple' : 'none'}} spacing={'2rem'}>
                     {
                         FirstComponentCard.map((card, i) => (
-                            <ContentCard key={i} data = {card}/>
+                            <ContentCard key={i} data = {card} theme={props.data.theme} />
                         ))
                     }
                 </Stack>
@@ -99,13 +94,13 @@ function FourthPage() {
                         objectFit: 'cover'
                     }}
                     alt="The house from the offer."
-                    src={BulbImage}
+                    src={props.data.image}
                     />
-                <ContentCard data = {SecondComponentCard}/>
+                <ContentCard data = {SecondComponentCard} theme={props.data.theme} />
             </Stack>
         </Stack>
     </React.Fragment>
     );
 }
 
-export default FourthPage;
+export default MaintenancePage;
