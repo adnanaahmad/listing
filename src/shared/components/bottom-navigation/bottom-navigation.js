@@ -15,6 +15,8 @@ export default function FixedBottomNavigation() {
     function handleClick(direction) {
         let pageNumber = Number((window.location.href).split('/').at(-1));
         direction === 'forward' ? pageNumber++ : pageNumber--;
+        pageNumber === 0 ? pageNumber = 20 : pageNumber &= pageNumber;
+        pageNumber === 21 ? pageNumber = 1 : pageNumber &= pageNumber;
         history.push(`/${pageNumber.toString()}`);
     }
     return (
