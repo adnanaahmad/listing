@@ -3,7 +3,7 @@ import FooterSecondary from '../../shared/components/footer-secondary/footer-sec
 import WelcomePageVariantTwo from '../../shared/pages/welcome-page-v2';
 import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
-import WelcomeImage from '../../assets/Property Management Assets/DSC00024@2x.png';
+import WelcomeImage from '../../assets/All Listings Assets/DSC02341@2x.png';
 import SecondSpacePage from '../../shared/pages/second-space-page';
 import ListingProcessPage from '../../shared/pages/listing-process-page';
 import LeftLeaf from '../../assets/Index Assets/Path 19@2x.png';
