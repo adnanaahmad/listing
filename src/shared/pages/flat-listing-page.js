@@ -91,7 +91,7 @@ function FlatListingPage(props) {
     ];
     return (
     <React.Fragment>
-        <Stack spacing={15} direction="column" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: '218vh'}}>
+        <Stack spacing={15} direction="column" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: '255vh'}}>
             <Stack spacing={3} style={{maxWidth: '1440px', width: '100%', border: isBorder ? '2px solid yellow' : 'none',}}>
                 <Stack direction="row" justifyContent="center" sx={{width: '100%'}}>
                     <Box sx={{width: '10%', minWidth: '5%', border: isBorder ? '1px solid purple' : 'none',}}/>
