@@ -99,7 +99,7 @@ function SecondSpacePage(props) {
     };
     return (
     <React.Fragment>
-        <Stack direction="column" alignItems="center" justifyContent={props.data.showBottomBar ? 'space-between' : 'center'} spacing={'2rem'} sx={{ border: isBorder ? '2px solid red' : 'none', height: '100vh'}}>
+        <Stack direction="column" alignItems="center" justifyContent={props.data.showBottomBar ? 'space-between' : 'center'} spacing={'2rem'} sx={{ border: isBorder ? '2px solid red' : 'none', height: '120vh'}}>
             <Stack direction="row" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '2px solid orange' : 'none', width: '70%', height: 'fitContent', maxWidth: '1440px'}}>
                 <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%', maxWidth: '400px'}} spacing={'2rem'}>
                     <ThemeProvider theme={props.data.theme}>
