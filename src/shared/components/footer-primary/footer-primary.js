@@ -8,7 +8,10 @@ import Button from '@mui/material/Button';
 import {toggleBorder} from './../../../shared/styles/debugging-border';
 import {ThemeProvider} from '@mui/material/styles';
 import {WhiteTheme} from './../../../shared/styles/themes/white-theme'
-import divImage from './../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png'
+import divImage from './../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
+import TextField from '@mui/material/TextField';
+import InputAdornment from '@mui/material/InputAdornment';
+import { createTheme } from '@mui/material/styles';
 
 const isBorder = toggleBorder;
 const classes = {
@@ -20,6 +23,16 @@ const classes = {
         border: isBorder ? '2px solid red' : 'none',
     }
 };
+
+const DarkTheme = createTheme({
+    palette: {
+      mode: 'dark',
+      primary: {
+        main: '#ebebeb',
+      },
+    },
+  });
+
 
 export default function FooterPrimary() {
     const firstColumn = ['Services', 'Landlords', 'Tenants', 'Management'];
@@ -41,10 +54,22 @@ export default function FooterPrimary() {
                                 <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>Want To Find</Typography>
                                 <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
                             </Stack>
-                            <Stack color="primary" direction="row" alignItems="center" sx={{ border: 1, borderColor: WhiteTheme.palette.primary.main, borderRadius: 2, minWidth: '50%', py: 1, px: 4}}>
-                                <SearchIcon color="primary" fontSize='large'/>
-                                <Typography color="primary" variant="h5">Your Email</Typography>
-                            </Stack>
+                            <ThemeProvider theme={DarkTheme}>
+                                <TextField sx={{minWidth: '50%', "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
+                                    borderWidth: "2px", borderColor: 'white', borderRadius: 2,
+                                }}}
+                                    id="input-with-icon-textfield"
+                                    placeholder='Your Email'
+                                    InputProps={{
+                                    startAdornment: (
+                                        <InputAdornment position="start">
+                                            <SearchIcon fontSize='large'/>
+                                        </InputAdornment>
+                                    ),
+                                    }}
+                                    variant="outlined"
+                                />
+                            </ThemeProvider>
                             <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
                                 Book A Meeting
                             </Button>
