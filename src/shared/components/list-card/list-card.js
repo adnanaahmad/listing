@@ -9,7 +9,7 @@ import { ThemeProvider } from '@emotion/react';
 const isBorder = toggleBorder;
 export default function ListCard(props) {
     return (
-        <Stack direction="column" justifyContent="space-between" alignItems="center" sx={{
+        <Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={'1rem'} sx={{
             border: isBorder ? 1 : 'none',
             width: '30%',
             borderTopRightRadius: '40px',
@@ -20,7 +20,7 @@ export default function ListCard(props) {
         }}>
             <Box component="img"
                 sx={{
-                    height: '80%',
+                    height: '72%',
                     borderTopRightRadius: '40px',
                     borderBottomLeftRadius: '40px', 
                     width: '100%',
@@ -30,7 +30,7 @@ export default function ListCard(props) {
                 src={props.data.image}
             />
             <ThemeProvider theme={props.theme}>
-                <Stack sx={{border: isBorder ? '1px solid blue' : 'none', width: '100%', marginTop: '1rem'}} spacing={'1rem'}>
+                <Stack sx={{border: isBorder ? '1px solid blue' : 'none', width: '100%'}} spacing={'1rem'}>
                     <Stack sx={{border: isBorder ? '1px solid red' : 'none'}} direction="row" justifyContent="flex-end" alignItems="flex-end">
                         <Typography color="primary" variant="body1" sx={{fontWeight: 500, fontSize: '1.3rem', lineHeight: 1}}>{props.data.price}</Typography>
                         <Typography color="primary" variant="body1" sx={{fontSize: '.6rem',}}>Per Week</Typography>

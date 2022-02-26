@@ -17,7 +17,7 @@ function RecentlyListedPage(props) {
     return (
         <React.Fragment>
             <Stack direction="column" justifyContent="center" alignItems="flex-end" sx={{ border: isBorder ? '1px solid red' : 'none', height: '78vh', backgroundColor: '#36400F'}} spacing={'2rem'}>
-                <Stack sx={{border: isBorder ? 1 : 'none', height: '70%', width: '92%'}} spacing={'2rem'}>
+                <Stack direction="column" justifyContent="space-between" sx={{border: isBorder ? 1 : 'none', height: '70%', width: '92%'}} spacing={'2rem'}>
                     <Stack direction="row" justifyContent="space-between">
                         <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: 'white'}}>Recently Listed Properties</Typography>
                         <Stack direction="row" alignItems="center" spacing={'2rem'} sx={{marginRight: '10%'}}>
