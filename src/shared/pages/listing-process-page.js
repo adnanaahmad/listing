@@ -54,7 +54,7 @@ function ListingProcessPage(props) {
                 <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: themeObject[props.data.titleTheme]}}>
                     {props.data.title}
                 </Typography>
-                <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none',  height: '48%', maxWidth: '1224px', width: '100%'}} spacing={'2rem'}>
+                <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none',  height: 'fitContent', maxWidth: '1224px', width: '100%'}} spacing={'2rem'}>
                     <LeafImageBox opacity={props.data.leafOpacity} leafImage = {props.data.leafImage} rightImage={false}/>
                     {
                         props.data.cards.map((card, i) => (
@@ -65,6 +65,8 @@ function ListingProcessPage(props) {
                                 borderBottomLeftRadius: '40px',
                                 boxShadow: props.data.boxShadow,
                                 paddingX: '.5rem',
+                                height: 'fitContent',
+                                paddingY: '2rem'
                             }}>
                                 <Box component="img"
                                     sx={{
