@@ -9,9 +9,10 @@ import {ThemeProvider} from '@mui/material/styles';
 import {WhiteTheme} from './../../../shared/styles/themes/white-theme'
 import divImage from './../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
 import EmailTextField from '../email-textfield/email-textfield';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const isBorder = toggleBorder;
-const classes = {
+const styleObject = {
     paperContainer: {
         height: '100%',
         backgroundImage: `url(${divImage})`,
@@ -21,13 +22,25 @@ const classes = {
     }
 };
 
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    footerParent: {
+        [theme.breakpoints.down('md')]: {
+            display: 'flex',
+            flexDirection: 'column'
+        },
+    },
+  }),
+);
+
 export default function FooterPrimary() {
+    const classes = useStyles();
     const firstColumn = ['Services', 'Landlords', 'Tenants', 'Management'];
     const secondColumn = ['RESOURCES', 'FAQs', 'Management', 'Privacy Policy'];
     const thirdColumn = ['CONTACT', 'hk@friendlyflats.co.nz', '0800 123 4567', 'Auckland City'];
     return (
         <React.Fragment>
-            <div style={classes.paperContainer}>
+            <div style={styleObject.paperContainer}>
                 <ThemeProvider theme={WhiteTheme}>
                     <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', height: '100%', padding: '50px'}}>
                         <Stack
@@ -55,34 +68,42 @@ export default function FooterPrimary() {
                     justifyContent="space-between"
                     alignItems="center"
                     sx={{ border: isBorder ? 1: 'none', height: '100%'}}
+                    className={classes.footerParent}
                 >
                     <HomeOutlinedIcon sx={{ fontSize: 200 }}/>
-                    <Stack spacing={2}>
+                    <Stack                    
+                    direction="row"
+                    justifyContent="space-between"
+                    alignItems="center"
+                    sx={{width: '100%'}}
+                    >
+                        <Stack spacing={2}>
+                            {
+                                firstColumn.map((item, i) => (
+                                    <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
+                                        {item}
+                                    </Typography>
+                                ))
+                            }
+                        </Stack>
+                        <Stack spacing={2}>
+                            {
+                                secondColumn.map((item, i) => (
+                                    <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
+                                        {item}
+                                    </Typography>
+                                ))
+                            }
+                        </Stack>
+                        <Stack spacing={2}>
                         {
-                            firstColumn.map((item, i) => (
-                                <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
-                                    {item}
-                                </Typography>
-                            ))
-                        }
-                    </Stack>
-                    <Stack spacing={2}>
-                        {
-                            secondColumn.map((item, i) => (
-                                <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
-                                    {item}
-                                </Typography>
-                            ))
-                        }
-                    </Stack>
-                    <Stack spacing={2}>
-                       {
-                            thirdColumn.map((item, i) => (
-                                <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
-                                    {item}
-                                </Typography>
-                            ))
-                        }
+                                thirdColumn.map((item, i) => (
+                                    <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
+                                        {item}
+                                    </Typography>
+                                ))
+                            }
+                        </Stack>
                     </Stack>
                 </Stack>
             </Container>
