@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import {toggleBorder} from '../styles/debugging-border';
 import divImage from '../../assets/Index Assets/Mask Group 9@2x.png';
 import Box from '@mui/material/Box';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const isBorder = toggleBorder;
 const ViewListingsButton = styled(Button)(({ theme }) => ({
@@ -17,7 +18,7 @@ const ViewListingsButton = styled(Button)(({ theme }) => ({
     borderRadius: '40px'
   }));
 
-const classes = {
+const styleObject = {
     infoTab: {
         background: '#ea9760',
         color: 'white',
@@ -26,8 +27,18 @@ const classes = {
         boxShadow: 'rgba(0, 0, 0, 0.1) 0px 4px 12px'
     }
 };
-
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    pageOne: {
+        [theme.breakpoints.down('md')]: {
+            display: 'flex',
+            flexDirection: 'column'
+        },
+    },
+  }),
+);
 function SpacePage(props) {
+    const classes = useStyles();
     return (
     <React.Fragment>
         <Stack sx={{border: isBorder ? '2px solid red' : 'none', height: '150vh', position: 'relative'}}>
@@ -43,7 +54,7 @@ function SpacePage(props) {
             <Stack>
                 {/* page 1 */}
                 <div style={{height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none', position: 'absolute', top: 0}}>
-                    <Stack direction="row" alignItems="center" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%'}}>
+                    <Stack className={classes.pageOne} direction="row" alignItems="center" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%'}}>
                         <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
                             <ThemeProvider theme={props.data.theme}>
                                 <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block', width: '30rem'}}>We'll Find A Space That Suits You</Typography>
@@ -59,15 +70,15 @@ function SpacePage(props) {
                             </ThemeProvider>
                         </Stack>
                         <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'1rem'} sx={{ border: isBorder ? 1 : 'none'}}>
-                            <Stack direction="row" alignItems="center" style={classes.infoTab}>
+                            <Stack direction="row" alignItems="center" style={styleObject.infoTab}>
                                 <Typography variant="body1" sx={{fontSize: '3rem'}}>1</Typography>
                                 <BathtubOutlinedIcon sx={{fontSize: '3rem'}}/>
                             </Stack>
-                            <Stack direction="row" alignItems="center" style={classes.infoTab}>
+                            <Stack direction="row" alignItems="center" style={styleObject.infoTab}>
                                 <Typography variant="body1" sx={{fontSize: '3rem',}}>2</Typography>
                                 <BedIcon sx={{fontSize: '3rem'}}/>
                             </Stack>
-                            <Stack direction="row" alignItems="center" style={classes.infoTab}>
+                            <Stack direction="row" alignItems="center" style={styleObject.infoTab}>
                                 <Typography variant="body1" sx={{fontSize: '3rem',}}>$235</Typography>
                             </Stack>
                         </Stack>

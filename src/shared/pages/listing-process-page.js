@@ -5,7 +5,6 @@ import {toggleBorder} from '../styles/debugging-border';
 import {BrownTheme} from '../styles/themes/brown-theme';
 import {DarkGreenTheme} from '../styles/themes/dark-green-theme';
 import { makeStyles, createStyles } from '@mui/styles';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const isBorder = toggleBorder;
 
@@ -18,8 +17,6 @@ const useStyles = makeStyles((theme) =>
     },
   }),
 );
-
-const theme = createTheme();
 
 function LeafImageBox(props) {
     const classes = useStyles();
@@ -49,47 +46,45 @@ function ListingProcessPage(props) {
     }
     return (
     <React.Fragment>
-        <ThemeProvider theme={theme}>
-            <Stack direction="column" justifyContent="center" alignItems="center"sx={{ border: isBorder ? '1px solid red' : 'none', height: '78vh'}} spacing={'2rem'}>
-                <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: themeObject[props.data.titleTheme]}}>
-                    {props.data.title}
-                </Typography>
-                <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none',  height: 'fitContent', maxWidth: '1224px', width: '100%'}} spacing={'2rem'}>
-                    <LeafImageBox opacity={props.data.leafOpacity} leafImage = {props.data.leafImage} rightImage={false}/>
-                    {
-                        props.data.cards.map((card, i) => (
-                            <Stack key={i} direction="column" justifyContent="center" alignItems="center" spacing={'1rem'} sx={{
-                                border: isBorder ? 1 : 'none',
-                                maxWidth: '30%',
-                                borderTopRightRadius: '40px',
-                                borderBottomLeftRadius: '40px',
-                                boxShadow: props.data.boxShadow,
-                                paddingX: '.5rem',
-                                height: 'fitContent',
-                                paddingY: '2rem'
-                            }}>
-                                <Box component="img"
-                                    sx={{
-                                        // height: '8rem',
-                                        width: '9rem',
-                                        objectFit: 'cover',
-                                    }}
-                                    alt="The house from the offer."
-                                    src={card.icon}
-                                />
-                                <Typography variant="body1" sx={{fontWeight: 500, fontSize: '1.8rem', textAlign: 'center', color: themeObject[props.data.cardTheme]}}>
-                                    {card.title}
-                                </Typography>
-                                <Typography variant="body1" display="block" sx={{maxWidth: '550px', fontWeight: 400, fontSize: '1rem', textAlign: 'center', color: themeObject[props.data.cardTheme]}}>
-                                    {card.text}
-                                </Typography>
-                            </Stack>
-                        )
-                    )}
-                    <LeafImageBox opacity={props.data.leafOpacity} leafImage = {props.data.leafImage} rightImage={true}/>
-                </Stack>
-            </Stack>  
-        </ThemeProvider>      
+        <Stack direction="column" justifyContent="center" alignItems="center"sx={{ border: isBorder ? '1px solid red' : 'none', height: '78vh'}} spacing={'2rem'}>
+            <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: themeObject[props.data.titleTheme]}}>
+                {props.data.title}
+            </Typography>
+            <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none',  height: 'fitContent', maxWidth: '1224px', width: '100%'}} spacing={'2rem'}>
+                <LeafImageBox opacity={props.data.leafOpacity} leafImage = {props.data.leafImage} rightImage={false}/>
+                {
+                    props.data.cards.map((card, i) => (
+                        <Stack key={i} direction="column" justifyContent="center" alignItems="center" spacing={'1rem'} sx={{
+                            border: isBorder ? 1 : 'none',
+                            maxWidth: '30%',
+                            borderTopRightRadius: '40px',
+                            borderBottomLeftRadius: '40px',
+                            boxShadow: props.data.boxShadow,
+                            paddingX: '.5rem',
+                            height: 'fitContent',
+                            paddingY: '2rem'
+                        }}>
+                            <Box component="img"
+                                sx={{
+                                    // height: '8rem',
+                                    width: '9rem',
+                                    objectFit: 'cover',
+                                }}
+                                alt="The house from the offer."
+                                src={card.icon}
+                            />
+                            <Typography variant="body1" sx={{fontWeight: 500, fontSize: '1.8rem', textAlign: 'center', color: themeObject[props.data.cardTheme]}}>
+                                {card.title}
+                            </Typography>
+                            <Typography variant="body1" display="block" sx={{maxWidth: '550px', fontWeight: 400, fontSize: '1rem', textAlign: 'center', color: themeObject[props.data.cardTheme]}}>
+                                {card.text}
+                            </Typography>
+                        </Stack>
+                    )
+                )}
+                <LeafImageBox opacity={props.data.leafOpacity} leafImage = {props.data.leafImage} rightImage={true}/>
+            </Stack>
+        </Stack>  
     </React.Fragment>
     );
 }

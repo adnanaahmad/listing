@@ -14,6 +14,10 @@ import {LightTheme} from '../../shared/styles/themes/light-theme';
 import RecentlyListedPage from '../../shared/pages/recently-listed-page';
 import AboutUsPage from '../../shared/pages/about-us-page';
 import SpacePage from '../../shared/pages/space-page';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
+const theme = createTheme();
 
 function ScreenOne() {
   const welcomePage = {
@@ -50,14 +54,16 @@ function ScreenOne() {
   }
   return (
     <React.Fragment>
-      <WelcomePageVariantOne data = {welcomePage}/>
-      <WorkPage data={work}/>
-      <ListingProcessPage data={listingProcess} />
-      <RecentlyListedPage data = {recentlyListed}/>
-      <SpacePage data={space}/>
-      <AboutUsPage/>
-      <ClientsReviewPage/>
-      <FooterPrimary/>
+      <ThemeProvider theme={theme}>
+        <WelcomePageVariantOne data = {welcomePage}/>
+        <WorkPage data={work}/>
+        <ListingProcessPage data={listingProcess} />
+        <RecentlyListedPage data = {recentlyListed}/>
+        <SpacePage data={space}/>
+        <AboutUsPage/>
+        <ClientsReviewPage/>
+        <FooterPrimary/>
+      </ThemeProvider>
     </React.Fragment>
   );
 }
