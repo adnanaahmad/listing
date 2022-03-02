@@ -43,6 +43,7 @@ function SpacePage(props) {
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
+    const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     return (
     <React.Fragment>
         <Stack sx={{border: isBorder ? '2px solid red' : 'none', minHeight: '180vh', height: 'fitContent', position: 'relative'}}>
@@ -51,7 +52,7 @@ function SpacePage(props) {
                     height: '70%',
                     maxHeight: '100vh',
                     objectFit: 'contain',
-                    marginLeft: 'auto'
+                    marginLeft: matchesMobile ? '0' : 'auto'
                 }}
                 alt="The house from the offer."
                 src={divImage}
