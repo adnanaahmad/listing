@@ -27,6 +27,11 @@ const useStyles = makeStyles((theme) =>
             height: 'fit-content',
             padding: '2rem 0'
         },
+    },
+    heading: {
+        [theme.breakpoints.down('md')]: {
+            textAlign: 'center'
+        },
     }
   }),
 );
@@ -63,7 +68,7 @@ function ListingProcessPage(props) {
     return (
     <React.Fragment>
         <Stack className={classes.page} direction="column" justifyContent="center" alignItems="center"sx={{ border: isBorder ? '1px solid red' : 'none', height: '78vh'}} spacing={'2rem'}>
-            <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: themeObject[props.data.titleTheme]}}>
+            <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: themeObject[props.data.titleTheme]}} className={classes.heading}>
                 {props.data.title}
             </Typography>
             <Stack className={classes.cardsParent} direction={matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none',  height: 'fitContent', maxWidth: '1224px', width: '100%'}} spacing={'2rem'}>
