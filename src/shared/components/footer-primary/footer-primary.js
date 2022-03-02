@@ -51,6 +51,7 @@ export default function FooterPrimary() {
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
+    const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const firstColumn = ['Services', 'Landlords', 'Tenants', 'Management'];
     const secondColumn = ['RESOURCES', 'FAQs', 'Management', 'Privacy Policy'];
     const thirdColumn = ['CONTACT', 'hk@friendlyflats.co.nz', '0800 123 4567', 'Auckland City'];
@@ -70,7 +71,7 @@ export default function FooterPrimary() {
                                 <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>Want To Find</Typography>
                                 <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
                             </Stack>
-                            <Stack direction="row" justifyContent="space-between" spacing={'1rem'} sx={{width: '100%'}}>
+                            <Stack direction={matchesMobile ? "column" : "row"} justifyContent="space-between" spacing={'1rem'} sx={{width: '100%'}}>
                                 <EmailTextField/>
                                 <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
                                     Book A Meeting
