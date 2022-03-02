@@ -46,7 +46,7 @@ function SpacePage(props) {
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     return (
     <React.Fragment>
-        <Stack sx={{border: isBorder ? '2px solid red' : 'none', minHeight: '180vh', height: 'fitContent', position: 'relative'}}>
+        <Stack sx={{border: isBorder ? '2px solid red' : 'none', minHeight: '200vh', height: 'fitContent', position: 'relative'}}>
             <Box component="img"
                 sx={{
                     height: '70%',
