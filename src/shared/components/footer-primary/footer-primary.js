@@ -10,6 +10,8 @@ import {WhiteTheme} from './../../../shared/styles/themes/white-theme'
 import divImage from './../../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
 import EmailTextField from '../email-textfield/email-textfield';
 import { makeStyles, createStyles } from '@mui/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const isBorder = toggleBorder;
 const styleObject = {
@@ -30,11 +32,25 @@ const useStyles = makeStyles((theme) =>
             flexDirection: 'column'
         },
     },
+    footerInfo: {
+        [theme.breakpoints.down('md')]: {
+            border: isBorder ? '1px solid black': 'none',
+            width: 'fit-content',
+            alignItems: 'center'
+        },
+    },
+    footerInfoCol: {
+        [theme.breakpoints.down('md')]: {
+            alignItems: 'center'
+        },
+    },
   }),
 );
 
 export default function FooterPrimary() {
     const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const firstColumn = ['Services', 'Landlords', 'Tenants', 'Management'];
     const secondColumn = ['RESOURCES', 'FAQs', 'Management', 'Privacy Policy'];
     const thirdColumn = ['CONTACT', 'hk@friendlyflats.co.nz', '0800 123 4567', 'Auckland City'];
@@ -44,7 +60,7 @@ export default function FooterPrimary() {
                 <ThemeProvider theme={WhiteTheme}>
                     <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', height: '100%', padding: '50px'}}>
                         <Stack
-                            direction="row"
+                            direction={matches ? "row" : "column"}
                             justifyContent="space-between"
                             alignItems="center"
                             sx={{ border: isBorder ? 1: 'none', height: '100%'}}
@@ -54,10 +70,12 @@ export default function FooterPrimary() {
                                 <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>Want To Find</Typography>
                                 <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
                             </Stack>
-                            <EmailTextField/>
-                            <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
-                                Book A Meeting
-                            </Button>
+                            <Stack direction="row" justifyContent="space-between" spacing={'1rem'} sx={{width: '100%'}}>
+                                <EmailTextField/>
+                                <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
+                                    Book A Meeting
+                                </Button>
+                            </Stack>
                         </Stack>
                     </Container>
                 </ThemeProvider>
@@ -72,12 +90,14 @@ export default function FooterPrimary() {
                 >
                     <HomeOutlinedIcon sx={{ fontSize: 200 }}/>
                     <Stack                    
-                    direction="row"
+                    direction={matches ? "row" : "column"}
                     justifyContent="space-between"
                     alignItems="center"
                     sx={{width: '100%'}}
+                    className={classes.footerInfo}
+                    spacing = {matches ? '1rem' : '2rem'}
                     >
-                        <Stack spacing={2}>
+                        <Stack spacing={2} className={classes.footerInfoCol}>
                             {
                                 firstColumn.map((item, i) => (
                                     <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
@@ -86,7 +106,7 @@ export default function FooterPrimary() {
                                 ))
                             }
                         </Stack>
-                        <Stack spacing={2}>
+                        <Stack spacing={2} className={classes.footerInfoCol}>
                             {
                                 secondColumn.map((item, i) => (
                                     <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
@@ -95,7 +115,7 @@ export default function FooterPrimary() {
                                 ))
                             }
                         </Stack>
-                        <Stack spacing={2}>
+                        <Stack spacing={2} className={classes.footerInfoCol}>
                         {
                                 thirdColumn.map((item, i) => (
                                     <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>

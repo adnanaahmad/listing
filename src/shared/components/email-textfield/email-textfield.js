@@ -18,7 +18,7 @@ export default function EmailTextField() {
         <ThemeProvider theme={DarkTheme}>
             <TextField 
                 sx={{
-                    minWidth: '50%', 
+                    flexGrow: 1, 
                     "& .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline": {
                         borderWidth: "2px",
                         borderColor: 'white',
