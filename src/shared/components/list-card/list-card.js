@@ -11,16 +11,17 @@ export default function ListCard(props) {
     return (
         <Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={'1rem'} sx={{
             border: isBorder ? 1 : 'none',
-            width: '30%',
+            width: props.styles ? props.styles.cardWidth : '30%',
             borderTopRightRadius: '40px',
             borderBottomLeftRadius: '40px',                                
             padding: '.7rem',
             backgroundColor: 'white',
             boxShadow: props.boxShadow ? 'rgb(203 146 108 / 35%) 0px 4px 12px' : 'none',
+            margin: props.styles ? props.styles.cardMargin : '0'
         }}>
             <Box component="img"
                 sx={{
-                    height: '72%',
+                    height: props.styles ? props.styles.imageHeight : '72%',
                     borderTopRightRadius: '40px',
                     borderBottomLeftRadius: '40px', 
                     width: '100%',
