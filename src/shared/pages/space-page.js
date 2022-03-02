@@ -8,6 +8,8 @@ import {toggleBorder} from '../styles/debugging-border';
 import divImage from '../../assets/Index Assets/Mask Group 9@2x.png';
 import Box from '@mui/material/Box';
 import { makeStyles, createStyles } from '@mui/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const isBorder = toggleBorder;
 const ViewListingsButton = styled(Button)(({ theme }) => ({
@@ -31,20 +33,23 @@ const useStyles = makeStyles((theme) =>
   createStyles({
     pageOne: {
         [theme.breakpoints.down('md')]: {
-            display: 'flex',
-            flexDirection: 'column'
+            // display: 'flex',
+            // flexDirection: 'column'
         },
     },
   }),
 );
 function SpacePage(props) {
     const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     return (
     <React.Fragment>
-        <Stack sx={{border: isBorder ? '2px solid red' : 'none', height: '150vh', position: 'relative'}}>
+        <Stack sx={{border: isBorder ? '2px solid red' : 'none', minHeight: '180vh', height: 'fitContent', position: 'relative'}}>
             <Box component="img"
                 sx={{
                     height: '70%',
+                    maxHeight: '100vh',
                     objectFit: 'contain',
                     marginLeft: 'auto'
                 }}
@@ -53,11 +58,11 @@ function SpacePage(props) {
             />
             <Stack>
                 {/* page 1 */}
-                <div style={{height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none', position: 'absolute', top: 0}}>
-                    <Stack className={classes.pageOne} direction="row" alignItems="center" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%'}}>
+                <div style={{minHeight: '70vh', height: 'fitContent', width: '100%', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none', position: 'absolute', top: 0}}>
+                    <Stack className={classes.pageOne} direction={matches ? "row" : "column"} alignItems="center" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%', paddingTop: '2rem'}}>
                         <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
                             <ThemeProvider theme={props.data.theme}>
-                                <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block', width: '30rem'}}>We'll Find A Space That Suits You</Typography>
+                                <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block', maxWidth: '30rem'}}>We'll Find A Space That Suits You</Typography>
                                 <Typography color="primary" variant="body1" display="block" sx={{maxWidth: '550px', fontWeight: 500}}>
                                 Every person has different wants, needs and budgets when it comes to housing in New Zealand.
                                 </Typography>
@@ -85,9 +90,9 @@ function SpacePage(props) {
                     </Stack>
                 </div>
                 {/* page 2 */}
-                <div style={{height: '70vh', width: '100%', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none', position: 'absolute', top: '50%'}}>
+                <div style={{minHeight: '70vh', height: 'fitContent', width: '100%', display: 'flex', justifyContent: 'center', border: isBorder ? '1px solid green' : 'none', position: 'absolute', top: '50%'}}>
                     <ThemeProvider theme={props.data.theme}>
-                        <Stack direction="column" alignItems="start" justifyContent="center" spacing={'3rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%'}}>
+                        <Stack direction="column" alignItems="start" justifyContent="center" spacing={'3rem'} sx={{ border: isBorder ? '1px solid purple' : 'none', width: '80%', paddingBottom: '2rem'}}>
                             <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
                                 <Typography color="primary" variant="h4" sx={{fontWeight: 500, fontSize: '3rem', display: 'block'}}>Tenants To Trust</Typography>
                                 <Typography color="primary" variant="body1" display="block" sx={{maxWidth: '800px', fontWeight: 500}}>
