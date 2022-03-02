@@ -24,6 +24,13 @@ const useStyles = makeStyles((theme) =>
             marginRight: '0'
         },
     },
+    heading: {
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column',
+            justifyContent: 'center',
+            padding: '0 1rem'
+        },
+    }
   }),
 );
 
@@ -42,7 +49,7 @@ function RecentlyListedPage(props) {
         <React.Fragment>
             <Stack direction="column" justifyContent="center" alignItems="flex-end" sx={{ border: isBorder ? '1px solid red' : 'none', height: '78vh', backgroundColor: '#36400F'}} spacing={'2rem'}>
                 <Stack className={classes.parentDiv} direction="column" justifyContent="space-between" sx={{border: isBorder ? 1 : 'none', height: '75%', width: '92%'}} spacing={'2rem'}>
-                    <Stack direction="row" justifyContent="space-between">
+                    <Stack direction="row" justifyContent="space-between" className={classes.heading}>
                         <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: 'white'}}>Recently Listed Properties</Typography>
                         <Stack className={classes.moreDiv} direction="row" alignItems="center" spacing={'2rem'} sx={{marginRight: '10%'}}>
                             <Typography variant="body1" sx={{fontWeight: 500, fontSize: '20px', color: 'white'}}>Find More Listings</Typography>
