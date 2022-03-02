@@ -21,7 +21,8 @@ const FirstPageButton = styled(Button)(({ theme }) => ({
   borderRadius: '50px', 
   fontSize: '1.2rem', 
   textTransform: 'none', 
-  width: '30%'
+  whiteSpace: 'nowrap',
+  width: 'fit-content'
 }));
 
 function WelcomePageVariantOne(props) {
@@ -93,6 +94,7 @@ function WelcomePageVariantOne(props) {
             <Box component="img"
               sx={{
                 height: '80vh',
+                minWidth: '150px',
                 border: isBorder ? '2px solid red' : 'none',
                 objectFit: 'cover',
                 borderBottomRightRadius: '50px',
