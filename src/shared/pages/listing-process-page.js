@@ -5,6 +5,8 @@ import {toggleBorder} from '../styles/debugging-border';
 import {BrownTheme} from '../styles/themes/brown-theme';
 import {DarkGreenTheme} from '../styles/themes/dark-green-theme';
 import { makeStyles, createStyles } from '@mui/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const isBorder = toggleBorder;
 
@@ -15,6 +17,17 @@ const useStyles = makeStyles((theme) =>
             display: 'none',
         },
     },
+    cardsParent: {
+        [theme.breakpoints.down('md')]: {
+            alignItems: 'center',
+        },
+    },
+    page: {
+        [theme.breakpoints.down('md')]: {
+            height: 'fit-content',
+            padding: '2rem 0'
+        },
+    }
   }),
 );
 
@@ -39,6 +52,9 @@ function LeafImageBox(props) {
 }
 
 function ListingProcessPage(props) {
+    const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const themeObject = {
         brown: BrownTheme.palette.primary.main,
         black: 'black',
@@ -46,11 +62,11 @@ function ListingProcessPage(props) {
     }
     return (
     <React.Fragment>
-        <Stack direction="column" justifyContent="center" alignItems="center"sx={{ border: isBorder ? '1px solid red' : 'none', height: '78vh'}} spacing={'2rem'}>
+        <Stack className={classes.page} direction="column" justifyContent="center" alignItems="center"sx={{ border: isBorder ? '1px solid red' : 'none', height: '78vh'}} spacing={'2rem'}>
             <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: themeObject[props.data.titleTheme]}}>
                 {props.data.title}
             </Typography>
-            <Stack direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none',  height: 'fitContent', maxWidth: '1224px', width: '100%'}} spacing={'2rem'}>
+            <Stack className={classes.cardsParent} direction={matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none',  height: 'fitContent', maxWidth: '1224px', width: '100%'}} spacing={'2rem'}>
                 <LeafImageBox opacity={props.data.leafOpacity} leafImage = {props.data.leafImage} rightImage={false}/>
                 {
                     props.data.cards.map((card, i) => (
