@@ -72,7 +72,7 @@ function ListingProcessPage(props) {
                     props.data.cards.map((card, i) => (
                         <Stack key={i} direction="column" justifyContent="center" alignItems="center" spacing={'1rem'} sx={{
                             border: isBorder ? 1 : 'none',
-                            maxWidth: '30%',
+                            maxWidth: matches ? '30%' : '60%',
                             borderTopRightRadius: '40px',
                             borderBottomLeftRadius: '40px',
                             boxShadow: props.data.boxShadow,
