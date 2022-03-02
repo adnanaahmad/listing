@@ -28,6 +28,7 @@ const FirstPageButton = styled(Button)(({ theme }) => ({
 function WelcomePageVariantOne(props) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -86,19 +87,19 @@ function WelcomePageVariantOne(props) {
       }
       {
         !matches &&
-        <Stack spacing={'4rem'} direction="column" sx={{ border: isBorder ? '3px solid red' : 'none', height: 'fitContent', marginX: 'auto', paddingX: '2rem', paddingBottom: '4rem'}}>
+        <Stack spacing={'4rem'} direction="column" sx={{ border: isBorder ? '3px solid red' : 'none', height: 'fitContent', marginX: 'auto', paddingX: matchesMobile ? '.5rem' : '2rem', paddingBottom: '4rem'}}>
           <Stack spacing={'1rem'} direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
             <ThemeProvider theme={BrownTheme}>
-              <HomeOutlinedIcon sx={{ fontSize: '5rem', color: 'rgb(155 85 30)'}}/>
+              <HomeOutlinedIcon sx={{ fontSize: matchesMobile ? '3rem' : '5rem', color: 'rgb(155 85 30)'}}/>
             </ThemeProvider>
             <Box component="img"
               sx={{
-                height: '80vh',
+                height: matchesMobile ? '40vh' : '80vh',
                 minWidth: '150px',
                 border: isBorder ? '2px solid red' : 'none',
                 objectFit: 'cover',
-                borderBottomRightRadius: '50px',
-                borderBottomLeftRadius: '50px',
+                borderBottomRightRadius: matchesMobile ? '30px' : '50px',
+                borderBottomLeftRadius: matchesMobile ? '30px' : '50px',
               }}
               alt="The house from the offer."
               src={props.data.image}
@@ -113,7 +114,7 @@ function WelcomePageVariantOne(props) {
               aria-expanded={open ? 'true' : undefined}
               onClick={handleClick}
               >
-                <MenuIcon sx={{ fontSize: '4rem'}}/>
+                <MenuIcon sx={{ fontSize: matchesMobile ? '2rem' : '4rem'}}/>
               </IconButton>
               <Menu
                 id="basic-menu"
@@ -137,8 +138,8 @@ function WelcomePageVariantOne(props) {
             <Stack justifyContent="center" alignItems="center" sx={{border: isBorder ? '1px solid yellow' : 'none', height: 'fitContent'}}>
               <Stack justifyContent="space-between" sx={{border: isBorder ? 1 : 'none', minWidth: '70%', height: 'fitContent'}} spacing={'2.5rem'}>
                 <div>
-                  <Typography variant="h2" color="primary" sx={{textAlign: 'center'}}>{props.data.titleOne}</Typography>
-                  <Typography variant="h1" color="primary" sx={{fontWeight: 600, textAlign: 'center'}}>{props.data.titleTwo}</Typography>
+                  <Typography variant={ matchesMobile ? "h3" : "h2"} color="primary" sx={{textAlign: 'center'}}>{props.data.titleOne}</Typography>
+                  <Typography variant={matchesMobile ? "h2" : "h1"} color="primary" sx={{fontWeight: 600, textAlign: 'center'}}>{props.data.titleTwo}</Typography>
                 </div>
                 { props.data.showButtonGroup &&
                 <Stack alignItems="center" spacing={2} sx={{ border: isBorder ? 1 : 'none'}}>
