@@ -5,6 +5,9 @@ import Button from '@mui/material/Button'
 import Box from '@mui/material/Box';
 import {toggleBorder} from '../styles/debugging-border';
 import BranchImage from '../../assets/Index Assets/Mask Group 3@2x.png';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const SecondPageButton = styled(Button)(({ theme }) => ({
     color: 'primary',
@@ -14,21 +17,43 @@ const SecondPageButton = styled(Button)(({ theme }) => ({
     borderRadius: '40px'
   }));
 
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    parentDiv: {
+        [theme.breakpoints.down('md')]: {
+            height: 'fit-content',
+            padding: '1rem'
+        },
+    },
+    pageImg: {
+        [theme.breakpoints.down('md')]: {
+            borderRadius: '1rem',
+            width: '70%',
+            maxWidth: '400px'
+        },  
+    }
+  }),
+);
+
 function WorkPage(props) {
+    const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const isBorder = toggleBorder;
     return (
     <React.Fragment>
-        <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'2rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh'}}>
-        <Box component="img"
-            sx={{
-                height: '90%',
-                borderTopRightRadius: "40px",
-                borderBottomRightRadius: "40px",
-                width: '38%',
-                objectFit: 'cover'
-            }}
-            alt="The house from the offer."
-            src={BranchImage}
+        <Stack direction={matches ? "row" : "column"} alignItems="center" justifyContent="space-between" spacing={'2rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh'}} className={classes.parentDiv}>
+            <Box component="img"
+                sx={{
+                    height: '90%',
+                    borderTopRightRadius: "40px",
+                    borderBottomRightRadius: "40px",
+                    width: '38%',
+                    objectFit: 'cover'
+                }}
+                alt="The house from the offer."
+                src={BranchImage}
+                className={classes.pageImg}
             />
             <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}} spacing={'2rem'}>
                 <ThemeProvider theme={props.data.contentTheme}>
@@ -44,7 +69,10 @@ function WorkPage(props) {
                     <SecondPageButton variant="contained">Learn More</SecondPageButton>
                 </ThemeProvider>
             </Stack>
-            <Box sx={{ width: '5%', border: isBorder ? 1 : 'none', height: '100%'}}></Box>
+            {
+                matches &&
+                <Box sx={{ width: '5%', border: isBorder ? 1 : 'none', height: '100%'}}></Box>
+            }
         </Stack>
     </React.Fragment>
     );
