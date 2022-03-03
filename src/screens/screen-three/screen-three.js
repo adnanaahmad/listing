@@ -13,7 +13,10 @@ import { LightTheme } from '../../shared/styles/themes/light-theme';
 import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import FlatListingPage from '../../shared/pages/flat-listing-page';
 import { GreenTheme } from '../../shared/styles/themes/green-theme';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
 
+const theme = createTheme();
 function ScreenThree() {
   const welcomePage = {
     titleOne: "Flatmates",
@@ -50,12 +53,14 @@ function ScreenThree() {
   }
   return (
     <React.Fragment>
-      <WelcomePageVariantOne data = {welcomePage}/>
-      <FlatListingPage data={flatListing}/>
-      <ListingProcessPage data={listingProcess}/>
-      <SecondSpacePage data={spacePage}/>
-      <ClientsReviewPage/>
-      <FooterPrimary/>
+      <ThemeProvider theme={theme}>
+        <WelcomePageVariantOne data = {welcomePage}/>
+        <FlatListingPage data={flatListing}/>
+        <ListingProcessPage data={listingProcess}/>
+        <SecondSpacePage data={spacePage}/>
+        <ClientsReviewPage/>
+        <FooterPrimary/>
+      </ThemeProvider>
     </React.Fragment>
   );
 }
