@@ -12,6 +12,9 @@ import {WhiteTheme} from '../styles/themes/white-theme';
 import divImage from '../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
 import sofaImage from '../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const TypographyTheme = createTheme();
 const isBorder = toggleBorder;
@@ -32,7 +35,7 @@ TypographyTheme.typography.body1 = {
         maxWidth: '600px',
     },
 };
-const classes = {
+const styleObject = {
     infoTab: {
         background: '#ea9760',
         color: 'white',
@@ -50,9 +53,43 @@ const classes = {
     }
 };
 
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    parent: {
+        [theme.breakpoints.down('md')]: {
+            height: 'fit-content',
+            padding: '2rem 0'
+        },
+    },
+    firstComponent: {
+        [theme.breakpoints.down('md')]: {
+            alignItems: 'center',
+        },
+    },
+    fcImg: {
+        [theme.breakpoints.down('md')]: {
+            maxHeight: '300px',
+            borderRadius: '1rem'
+        },
+    },
+    childTxt: {
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            maxWidth: '300px'
+        },
+    },
+    childImg: {
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            maxWidth: '300px'
+        },
+    }
+  }),
+);
+
 function Footer() {
     return (
-        <div style={classes.paperContainer}>
+        <div style={styleObject.paperContainer}>
             <ThemeProvider theme={WhiteTheme}>
                 <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', height: '100%', paddingY: '50px'}}>
                     <Stack
@@ -79,9 +116,9 @@ function Footer() {
                           alignItems="center"
                           sx={{width: '100%'}}
                         >
-                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit'}}>We're committed to offering NZ's most affordable rentals.</Typography>
-                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit'}}>If you find a business who you think provides a better service, let us know.</Typography>
-                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit'}}>We are not just friendly, but flexible too!</Typography>
+                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit', textAlign: 'center'}}>We're committed to offering NZ's most affordable rentals.</Typography>
+                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit', textAlign: 'center'}}>If you find a business who you think provides a better service, let us know.</Typography>
+                            <Typography color="primary" variant="body1" sx={{fontWeight: 600, fontFamily: 'inherit', textAlign: 'center'}}>We are not just friendly, but flexible too!</Typography>
                         </Stack>
                     </Stack>
                 </Container>
@@ -91,6 +128,9 @@ function Footer() {
 }
 
 function SecondSpacePage(props) {
+    const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const Card = {
         title: "We'll Find You A Space That Suits You Best",
         image: sofaImage,
@@ -99,9 +139,9 @@ function SecondSpacePage(props) {
     };
     return (
     <React.Fragment>
-        <Stack direction="column" alignItems="center" justifyContent={props.data.showBottomBar ? 'space-between' : 'center'} spacing={'2rem'} sx={{ border: isBorder ? '2px solid red' : 'none', height: '120vh'}}>
-            <Stack direction="row" justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '2px solid orange' : 'none', width: '70%', height: 'fitContent', maxWidth: '1440px'}}>
-                <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%', maxWidth: '400px'}} spacing={'2rem'}>
+        <Stack className={classes.parent} direction="column" alignItems="center" justifyContent={props.data.showBottomBar ? 'space-between' : 'center'} spacing={'2rem'} sx={{ border: isBorder ? '2px solid red' : 'none', height: '120vh'}}>
+            <Stack className={classes.firstComponent} direction={matches ? "row" : "column-reverse"} justifyContent="space-around" spacing={'2rem'} sx={{ border: isBorder ? '2px solid orange' : 'none', width: '70%', height: 'fitContent', maxWidth: '1440px'}}>
+                <Stack className={classes.childTxt} direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%', maxWidth: '400px'}} spacing={'2rem'}>
                     <ThemeProvider theme={props.data.theme}>
                         <Typography color="primary" variant="h4" sx={{fontWeight: 500}}>{Card.title}</Typography>
                         <Typography color="primary" variant="body1" display="block">
@@ -120,7 +160,7 @@ function SecondSpacePage(props) {
                         </ThemeProvider>      
                     }              
                 </Stack>
-                <Stack sx={{width: '35%', border: isBorder ? '1px solid green' : 'none', position: 'relative'}}>
+                <Stack className={classes.childImg} sx={{width: '35%', border: isBorder ? '1px solid green' : 'none', position: 'relative'}}>
                     <Box component="img"
                         sx={{
                             height: '600px',
@@ -131,17 +171,18 @@ function SecondSpacePage(props) {
                         }}
                         alt="The house from the offer."
                         src={Card.image}
+                        className={classes.fcImg}
                     />
                     <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{ border: isBorder ? 1 : 'none'}}>
-                        <Stack direction="row" alignItems="center" style={classes.infoTab} sx={{paddingX: 2.5, paddingY: .5, top: '80%', left: '-13px'}}>
+                        <Stack direction="row" alignItems="center" style={styleObject.infoTab} sx={{paddingX: 2.5, paddingY: .5, top: matches ? '80%' : '60%', left: '-13px'}}>
                             <Typography variant="body1" sx={{fontSize: '2rem'}}>1</Typography>
                             <BathtubOutlinedIcon sx={{fontSize: '2rem'}}/>
                         </Stack>
-                        <Stack direction="row" alignItems="center" style={classes.infoTab} sx={{paddingX: 2.5, paddingY: .5, left: '-13px'}}>
+                        <Stack direction="row" alignItems="center" style={styleObject.infoTab} sx={{paddingX: 2.5, paddingY: .5, left: '-13px'}}>
                             <Typography variant="body1" sx={{fontSize: '2rem',}}>2</Typography>
                             <BedIcon sx={{fontSize: '2rem'}}/>
                         </Stack>
-                        <Stack direction="row" alignItems="center" style={classes.infoTab} sx={{paddingX: 2.5, paddingY: .5, right: '-13px'}}>
+                        <Stack direction="row" alignItems="center" style={styleObject.infoTab} sx={{paddingX: 2.5, paddingY: .5, right: '-13px'}}>
                             <Typography variant="body1" sx={{fontSize: '2rem',}}>$235</Typography>
                         </Stack>
                     </Stack>
