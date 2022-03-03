@@ -12,9 +12,12 @@ import ListCard from '../components/list-card/list-card';
 import {WhiteTheme} from '../styles/themes/white-theme';
 import divImage from '../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
 import Container from '@mui/material/Container';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const isBorder = toggleBorder;
-const classes = {
+const styleObject = {
     paperContainer: {
         height: '220px',
         backgroundImage: `url(${divImage})`,
@@ -25,10 +28,28 @@ const classes = {
     }
 };
 
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    cardsParent: {
+        [theme.breakpoints.down('md')]: {
+            alignItems: 'center',
+        },
+    },
+    footerButton: {
+        [theme.breakpoints.down('md')]: {
+            padding: '.5rem 1rem',
+            fontSize: '.9rem'
+        },
+    }
+  }),
+);
+
 function MenuCard(props) {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const filter = ['all locations', 'any price', 'any bed', 'any bath', 'parking'];
     return (
-        <Card sx={{width: '100%', minWidth: '800px'}} elevation={1}>
+        <Card sx={{width: '100%', minWidth: '100px'}} elevation={1}>
             <div style = {{padding: '15px 15px'}}>
             <Stack direction="row" justifyContent="space-between" alignItems="center">
                 <ThemeProvider theme={props.theme}>
@@ -37,17 +58,20 @@ function MenuCard(props) {
                     </Button>
                 </ThemeProvider>
                 <ThemeProvider theme={props.theme}>
-                    <Stack direction="row" alignItems="center" spacing={2}>
-                        {
-                            filter.map((item, i) => (
-                            <React.Fragment key={i}>
-                                <Button sx={{fontWeight: 600, textTransform: 'none', fontSize: '1rem', fontFamily: 'inherit', whiteSpace: 'nowrap'}}>{item}</Button>
-                                { i !== 4 &&
-                                    <Typography color="primary" variant="body1">|</Typography>
-                                }
-                            </React.Fragment>  
-                        ))}
-                    </Stack>
+                    {
+                        matches &&
+                        <Stack direction="row" alignItems="center" spacing={2}>
+                            {
+                                filter.map((item, i) => (
+                                <React.Fragment key={i}>
+                                    <Button sx={{fontWeight: 600, textTransform: 'none', fontSize: '1rem', fontFamily: 'inherit', whiteSpace: 'nowrap'}}>{item}</Button>
+                                    { i !== 4 &&
+                                        <Typography color="primary" variant="body1">|</Typography>
+                                    }
+                                </React.Fragment>  
+                            ))}
+                        </Stack>
+                    }
                     <Button sx={{fontWeight: 600, fontSize: '1rem', fontFamily: 'inherit', whiteSpace: 'nowrap'}}>sort by</Button>
                 </ThemeProvider>
             </Stack>
@@ -57,22 +81,34 @@ function MenuCard(props) {
 }
 
 function Footer() {
+    const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     return (
-        <div style={classes.paperContainer}>
+        <div style={styleObject.paperContainer}>
             <ThemeProvider theme={WhiteTheme}>
                 <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', height: '100%', padding: '50px'}}>
                     <Stack
-                        direction="row"
+                        direction={matches ? "row" : "column"}
                         justifyContent="space-between"
                         alignItems="center"
-                        sx={{ border: isBorder ? 1: 'none', height: '100%', width: '60%', margin: 'auto'}}
+                        sx={{ border: isBorder ? 1: 'none', height: '100%', width: matches ? '60%' : '100%', margin: 'auto'}}
                         spacing={'1rem'}
                     >
-                        <Stack>
-                            <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>Need To Chat</Typography>
-                            <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>About Budget?</Typography>
-                        </Stack>
-                        <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
+                        {
+                            matches &&
+                            <Stack>
+                                <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>Need To Chat</Typography>
+                                <Typography color="primary" variant="h4" sx={{fontWeight: 600, fontFamily: 'inherit'}}>About Budget?</Typography>
+                            </Stack>
+                        }
+                        {
+                            !matches &&
+                            <Typography color="primary" variant="h5" sx={{fontWeight: 600, fontFamily: 'inherit'}}>Need To Chat About Budget?</Typography>
+                        }
+                        <Button variant="contained" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}
+                            className={classes.footerButton}
+                        >
                             Book A Meeting
                         </Button>
                     </Stack>
@@ -83,6 +119,9 @@ function Footer() {
 }
 
 function FlatListingPage(props) {
+    const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const sortBy = ['Highest Price', 'Lowest Price', 'Earliest Move In', 'Recently Listed'];
     let Cards = [
         {price : '$450', address: '230 Queen Street', bed: 2, bath: 1, image: homeImageOne},
@@ -91,25 +130,31 @@ function FlatListingPage(props) {
     ];
     return (
     <React.Fragment>
-        <Stack spacing={15} direction="column" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: '255vh'}}>
+        <Stack spacing={15} direction="column" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: matches ? '255vh' : 'fit-content'}}>
             <Stack spacing={3} style={{maxWidth: '1440px', width: '100%', border: isBorder ? '2px solid yellow' : 'none',}}>
                 <Stack direction="row" justifyContent="center" sx={{width: '100%'}}>
-                    <Box sx={{width: '10%', minWidth: '5%', border: isBorder ? '1px solid purple' : 'none',}}/>
+                    {
+                        matches &&
+                        <Box sx={{width: '10%', minWidth: '5%', border: isBorder ? '1px solid purple' : 'none',}}/>
+                    }
                     <div style={{width: '80%', border: isBorder ? '1px solid orange' : 'none'}}>
                         <ThemeProvider theme={props.data.headingTheme}>
                             <Typography color="primary" variant="body1" sx={{fontWeight: 500, fontSize: '40px', fontFamily: 'inherit'}}>Friendly Flat Listings</Typography>
                         </ThemeProvider>
                         <MenuCard theme={props.data.menuBarTheme}/>
                     </div>
-                    <ThemeProvider theme={props.data.filterTheme}>
-                        <Stack direction="column" justifyContent="space-between" alignItems="center" spacing={1} sx={{width: '10%', border: isBorder ? '1px solid green' : 'none', marginTop: '95px'}}>
-                            {
-                                sortBy.map((item, i) => (
-                                    <Typography color="primary" sx={{fontFamily: 'inherit', fontWeight: i === 1 ? 700 : 500, opacity: i===1 ? 1 : .5, fontSize: '.75rem'}} key={i} variant="body1">{item}</Typography>
-                                ))
-                            }
-                        </Stack>
-                    </ThemeProvider>
+                    {
+                        matches &&
+                        <ThemeProvider theme={props.data.filterTheme}>
+                            <Stack direction="column" justifyContent="space-between" alignItems="center" spacing={1} sx={{width: '10%', border: isBorder ? '1px solid green' : 'none', marginTop: '95px'}}>
+                                {
+                                    sortBy.map((item, i) => (
+                                        <Typography color="primary" sx={{fontFamily: 'inherit', fontWeight: i === 1 ? 700 : 500, opacity: i===1 ? 1 : .5, fontSize: '.75rem'}} key={i} variant="body1">{item}</Typography>
+                                    ))
+                                }
+                            </Stack>
+                        </ThemeProvider>
+                    }
                 </Stack>
                 <Stack direction="column" alignItems="center" style={{width: '80%', border: isBorder ? '2px solid orange' : 'none', marginLeft: 'auto', marginRight: 'auto', height: '100%'}}>
                     <Stack spacing={'6rem'} justifyContent="space-between" style={{width: '90%', border: isBorder ? '2px solid purple' : 'none', height: '100%'}}>
@@ -118,10 +163,19 @@ function FlatListingPage(props) {
                         </ThemeProvider>
                         {
                             [1,2,3].map((item, y) => (
-                                <Stack key={y} direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: '400px'}} spacing={'2rem'}>
+                                <Stack className={classes.cardsParent} key={y} direction={ matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: matches ? '400px' : 'fit-content'}} spacing={'2rem'}>
                                     {
+                                        matches &&
                                         Cards.map((card, i) => (
-                                            <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card} />
+                                            <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card}/>
+                                        )
+                                    )}
+                                    {
+                                        !matches &&
+                                        Cards.map((card, i) => (
+                                            <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card}
+                                                styles={{imageHeight: '200px', cardMargin: 'auto', cardWidth: '250px'}}
+                                            />
                                         )
                                     )}
                                 </Stack>
