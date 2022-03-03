@@ -122,6 +122,7 @@ function FlatListingPage(props) {
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
+    const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const sortBy = ['Highest Price', 'Lowest Price', 'Earliest Move In', 'Recently Listed'];
     let Cards = [
         {price : '$450', address: '230 Queen Street', bed: 2, bath: 1, image: homeImageOne},
@@ -156,7 +157,7 @@ function FlatListingPage(props) {
                         </ThemeProvider>
                     }
                 </Stack>
-                <Stack direction="column" alignItems="center" style={{width: '80%', border: isBorder ? '2px solid orange' : 'none', marginLeft: 'auto', marginRight: 'auto', height: '100%'}}>
+                <Stack direction="column" alignItems="center" style={{width: matchesMobile ? '100%' : '80%', border: isBorder ? '2px solid orange' : 'none', marginLeft: 'auto', marginRight: 'auto', height: '100%'}}>
                     <Stack spacing={'6rem'} justifyContent="space-between" style={{width: '90%', border: isBorder ? '2px solid purple' : 'none', height: '100%'}}>
                         <ThemeProvider theme={props.data.filterTheme}>
                             <Typography color="primary" variant="body1" sx={{fontWeight: 500, fontSize: '1.1rem', fontFamily: 'inherit'}}>Showing 1 - 48 Of 100 Properties</Typography>
