@@ -4,8 +4,38 @@ import {ThemeProvider} from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import {toggleBorder} from '../styles/debugging-border';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
 const isBorder = toggleBorder;
+const useStyles = makeStyles((theme) =>
+createStyles({
+    parent: {
+        [theme.breakpoints.down('md')]: {
+            height: 'fit-content',
+            padding: '2rem 1rem'
+        },
+    },
+    stackOne: {
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            maxWidth: '500px'
+        },
+    },
+    stackTwo: {
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            maxWidth: '500px'
+        },
+    },
+    img: {
+        [theme.breakpoints.down('sm')]: {
+            width: '70%',
+        },
+    }
+}),
+);
 
 function ContentCard(props) {
     return(
@@ -26,7 +56,9 @@ function ContentCard(props) {
 
 
 function MaintenancePage(props) {
-    
+    const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const SecondComponentCard = 
         {
             title: 'Professional Maintenance',
@@ -51,9 +83,9 @@ function MaintenancePage(props) {
 
     return (
     <React.Fragment>
-        <Stack direction="column" spacing={'5rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: '140vh', paddingTop: '6rem'}}>
-            <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'4rem'} sx={{border: isBorder ? '1px solid yellow' : 'none', maxWidth: '1440px', paddingRight: '30px'}}>
-                <Stack sx={{border: isBorder ? '1px solid blue' : 'none', width: '50%', margin: 'auto'}}>
+        <Stack className={classes.parent} direction="column" spacing={'5rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: '140vh', paddingTop: '6rem'}}>
+            <Stack direction={ matches ? "row" : "column"} alignItems="center" justifyContent="space-between" spacing={'4rem'} sx={{border: isBorder ? '1px solid yellow' : 'none', maxWidth: '1440px', paddingRight: matches ? '30px' : 0}}>
+                <Stack className={classes.stackOne} sx={{border: isBorder ? '1px solid blue' : 'none', width: '50%', margin: 'auto'}}>
                     <Stack sx={{border: isBorder ? '1px solid pink' : 'none', margin: 'auto'}}>
                         {
                             props.data.screen === 'four' &&
@@ -77,7 +109,7 @@ function MaintenancePage(props) {
                         }
                     </Stack>
                 </Stack>
-                <Stack sx={{border: isBorder ? '1px solid purple' : 'none'}} spacing={'2rem'}>
+                <Stack className={classes.stackTwo} sx={{border: isBorder ? '2px solid purple' : 'none'}} spacing={'2rem'}>
                     {
                         FirstComponentCard.map((card, i) => (
                             <ContentCard key={i} data = {card} theme={props.data.theme} />
@@ -85,16 +117,17 @@ function MaintenancePage(props) {
                     }
                 </Stack>
             </Stack>
-            <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'4rem'} sx={{ border: isBorder ? '1px solid orange' : 'none', height: '60%', maxWidth: '1440px', paddingRight: '30px'}}>
+            <Stack direction={matches ? "row" : "column"} alignItems="center" justifyContent="space-between" spacing={'4rem'} sx={{ border: isBorder ? '1px solid orange' : 'none', height: matches ? '60%' : 'fit-content', maxWidth: '1440px', paddingRight: matches ? '30px' : 0}}>
                 <Box component="img"
                     sx={{
                         height: '100%',
-                        borderTopRightRadius: "40px",
+                        borderTopRightRadius: matches ? "40px" : 0,
                         width: '50%',
                         objectFit: 'cover'
                     }}
                     alt="The house from the offer."
                     src={props.data.image}
+                    className={classes.img}
                     />
                 <ContentCard data = {SecondComponentCard} theme={props.data.theme} />
             </Stack>
