@@ -32,7 +32,7 @@ function PolicyTermsPage(props) {
             direction="column"
             justifyContent="center"
             alignItems="center"
-            spacing={'5rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fitContent', paddingY: '6rem'}}
+            spacing={'5rem'} sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fitContent', paddingY: '6rem', paddingX: '1rem'}}
         >
             <Stack direction="column" justifyContent="space-between" spacing={'4rem'} sx={{ border: isBorder ? '1px solid orange' : 'none', maxWidth: '1440px'}}>
                 
