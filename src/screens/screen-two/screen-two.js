@@ -12,7 +12,10 @@ import iconOne from '../../assets/Property Management Assets/one.png';
 import iconTwo from '../../assets/Property Management Assets/two.png';
 import iconThree from '../../assets/Property Management Assets/three.png';
 import WelcomeImage from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
 
+const theme = createTheme();
 function ScreenTwo() {
     const welcomePage = {
         titleOne: "Home Owners",
@@ -43,12 +46,14 @@ function ScreenTwo() {
     }
     return (
         <React.Fragment>
-        <WelcomePageVariantOne data = {welcomePage}/>
-        <CommitmentWorkPage data = {commitmentWorkPage}/>
-        <ListingProcessPage data={listingProcess} />
-        <PropertiesTcoPage data = {showHouse}/>
-        <ClientsReviewPage/>
-        <FooterPrimary/>
+            <ThemeProvider theme={theme}>
+                <WelcomePageVariantOne data = {welcomePage}/>
+                <CommitmentWorkPage data = {commitmentWorkPage}/>
+                <ListingProcessPage data={listingProcess} />
+                <PropertiesTcoPage data = {showHouse}/>
+                <ClientsReviewPage/>
+                <FooterPrimary/>
+            </ThemeProvider>
         </React.Fragment>
     );
 }

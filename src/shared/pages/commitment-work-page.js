@@ -3,6 +3,8 @@ import { Stack, Typography } from '@mui/material';
 import {ThemeProvider, createTheme } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import {toggleBorder} from '../../shared/styles/debugging-border';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
   const TypographyTheme = createTheme();
 
@@ -24,6 +26,8 @@ import {toggleBorder} from '../../shared/styles/debugging-border';
   };
 function CommitmentWorkPage(props) {
     const isBorder = toggleBorder;
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const Cards = [
         {
             title: "Our Commitment To You",
@@ -40,14 +44,14 @@ function CommitmentWorkPage(props) {
     ]
     return (
     <React.Fragment>
-        <Stack direction="column" alignItems="center" justifyContent="center" spacing={'2rem'} sx={{ border: isBorder ? '2px solid red' : 'none', height: '100vh'}}>
+        <Stack direction="column" alignItems="center" justifyContent="center" spacing={'2rem'} sx={{ border: isBorder ? '2px solid red' : 'none', height: matches ? '100vh' : 'fit-content'}}>
         {
             Cards.map((card, i) => (
-                <Stack key={i} direction="row" justifyContent="space-between" spacing={'2rem'} sx={{ border: isBorder ? '2px solid orange' : 'none', width: '80%', height: 'fitContent'}}>
+                <Stack key={i} direction={ matches ? "row" : "column"} justifyContent="space-between" alignItems={'center'} spacing={'2rem'} sx={{ border: isBorder ? '2px solid orange' : 'none', width: '80%', height: 'fitContent', maxWidth: '1024px', paddingY: '2rem'}}>
                     <Stack sx={{width: '50%', border: isBorder ? '1px solid green' : 'none',}}>
                         <Box component="img"
                             sx={{
-                                height: '400px',
+                                maxHeight: '400px',
                                 borderTopRightRadius: "40px",
                                 borderBottomLeftRadius: "40px",
                                 width: '100%',
