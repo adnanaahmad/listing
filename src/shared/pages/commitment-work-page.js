@@ -5,6 +5,7 @@ import Box from '@mui/material/Box';
 import {toggleBorder} from '../../shared/styles/debugging-border';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
   const TypographyTheme = createTheme();
 
@@ -22,10 +23,28 @@ import { useTheme } from '@mui/material/styles';
     [TypographyTheme.breakpoints.up('lg')]: {
         fontSize: '1.3rem',
         maxWidth: '600px',
-      },
+    },
   };
+  const useStyles = makeStyles((theme) =>
+  createStyles({
+    childImg: {
+        [theme.breakpoints.down('md')]: {
+            width: '60%'
+        },
+        [theme.breakpoints.down('sm')]: {
+            width: '80%'
+        },
+    },
+    childTxt: {
+        [theme.breakpoints.down('md')]: {
+            width: '90%',
+        },
+    },
+  }),
+);
 function CommitmentWorkPage(props) {
     const isBorder = toggleBorder;
+    const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const Cards = [
@@ -48,7 +67,7 @@ function CommitmentWorkPage(props) {
         {
             Cards.map((card, i) => (
                 <Stack key={i} direction={ matches ? "row" : "column"} justifyContent="space-between" alignItems={'center'} spacing={'2rem'} sx={{ border: isBorder ? '2px solid orange' : 'none', width: '80%', height: 'fitContent', maxWidth: '1024px', paddingY: '2rem'}}>
-                    <Stack sx={{width: '50%', border: isBorder ? '1px solid green' : 'none',}}>
+                    <Stack className={classes.childImg} sx={{width: '50%', border: isBorder ? '1px solid green' : 'none',}}>
                         <Box component="img"
                             sx={{
                                 maxHeight: '400px',
@@ -61,7 +80,7 @@ function CommitmentWorkPage(props) {
                             src={card.image}
                         />
                     </Stack>
-                    <Stack direction="column" alignItems="center" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%'}} spacing={'3rem'}>
+                    <Stack className={classes.childTxt}  direction="column" alignItems="center" sx={{ border: isBorder ? '1px solid green' : 'none', width: '50%'}} spacing={'3rem'}>
                         <Typography variant="h4" sx={{fontWeight: 500, color: props.data.theme ? props.data.theme.palette.primary.main : 'black' }}>{card.title}</Typography>
                         <ThemeProvider theme={TypographyTheme}>
                             <Typography variant="body1" display="block" sx={{color: props.data.theme ? props.data.theme.palette.primary.main : 'black' }}>
