@@ -9,7 +9,10 @@ import CommitmentSatisfactionPage from '../../shared/pages/commitment-satisfacti
 import { CommitmentCards } from '../../shared/core/constant';
 import BulbImage from '../../assets/All Listings Assets/bulb.png';
 import MaintenancePage from '../../shared/pages/maintenance-page';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
 
+const theme = createTheme();
 function ScreenFour() {
   const welcomePage = {
     titleOne: "Maintenance",
@@ -32,12 +35,14 @@ function ScreenFour() {
   }
   return (
     <React.Fragment>
-      <WelcomePageVariantOne data = {welcomePage}/>
-      <CommitmentSatisfactionPage data={commitment} />
-      <ThirdPage/>
-      <MaintenancePage data={maintenance} />
-      <ClientsReviewPage/>
-      <FooterPrimary/>
+      <ThemeProvider theme={theme}>
+        <WelcomePageVariantOne data = {welcomePage}/>
+        <CommitmentSatisfactionPage data={commitment} />
+        <ThirdPage/>
+        <MaintenancePage data={maintenance} />
+        <ClientsReviewPage/>
+        <FooterPrimary/>
+      </ThemeProvider>
     </React.Fragment>
   );
 }
