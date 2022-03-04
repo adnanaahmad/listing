@@ -6,6 +6,10 @@ import WelcomeImage from '../../assets/Index Assets/building.png';
 import PolicyTermsPage from '../../shared/pages/policy-terms-page';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import { LightTheme } from '../../shared/styles/themes/light-theme';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
+const theme = createTheme();
 
 function ScreenEight() {
   const welcomePage = {
@@ -64,10 +68,12 @@ function ScreenEight() {
     };
   return (
     <React.Fragment>
-      <WelcomePageVariantOne data = {welcomePage}/>
-      <PolicyTermsPage data = {Cards}/>
-      <ClientsReviewPage/>
-      <FooterPrimary/>
+        <ThemeProvider theme={theme}>
+            <WelcomePageVariantOne data = {welcomePage}/>
+            <PolicyTermsPage data = {Cards}/>
+            <ClientsReviewPage/>
+            <FooterPrimary/>
+        </ThemeProvider>
     </React.Fragment>
   );
 }
