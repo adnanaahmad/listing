@@ -4,8 +4,12 @@ import Box from '@mui/material/Box';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
 import houseImage from '../../../assets/About Us Assets/houses.png';
 import VisionCard from '../../../shared/components/vision-card/vision-card';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 function ThirdPage() {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const isBorder = toggleBorder;
     const Card = 
         {
@@ -23,12 +27,12 @@ function ThirdPage() {
 
     return (
     <React.Fragment>
-        <Stack sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fitContent', paddingY: '4rem'}}>
+        <Stack sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fitContent', paddingY: '4rem', paddingX: matches ? 0 : '1rem'}}>
             <Stack
-                direction="row"
+                direction={matches ? "row" : "column"}
                 alignItems="center"
                 justifyContent="space-between"
-                sx={{ border: isBorder ? '1px solid orange' : 'none', height: 'fitContent', paddingRight: '3rem'}}
+                sx={{ border: isBorder ? '1px solid orange' : 'none', height: 'fitContent', padding: matches ? '0 3rem 0 0' : 0}}
             >
                 <Box component="img"
                     sx={{
