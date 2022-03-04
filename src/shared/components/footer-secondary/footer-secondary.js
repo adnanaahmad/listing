@@ -11,16 +11,57 @@ import {WhiteTheme} from './../../../shared/styles/themes/white-theme'
 import divImage from './../../../assets/Book a Meeting Asset/Mask Group 5@2x.png';
 import Box from '@mui/material/Box';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import { makeStyles, createStyles } from '@mui/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const isBorder = toggleBorder;
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    parent: {
+        [theme.breakpoints.down('md')]: {
+            height: 'fit-content'
+        },
+    },
+    img: {
+        [theme.breakpoints.down('md')]: {
+            height: '1200px'
+        },
+    },
+    fc: {
+        [theme.breakpoints.down('md')]: {
+            width: '100%',
+            maxWidth: '600px',
+            margin: 'auto',
+        },
+    },
+    footerInfo: {
+        [theme.breakpoints.down('md')]: {
+            border: isBorder ? '1px solid black': 'none',
+            width: '100%',
+            alignItems: 'center',
+            margin: 'auto',
+            maxWidth: '500px'
+        },
+    },
+    footerInfoCol: {
+        [theme.breakpoints.down('md')]: {
+            alignItems: 'center'
+        },
+    },
+  }),
+);
 
 export default function FooterSecondary() {
+    const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const firstColumn = ['Rent a Room', 'Rent a House', 'Homeowners', 'Property Management'];
     const secondColumn = ['FAQs', 'Privacy Policy', 'Terms and Conditions', 'Maintenance'];
     const thirdColumn = [ 'info@friendlyflats.co.nz', '0800 123 4567', 'Auckland, NZ'];
     return (
         <React.Fragment>
-            <Stack sx={{border: isBorder ? '2px solid red' : 'none', position: 'relative', height: '55vh'}}>
+            <Stack className={classes.parent} sx={{border: isBorder ? '2px solid red' : 'none', position: 'relative', height: '55vh'}}>
                 <Box component="img"
                         sx={{
                             height: '100%',
@@ -30,19 +71,21 @@ export default function FooterSecondary() {
                         }}
                         alt="The house from the offer."
                         src={divImage}
+                        className={classes.img}
                 />
                 <ThemeProvider theme={WhiteTheme}>
-                    <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', padding: '50px', position: 'absolute'}}>
+                    <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', padding: matches ? '50px' : '2rem 0 0 0', position: 'absolute'}}>
                         <Stack
-                            direction="row"
+                            direction={matches ? "row" : "column"}
                             justifyContent="space-between"
                             alignItems="center"
                             sx={{ border: isBorder ? 1: 'none', height: '100%'}}
                             spacing={'1rem'}
+                            className={classes.fc}
                         >
-                            <Stack>
-                                <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>Want To Find</Typography>
-                                <Typography color="primary" variant="h4" sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
+                            <Stack className={classes.fcTxt} direction={matches ? "column" : "row"} spacing={ matches ? 0: '.5rem'}>
+                                <Typography color="primary" variant={matches ? "h4" : "h5"} sx={{fontWeight: 600}}>Want To Find</Typography>
+                                <Typography color="primary" variant={matches ? "h4" : "h5"} sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
                             </Stack>
                             <Stack color="primary" direction="row" alignItems="center" sx={{ border: 1, borderColor: WhiteTheme.palette.primary.main, borderRadius: 2, minWidth: '50%', py: 1, px: 4}}>
                                 <SearchIcon color="primary" fontSize='large'/>
@@ -53,12 +96,13 @@ export default function FooterSecondary() {
                             </Button>
                         </Stack>
                     </Container>
-                    <div style={{borderBottom: '2px solid white', width: '100%', top: '45%', position: 'absolute'}}></div>
-                    <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', padding: '50px', position: 'absolute', top: '50%'}}>
+                    <div style={{borderBottom: '2px solid white', width: '100%', top: matches ? '45%' : '24%', position: 'absolute'}}></div>
+                    <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', padding: matches ? '50px' : 0, position: 'absolute', top: matches ? '50%' : '30%'}}>
                         <Stack
-                        direction="row"
+                        direction={matches ? "row" : "column"}
                         justifyContent="space-between"
                         sx={{ border: isBorder ? 1: 'none', height: '100%'}}
+                        className={classes.footerInfo}
                         >   
                             <Stack>
                                 <HomeOutlinedIcon color="primary" sx={{ fontSize: 140 }}/>
@@ -69,7 +113,7 @@ export default function FooterSecondary() {
                                 </Stack>
                             </Stack>
                             
-                            <Stack spacing={2}>
+                            <Stack spacing={2} className={classes.footerInfoCol}>
                                 <Typography color="primary" variant="body1" component="div" sx={{fontWeight: 600, fontSize: '1.2rem'}}>SERVICES</Typography>
                                 {
                                     firstColumn.map((item, i) => (
@@ -79,7 +123,7 @@ export default function FooterSecondary() {
                                     ))
                                 }
                             </Stack>
-                            <Stack spacing={2}>
+                            <Stack spacing={2} className={classes.footerInfoCol}>
                                 <Typography color="primary" variant="body1" component="div" sx={{fontWeight: 600, fontSize: '1.2rem'}}>RESOURCES</Typography>
                                 {
                                     secondColumn.map((item, i) => (
@@ -93,6 +137,7 @@ export default function FooterSecondary() {
                             direction="column"
                             justifyContent="flex-start"
                             alignItems="flex-start"
+                            className={classes.footerInfoCol}
                             >
                                 <Typography color="primary" variant="body1" component="div" sx={{fontWeight: 600, fontSize: '1.2rem'}}>CONTACT</Typography>
                             {
