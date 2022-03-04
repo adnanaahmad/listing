@@ -5,8 +5,13 @@ import Box from '@mui/material/Box';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
 import LeftLeaf from '../../../assets/Property Management Assets/brownLeaf.png';
 import {BrownTheme} from '../../../shared/styles/themes/brown-theme';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 function SeventhPage() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('md'));
+  const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
   const isBorder = toggleBorder;
   const content = [
       {
@@ -30,7 +35,7 @@ function SeventhPage() {
     <React.Fragment>
         <Stack spacing={'2rem'} direction="row" justifyContent="center" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fitContent', width: '100%', paddingY: 10}}>
             <ThemeProvider theme={BrownTheme}>
-                <Stack direction="column" justifyContent="center" sx= {{border: isBorder ? '2px solid orange' : 'none', width: '50%', maxWidth: '1024px', backgroundColor: 'white', padding: '2rem 4rem', boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px'}}>
+                <Stack direction="column" justifyContent="center" sx= {{border: isBorder ? '2px solid orange' : 'none', width: matches ? '50%' : '100%', maxWidth: matches ? '1024px' : '600px', backgroundColor: 'white', padding: !matchesMobile ? '2rem 4rem' : '2rem .5rem', boxShadow: 'rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px'}}>
                     <Stack direction="row" alignItems="center" justifyContent="space-between" sx={{height: 'fitContent', border: isBorder ? '2px solid red' : 'none', marginBottom: '3rem', width: '100%'}}>
                         <Box component="img"
                             sx={{
