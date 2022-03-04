@@ -7,6 +7,8 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import {BrownTheme} from '../../../shared/styles/themes/brown-theme';
 import {DarkGreenTheme} from '../../../shared/styles/themes/dark-green-theme';
 import buildingImage from '../../../assets/Property Management Assets/liam-shaw-B89PCUuEGEU-unsplash@2x.png';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const TypographyTheme = createTheme();
 const isBorder = toggleBorder;
@@ -29,12 +31,14 @@ TypographyTheme.typography.body1 = {
 };
 
 function ContentCard  (props) {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const themeMap = {
         brown: BrownTheme.palette.primary.main,
         white: 'white'
     }
     return(
-        <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '500px'}} spacing={'2rem'}>
+        <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '500px', paddingX: props.padding && !matches ? '1rem' : 0}} spacing={'2rem'}>
             <ThemeProvider theme={TypographyTheme}>
                 <Typography variant="h4" sx={{fontWeight: 500, color: themeMap[props.theme], maxWidth: '400px'}}>{props.data.title}</Typography>
                 {
@@ -51,6 +55,9 @@ function ContentCard  (props) {
 
 
 function SecondPage() {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
+    const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     
     const SecondComponentCard = 
         {
@@ -77,10 +84,10 @@ function SecondPage() {
       
     return (
     <React.Fragment>
-        <Stack sx={{ border: isBorder ? '2px solid red' : 'none', height: '200vh', position: 'relative', marginY: '4rem'}}>
+        <Stack sx={{ border: isBorder ? '2px solid red' : 'none', height: matches ? '200vh' : 'fit-content', position: 'relative', marginY: '4rem'}}>
             <Box component="img"
             sx={{
-                height: '100%',
+                height: '250vh',
                 borderTopRightRadius: "40px",
                 width: '50%',
                 objectFit: 'cover',
@@ -93,16 +100,19 @@ function SecondPage() {
             />
             <Stack>
                 <Stack direction="column" justifyContent="space-between" sx={{ border: isBorder ? '2px solid yellow' : 'none', height: '100%', position: 'absolute', top: 0, width: '100%'}}>
-                    <Stack spacing={'2rem'} direction="row" justifyContent="center" alignItems="center" sx={{ paddingX: '4rem', backgroundColor: DarkGreenTheme.palette.primary.main, height: '300px', boxShadow: 'rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px'}}>
-                        <Typography variant='h3' sx={{width: 'fitContent', maxWidth: '500px', color: 'white'}}>
+                    <Stack spacing={'2rem'} direction={matches ? "row" : "column"} justifyContent="center" alignItems="center" sx={{ paddingX: matchesMobile ? '.5rem' : '4rem', backgroundColor: DarkGreenTheme.palette.primary.main, height: matches ? '300px' : 'fit-content', boxShadow: 'rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px'}}>
+                        <Typography variant={matchesMobile ? 'h4' : 'h3'} sx={{width: 'fitContent', maxWidth: '500px', color: 'white'}}>
                             Looking After Your Property As Ours
                         </Typography>
                         <Typography variant='body1' sx={{width: 'fitContent', maxWidth: '600px', color: 'white', fontWeight: 500}}>
                             When we manage a New Zealand property on behalf of our landlords, the primary objective is to ensure that the property will grow in value. Friendly Flat property managers make sure to select tenants that will treat your property with respect and care.
                         </Typography>
                     </Stack>
-                    <Stack direction="row" alignItems="center" justifyContent="center" sx={{border: isBorder ? '2px solid orange' : 'none',}}>
-                        <div style={{width: '20%'}}></div>
+                    <Stack direction="row" alignItems="center" justifyContent={matches ? "center": "flex-end"} sx={{border: isBorder ? '2px solid orange' : 'none',}}>
+                        {
+                            matches &&
+                            <div style={{width: '20%'}}></div>
+                        }
                         <Stack sx={{border: isBorder ? '1px solid purple' : 'none'}} spacing={'2rem'}>
                             {
                                 FirstComponentCard.map((card, i) => (
@@ -111,9 +121,9 @@ function SecondPage() {
                             }
                         </Stack>
                     </Stack>
-                    <Stack direction="row" alignItems="center" justifyContent="space-between" spacing={'4rem'} sx={{ border: isBorder ? '1px solid blue' : 'none', maxWidth: '1440px', paddingRight: '30px'}}>
-                        <div style={{background: DarkGreenTheme.palette.primary.main, padding: '5rem 2rem', borderTopRightRadius: '30px', borderBottomRightRadius: '30px', width: '54%', display: 'flex', justifyContent: 'center', boxShadow: 'rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px'}}>
-                            <ContentCard theme={'white'} data = {SecondComponentCard}/>
+                    <Stack direction={matches ? "row" : "column"} alignItems="center" justifyContent="space-between" spacing={ matchesMobile ? '1rem':'4rem'} sx={{ border: isBorder ? '1px solid blue' : 'none', maxWidth: matches ? '1440px' : '600px', paddingRight: matches ? '30px' : 0, margin: matches ? 0 : 'auto'}}>
+                        <div style={{background: DarkGreenTheme.palette.primary.main, padding: matches ? '5rem 2rem':'2rem 0', borderRadius: matches ? '0 30px 30px 0' : '2rem', width: matches ? '54%' : '100%', display: 'flex', justifyContent: 'center', boxShadow: 'rgb(0 0 0 / 19%) 0px 10px 20px, rgb(0 0 0 / 23%) 0px 6px 6px'}}>
+                            <ContentCard theme={'white'} data = {SecondComponentCard} padding={true}/>
                         </div>
                         <Stack spacing={'1.5rem'}>
                             <ThemeProvider theme={DarkGreenTheme}>

@@ -105,8 +105,8 @@ function WelcomePageVariantTwo(props) {
                         <Stack justifyContent="space-between" alignItems={'center'} sx={{border: isBorder ? 1 : 'none', minWidth: '70%', maxWidth: '500px', height: 'fitContent'}} spacing={'2.5rem'}>
                             <div>
                                 <ThemeProvider theme={props.data.headingTheme}>
-                                    <Typography variant={ matchesMobile ? "h3" : "h2"} color="primary">{props.data.titleOne}</Typography>
-                                    <Typography variant={matchesMobile ? "h2" : "h1"} color="primary" sx={{fontWeight: 600}}>{props.data.titleTwo}</Typography>
+                                    <Typography variant={ matchesMobile ? "h4" : "h2"} color="primary">{props.data.titleOne}</Typography>
+                                    <Typography variant={matchesMobile ? "h3" : "h1"} color="primary" sx={{fontWeight: 600}}>{props.data.titleTwo}</Typography>
                                 </ThemeProvider>
                             </div>
                             {
