@@ -9,11 +9,7 @@ import {BrownTheme} from '../styles/themes/brown-theme'
 import {toggleBorder} from '../styles/debugging-border'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import MenuIcon from '@mui/icons-material/Menu';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
-
+import MenuButton from '../components/menu-button/menu-button';
 
 const FirstPageButton = styled(Button)(({ theme }) => ({
   color: 'primary',
@@ -29,14 +25,6 @@ function WelcomePageVariantOne(props) {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('md'));
   const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   const isBorder = toggleBorder;
   return (
     <React.Fragment>
@@ -104,35 +92,7 @@ function WelcomePageVariantOne(props) {
               alt="The house from the offer."
               src={props.data.image}
             />
-            <ThemeProvider theme={BrownTheme}>
-              <IconButton 
-              color="primary" 
-              sx={{height: 'fit-content'}}
-              id="basic-button"
-              aria-controls={open ? 'basic-menu' : undefined}
-              aria-haspopup="true"
-              aria-expanded={open ? 'true' : undefined}
-              onClick={handleClick}
-              >
-                <MenuIcon sx={{ fontSize: matchesMobile ? '2rem' : '4rem'}}/>
-              </IconButton>
-              <Menu
-                id="basic-menu"
-                anchorEl={anchorEl}
-                open={open}
-                onClose={handleClose}
-                MenuListProps={{
-                  'aria-labelledby': 'basic-button',
-                }}
-                color="primary" 
-              >
-                {
-                  props.data.menu.map((item, i) => (
-                    <MenuItem key={i} color="primary" onClick={handleClose}>{item}</MenuItem>
-                  ))
-                }
-              </Menu>
-            </ThemeProvider>
+            <MenuButton data={{...props.data, menuTheme:BrownTheme}}/>
           </Stack>
           <ThemeProvider theme={BrownTheme}>
             <Stack justifyContent="center" alignItems="center" sx={{border: isBorder ? '1px solid yellow' : 'none', height: 'fitContent'}}>
