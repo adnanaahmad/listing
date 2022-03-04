@@ -34,7 +34,7 @@ function WelcomePageVariantTwo(props) {
                             <div>
                                 <ThemeProvider theme={props.data.headingTheme}>
                                     <Typography variant="h2" color="primary">{props.data.titleOne}</Typography>
-                                    <Typography variant="h1" color="primary" sx={{fontWeight: 600}}>{props.data.titleTwo}</Typography>
+                                    <Typography variant="h1" color="primary" sx={{fontWeight: 600, fontSize:'5rem'}}>{props.data.titleTwo}</Typography>
                                 </ThemeProvider>
                             </div>
                             {

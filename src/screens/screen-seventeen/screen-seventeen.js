@@ -5,7 +5,10 @@ import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import WelcomeImage from '../../assets/Property Management Assets/DSC00024@2x.png';
 import SecondPage from './components/second-page';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
 
+const theme = createTheme();
 
 function ScreenSeventeen() {
     const welcomePage = {
@@ -21,9 +24,11 @@ function ScreenSeventeen() {
     }
     return (
         <React.Fragment>
-        <WelcomePageVariantTwo data = {welcomePage}/>
-        <SecondPage/>
-        <FooterSecondary/>
+            <ThemeProvider theme={theme}>
+                <WelcomePageVariantTwo data = {welcomePage}/>
+                <SecondPage/>
+                <FooterSecondary/>
+            </ThemeProvider>
         </React.Fragment>
     );
 }
