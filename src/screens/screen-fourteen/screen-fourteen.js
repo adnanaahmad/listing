@@ -13,7 +13,10 @@ import LeftLeaf from '../../assets/Index Assets/Path 19@2x.png';
 import iconOne from '../../assets/Index Assets/Group 3@2x.png';
 import iconTwo from '../../assets/Index Assets/Group 5@2x.png';
 import iconThree from '../../assets/Index Assets/Group 4@2x.png';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
 
+const theme = createTheme();
 
 function ScreenFourteen() {
     const welcomePage = {
@@ -48,11 +51,13 @@ function ScreenFourteen() {
     }
     return (
         <React.Fragment>
-        <WelcomePageVariantTwo data = {welcomePage}/>
-        <CommitmentWorkPage data = {commitmentWorkPage}/>
-        <ListingProcessPage data={listingProcess}/>
-        <PropertiesTcoPage data = {showHouse}/>
-        <FooterSecondary/>
+            <ThemeProvider theme={theme}>
+                <WelcomePageVariantTwo data = {welcomePage}/>
+                <CommitmentWorkPage data = {commitmentWorkPage}/>
+                <ListingProcessPage data={listingProcess}/>
+                <PropertiesTcoPage data = {showHouse}/>
+                <FooterSecondary/>
+            </ThemeProvider>
         </React.Fragment>
     );
 }
