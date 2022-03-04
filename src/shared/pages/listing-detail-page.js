@@ -70,7 +70,7 @@ export default function ListingDetailPage(props) {
                         </Stack>
                     </ThemeProvider>
                     {/* third component */}
-                    <Stack spacing={'1rem'} direction={matches ? "row" : "column"} justifyContent="flex-end" alignItems={matches ? 'flex-start' : 'center'} sx={{border: isBorder ? 1 : 'none', width: '100%', height: 'fitContent'}}>
+                    <Stack spacing={matches ? 0 : '1rem'} direction={matches ? "row" : "column"} justifyContent="flex-end" alignItems={matches ? 'flex-start' : 'center'} sx={{border: isBorder ? 1 : 'none', width: '100%', height: 'fitContent'}}>
                         <ThemeProvider theme={props.data.theme}>
                             <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '400px', marginX: 'auto'}} spacing={'2rem'}>                        
                                 {
@@ -82,7 +82,7 @@ export default function ListingDetailPage(props) {
                                 }
                             </Stack>
                         </ThemeProvider>
-                        <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: matches ? '30%' : '100%', maxWidth: '350px'}}>
+                        <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: matches ? '35%' : '100%', maxWidth: '350px'}}>
                             <Stack spacing={'1rem'} alignItems="center" sx={{border: isBorder ? '2px solid orange' : 'none', borderRadius: '10px', height: 'fitContent', backgroundColor: WhiteTheme.palette.primary.contrastText, padding: '1rem 2rem'}} >
                                 <Typography variant="h5" display="block" sx={{color: 'white'}}>Enquire</Typography>
                                     <ThemeProvider theme={DarkGreenTheme}>

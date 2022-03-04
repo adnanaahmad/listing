@@ -4,6 +4,10 @@ import WelcomePageVariantThree from '../../shared/pages/welcome-page-v3';
 import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import FooterSecondary from '../../shared/components/footer-secondary/footer-secondary';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
+const theme = createTheme();
 
 function ScreenSixteen() {
   const welcomePage = {
@@ -16,9 +20,11 @@ function ScreenSixteen() {
   };
   return (
     <React.Fragment>
-        <WelcomePageVariantThree data={welcomePage}/>
-        <ListingDetailPage data={detailPage}/> 
-        <FooterSecondary/>       
+        <ThemeProvider theme={theme}>
+          <WelcomePageVariantThree data={welcomePage}/>
+          <ListingDetailPage data={detailPage}/> 
+          <FooterSecondary/> 
+        </ThemeProvider>      
     </React.Fragment>
   );
 }
