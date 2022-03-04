@@ -12,25 +12,65 @@ import TextField from '@mui/material/TextField';
 import {BrownTheme} from '../../../shared/styles/themes/brown-theme';
 import {DarkGreenTheme} from '../../../shared/styles/themes/dark-green-theme';
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import MenuButton from '../../../shared/components/menu-button/menu-button';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+import { makeStyles, createStyles } from '@mui/styles';
 
+const useStyles = makeStyles((theme) =>
+  createStyles({
+    formParent: {
+        [theme.breakpoints.down('md')]: {
+            //padding: '1rem'
+        },
+    },
+    footerInfo: {
+        [theme.breakpoints.down('md')]: {
+            width: 'fit-content',
+            alignItems: 'center'
+        },
+    },
+    footerInfoCol: {
+        [theme.breakpoints.down('md')]: {
+            alignItems: 'center'
+        },
+    },
+  }),
+);
 function FirstPage(props) {
-  const isBorder = toggleBorder;
+    const classes = useStyles();
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
+    const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const isBorder = toggleBorder;
   return (
     <React.Fragment>
         <Stack spacing={'2rem'} direction="column" sx={{ border: isBorder ? '1px solid red' : 'none', height: '140vh', width: '100%'}}>
             {/* menu */}
             <ThemeProvider theme={props.data.menuTheme}>
                 <Stack spacing={'1rem'} direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid orange' : 'none', height: 'fitContent', width: '90%', marginX: 'auto'}}>       
-                    <Stack justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none', width: '58%', paddingTop: '20px'}}>
-                        <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
-                            <HomeOutlinedIcon color="primary" sx={{ fontSize: '4rem'}}/>
-                            <MenuBar data = {props.data.menu}/>
+                    <Stack justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none', width: matches ? '58%': '100%', paddingTop: '20px'}}>
+                        <Stack direction="row" alignItems="center" justifyContent={matches ? 'flex-start' : 'space-between'} sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
+                            <HomeOutlinedIcon color="primary" sx={{fontSize: matchesMobile ? '3rem' : '5rem'}}/>
+                            {
+                                matches &&
+                                <MenuBar data = {props.data.menu}/>
+                            }
+                            {
+                                !matches &&
+                                <MenuButton data = {props.data}/>
+                            }
                         </Stack>
-                    </Stack>       
-                    <Box sx={{ border: isBorder ? '1px solid red' : 'none', width: '30%'}}/>
-                    <Stack sx={{ border: isBorder ? '1px solid orange' : 'none', paddingTop: '20px'}}>
-                        <Button sx={{borderRadius: '20px', padding: '.5rem 1rem'}} color="primary" variant="contained">Enquire</Button>
                     </Stack>
+                    {
+                        matches &&
+                        <React.Fragment>
+                            <Box sx={{ border: isBorder ? '1px solid red' : 'none', width: '30%'}}/>
+                            <Stack sx={{ border: isBorder ? '1px solid orange' : 'none', margin: 'auto'}}>
+                                <Button sx={{borderRadius: '20px', padding: '.5rem 1rem'}} color="primary" variant="contained">Enquire</Button>
+                            </Stack>
+                        </React.Fragment>
+                    }
                 </Stack>
             </ThemeProvider>
             {/* form */}
@@ -45,11 +85,11 @@ function FirstPage(props) {
                         alt="The house from the offer."
                         src={BookMeetingImage}
                 />
-                <div style={{position: 'absolute', top: '50%',left: '50%', transform: 'translate(-50%, -50%)', width: '60%', maxWidth: '1024px'}}>
+                <div style={{position: 'absolute', top: '50%',left: '50%', transform: 'translate(-50%, -50%)', width: matches ? '60%' : '100%', maxWidth: matches ? '1024px': '600px'}} className={classes.formParent}>
                     
                     <ThemeProvider theme={BrownTheme}>
                         <Stack direction="row" justifyContent="center" sx= {{border: isBorder ? '2px solid orange' : 'none', width: '100%'}}>
-                            <Stack sx= {{backgroundColor: 'white', width: '100%', padding: '2rem 4rem'}}>
+                            <Stack sx= {{backgroundColor: 'white', width: '100%', padding: matchesMobile ? '2rem .25rem' : matches ? '2rem 4rem' : '2rem 1rem'}}>
                                 <Stack direction="row" alignItems="center" justifyContent="space-evenly" sx={{height: 'fitContent', border: isBorder ? '2px solid red' : 'none', marginBottom: '3rem'}}>
                                     <Box component="img"
                                         sx={{
@@ -60,7 +100,7 @@ function FirstPage(props) {
                                         alt="The house from the offer."
                                         src={LeftLeaf}
                                     />
-                                    <Typography color="primary" variant='h3'>Book A Meeting</Typography>
+                                    <Typography color="primary" variant={matchesMobile ? 'h5' : 'h3'} textAlign={'center'}>Book A Meeting</Typography>
                                     <Box component="img"
                                         sx={{
                                             height: '60px',
