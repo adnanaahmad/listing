@@ -10,8 +10,12 @@ import {ThemeProvider} from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import mapsImage from '../../assets/All Listings Assets/maps.png';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 export default function ListingDetailPage(props) {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const isBorder = toggleBorder;
     const paragrpahs = [
         'Comfortable City Centre Apartment', 
@@ -33,7 +37,7 @@ export default function ListingDetailPage(props) {
                 }}>
                     <ThemeProvider theme={props.data.theme}>        
                         {/* first component */}
-                        <Stack direction="row" justifyContent="space-between" sx={{border: isBorder ? '1px solid blue' : 'none', width: '100%'}}>
+                        <Stack direction={matches ? "row" : "column"} justifyContent="space-between" alignItems={'flex-start'} sx={{border: isBorder ? '1px solid blue' : 'none', width: '100%'}} spacing={'1rem'}>
                             <Stack sx={{border: isBorder ? '1px solid red' : 'none'}} spacing={'4rem'}>
                                 <Stack spacing={'.5rem'}>
                                     <Typography color="primary" variant="h3" sx={{fontWeight: 500}}>Lovely 3 Bedroom Apartment</Typography>
@@ -52,13 +56,13 @@ export default function ListingDetailPage(props) {
                             </Stack>
                         </Stack>
                         {/* second component */}
-                        <Stack direction="row" sx={{borderTop: 2, borderBottom: 2, width: '100%', paddingY: '.7rem'}}>
+                        <Stack spacing={'1rem'} direction={matches ? "row" : "column"} alignItems="flex-start" sx={{borderTop: 2, borderBottom: 2, width: '100%', paddingY: '.7rem'}}>
                             <Stack direction="row" spacing={'1rem'} alignItems="center" sx={{border: isBorder ? 1 : 'none',}}>
                                 <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>Available</Typography>
                                 <Typography variant="body1" sx={{fontSize: '1.8rem'}}>|</Typography>
                                 <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>Mon, 08 Mar 2021</Typography>
                             </Stack>
-                            <Stack direction="row" spacing={'1rem'} alignItems="center" sx={{border: isBorder ? 1 : 'none', marginLeft: 'auto'}}>
+                            <Stack direction="row" spacing={'1rem'} alignItems="center" sx={{border: isBorder ? 1 : 'none', marginLeft: matches ? 'auto' : 0}}>
                                 <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>Property ID#</Typography>
                                 <Typography variant="body1" sx={{fontSize: '1.8rem'}}>|</Typography>
                                 <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>HCJ703</Typography>
@@ -66,7 +70,7 @@ export default function ListingDetailPage(props) {
                         </Stack>
                     </ThemeProvider>
                     {/* third component */}
-                    <Stack direction="row" justifyContent="flex-end" sx={{border: isBorder ? 1 : 'none', width: '100%', height: 'fitContent'}}>
+                    <Stack spacing={'1rem'} direction={matches ? "row" : "column"} justifyContent="flex-end" alignItems={matches ? 'flex-start' : 'center'} sx={{border: isBorder ? 1 : 'none', width: '100%', height: 'fitContent'}}>
                         <ThemeProvider theme={props.data.theme}>
                             <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '400px', marginX: 'auto'}} spacing={'2rem'}>                        
                                 {
@@ -78,7 +82,7 @@ export default function ListingDetailPage(props) {
                                 }
                             </Stack>
                         </ThemeProvider>
-                        <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: '30%', maxWidth: '350px'}}>
+                        <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: matches ? '30%' : '100%', maxWidth: '350px'}}>
                             <Stack spacing={'1rem'} alignItems="center" sx={{border: isBorder ? '2px solid orange' : 'none', borderRadius: '10px', height: 'fitContent', backgroundColor: WhiteTheme.palette.primary.contrastText, padding: '1rem 2rem'}} >
                                 <Typography variant="h5" display="block" sx={{color: 'white'}}>Enquire</Typography>
                                     <ThemeProvider theme={DarkGreenTheme}>
