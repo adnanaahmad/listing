@@ -1,6 +1,10 @@
 import * as React from 'react';
 import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import FirstPage from './components/first-page';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
+const theme = createTheme();
 
 function ScreenTen() {
   const welcomePage = {
@@ -9,7 +13,9 @@ function ScreenTen() {
   }
   return (
     <React.Fragment>
-      <FirstPage data = {welcomePage}/>
+        <ThemeProvider theme={theme}>
+          <FirstPage data = {welcomePage}/>
+        </ThemeProvider>
     </React.Fragment>
   );
 }
