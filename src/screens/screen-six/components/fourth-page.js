@@ -3,7 +3,8 @@ import { Stack, Typography } from '@mui/material';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
 import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 const isBorder = toggleBorder;
 
@@ -34,7 +35,9 @@ function ContentCard  (props) {
 }
 
 
-function FourthPage() {   
+function FourthPage() {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const Cards = [
         {
             title: 'Homeowners',
@@ -61,10 +64,10 @@ function FourthPage() {
 
     return (
     <React.Fragment>
-        <Stack sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fitContent', paddingY: '6rem'}}>
+        <Stack sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fitContent', padding: '6rem 0'}}>
             <Stack
-                direction="row"
-                alignItems="stretch"
+                direction={ matches ? "row" : "column"}
+                alignItems= {matches ? "stretch" : "center"}
                 justifyContent="space-between"
                 sx={{ border: isBorder ? '1px solid orange' : 'none', height: 'fitContent'}}
                 spacing={'4rem'}
@@ -74,11 +77,11 @@ function FourthPage() {
                     alignItems="center"
                     sx={{ 
                         border: isBorder ? '1px solid orange' : 'none', 
-                        width: '45%',
+                        width: matches ? '45%' : '80%',
                         backgroundColor: WhiteTheme.palette.primary.contrastText,
                         borderTopRightRadius: '40px',
                         borderBottomRightRadius: '40px',
-                        padding: '2rem 4rem',
+                        padding: matches ? '2rem 4rem' : '2rem 1rem',
                     }}
                  >      
                     <ContentCard data = {Cards[0]}/>
@@ -88,11 +91,11 @@ function FourthPage() {
                     alignItems="center"
                     sx={{ 
                         border: isBorder ? '1px solid orange' : 'none', 
-                        width: '45%', 
+                        width: matches ? '45%' : '80%', 
                         backgroundColor: WhiteTheme.palette.primary.contrastText,
                         borderTopLeftRadius: '40px',
                         borderBottomLeftRadius:'40px',
-                        padding: '2rem 4rem',
+                        padding: matches ? '2rem 4rem' : '2rem 1rem',
                     }}
                 >      
                     <ContentCard data = {Cards[1]}/>
