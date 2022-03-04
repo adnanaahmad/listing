@@ -15,6 +15,10 @@ import WorkPage from '../../shared/pages/work-page';
 import RecentlyListedPage from '../../shared/pages/recently-listed-page';
 import AboutUsPage from '../../shared/pages/about-us-page';
 import SpacePage from '../../shared/pages/space-page';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
+const theme = createTheme();
 
 
 function ScreenFifteen() {
@@ -55,15 +59,17 @@ function ScreenFifteen() {
     }
     return (
         <React.Fragment>
-        <WelcomePageVariantTwo data = {welcomePage}/>
-        <WorkPage data={work}/>
-        <ListingProcessPage data={listingProcess}/>
-        <RecentlyListedPage data = {recentlyListed} />
-        <SpacePage data={space}/>
-        <AboutUsPage/>
-        <SeventhPage/>
-        <EighthPage/>
-        <FooterSecondary/>
+            <ThemeProvider theme={theme}>
+                <WelcomePageVariantTwo data = {welcomePage}/>
+                <WorkPage data={work}/>
+                <ListingProcessPage data={listingProcess}/>
+                <RecentlyListedPage data = {recentlyListed} />
+                <SpacePage data={space}/>
+                <AboutUsPage/>
+                <SeventhPage/>
+                <EighthPage/>
+                <FooterSecondary/>
+            </ThemeProvider>
         </React.Fragment>
     );
 }
