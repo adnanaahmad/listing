@@ -9,57 +9,9 @@ import sofaImage from '../../assets/Homeowners Assets/sofa.png';
 import doorImage from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-import { BrownTheme } from '../styles/themes/brown-theme';
-import MenuIcon from '@mui/icons-material/Menu';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import IconButton from '@mui/material/IconButton';
+import MenuButton from '../components/menu-button/menu-button';
 
 const isBorder = toggleBorder;
-
-function MenuBarTwo(props) {
-  const theme = useTheme();
-  const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const open = Boolean(anchorEl);
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-  return (
-    <ThemeProvider theme={BrownTheme}>
-      <IconButton 
-      color="primary" 
-      sx={{height: 'fit-content'}}
-      id="basic-button"
-      aria-controls={open ? 'basic-menu' : undefined}
-      aria-haspopup="true"
-      aria-expanded={open ? 'true' : undefined}
-      onClick={handleClick}
-      >
-        <MenuIcon sx={{ fontSize: matchesMobile ? '2rem' : '4rem'}}/>
-      </IconButton>
-      <Menu
-        id="basic-menu"
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        MenuListProps={{
-          'aria-labelledby': 'basic-button',
-        }}
-        color="primary" 
-      >
-        {
-          props.data.map((item, i) => (
-            <MenuItem key={i} color="primary" onClick={handleClose}>{item}</MenuItem>
-          ))
-        }
-      </Menu>
-    </ThemeProvider>
-  )
-}
 
 function WelcomePageVariantThree(props) {
   const theme = useTheme();
@@ -85,14 +37,14 @@ function WelcomePageVariantThree(props) {
         <ThemeProvider theme={props.data.theme}>
           <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid orange' : 'none', width: '90%', margin: 'auto'}}>
             <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none', width: matches ? '70%' : '100%', maxWidth: '900px', justifyContent: 'space-between'}}>
-              <HomeOutlinedIcon color="primary" sx={{ fontSize: '4rem'}}/>
+              <HomeOutlinedIcon color="primary" sx={{ fontSize: matches ? '4rem' : matchesMobile ? '3rem' : '5rem'}}/>
               {
                 matches &&
                 <MenuBar data = {['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] }/>
               }
               {
                 !matches &&
-                <MenuBarTwo data = {['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] }/>
+                <MenuButton data = {{menu:['House Owners', 'Flatmates', 'Maintainance', 'Property Management'], menuTheme: props.data.theme}}/>
               }
             </Stack>
             {
@@ -108,7 +60,7 @@ function WelcomePageVariantThree(props) {
                 sx={{
                   height: matchesMobile ? '35vh' : matches ? '100%': '70vh',
                   border: isBorder ? '1px solid pink' : 'none',
-                  width: '33.3333%',
+                  width: '33.333%',
                   objectFit: 'cover',
                 }}
                 alt="The house from the offer."
