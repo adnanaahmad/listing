@@ -4,8 +4,12 @@ import {BrownTheme} from '../../../shared/styles/themes/brown-theme';
 import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
 import {ThemeProvider } from '@mui/material/styles';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 export default function ValueCard(props) {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const isBorder = toggleBorder;
     return (
         <Stack
@@ -25,12 +29,12 @@ export default function ValueCard(props) {
                         </Typography> 
                     </ThemeProvider>
                 </Stack>
-                <Stack direction="row" justifyContent="space-between" spacing={'4rem'} sx={{ border: isBorder ? '1px solid orange' : 'none'}}>
+                <Stack direction={matches ? "row" : "column"} justifyContent="space-between" alignItems={'center'} spacing={'4rem'} sx={{ border: isBorder ? '1px solid orange' : 'none'}}>
                     
                     {
                         props.data.cards.map((card, i) => (
                             <React.Fragment key={i}>
-                                <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '700px'}} spacing={'1rem'}>                            
+                                <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: matches ? '700px' : '300px'}} spacing={'1rem'}>                            
                                     <div style={{backgroundColor: WhiteTheme.palette.primary.contrastText, padding: '12px 0', width: '100%', borderTopRightRadius: '30px', borderBottomLeftRadius: '30px', boxShadow: 'rgb(203 146 108 / 65%) 0px 4px 12px'}}>
                                         <Typography variant="body1" sx={{fontWeight: 500, fontSize: '1.8rem', color: 'white', textAlign: 'center'}}>
                                             {card.title}
