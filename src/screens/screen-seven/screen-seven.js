@@ -5,6 +5,10 @@ import ListingDetailPage from '../../shared/pages/listing-detail-page';
 import WelcomePageVariantThree from '../../shared/pages/welcome-page-v3';
 import {BrownTheme} from '../../shared/styles/themes/brown-theme';
 import {LightTheme} from '../../shared/styles/themes/light-theme';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
+const theme = createTheme();
 
 function ScreenSeven() {
   const welcomePage = {
@@ -17,10 +21,12 @@ function ScreenSeven() {
   };
   return (
     <React.Fragment>
-        <WelcomePageVariantThree data={welcomePage}/>
-        <ListingDetailPage data={detailPage}/>
-        <ClientsReviewPage/>
-        <FooterPrimary/>
+        <ThemeProvider theme={theme}>
+          <WelcomePageVariantThree data={welcomePage}/>
+          <ListingDetailPage data={detailPage}/>
+          <ClientsReviewPage/>
+          <FooterPrimary/>
+        </ThemeProvider>
     </React.Fragment>
   );
 }
