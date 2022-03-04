@@ -4,8 +4,12 @@ import Box from '@mui/material/Box';
 import {toggleBorder} from '../../../shared/styles/debugging-border';
 import SeaImage from '../../../assets/About Us Assets/DSC00378@2x.png';
 import ValueCard from '../../../shared/components/value-card/value-card';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 function SecondPage() {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const isBorder = toggleBorder;
     const valueCardContent = {
         title: 'Our Values',
@@ -53,8 +57,7 @@ function SecondPage() {
                     src={SeaImage}
                     />
                     <Stack sx={{ border: isBorder ? '1px solid green' : 'none'}}>
-                        <Typography variant="h4" sx={{fontWeight: 500, color: 'white', position: 'absolute', left: '20%', top: '30%', fontSize: '3.5rem'}}>A Good Home Is Made,</Typography>
-                        <Typography variant="h4" sx={{fontWeight: 500, color: 'white', position: 'absolute', left: '20%', top: '42%', fontSize: '3.5rem'}}>Not Bought</Typography>
+                        <Typography variant={matches ? "h2" : "h3"} sx={{fontWeight: 500, color: 'white', position: 'absolute', left: matches ? '20%' : '10%', top: '30%', maxWidth: matches ? '700px' : '500px'}}>A Good Home Is Made, Not Bought</Typography>
                     </Stack>
             </Stack>
             <ValueCard data = {valueCardContent}/>
