@@ -11,8 +11,12 @@ import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
 
 export default function FirstPage() {
+    const theme = useTheme();
+    const matches = useMediaQuery(theme.breakpoints.up('md'));
     const Buttons = ['Location', 'Rent per week', 'Bedrooms', 'Bathrooms', 'Property Type'];
     const locations = ['Auckland CBD', 'Parnell', 'Eden Terrace', 'Mount Eden', 'Ponsonby', 'Grey Lynn', 'Herne Bay', 'Mount Albert', 'Mission Bay'];
     const filters = ['All', 'Apartment', 'House', 'Townhouse', 'Unit'];
@@ -20,8 +24,8 @@ export default function FirstPage() {
     const isBorder = toggleBorder;
     return (
         <React.Fragment>
-            <Stack spacing={'2rem'} direction="row" justifyContent="center" alignItems="center" sx={{border: isBorder ? '1px solid red' : 'none', height: 'fitContent', padding: '4rem 0 2rem 0'}}>
-                <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: '30%', maxWidth: '350px'}}>
+            <Stack spacing={'2rem'} direction={matches ? "row" : "column"} justifyContent="center" alignItems="center" sx={{border: isBorder ? '1px solid red' : 'none', height: 'fitContent', padding: '4rem 0 2rem 0'}}>
+                <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: matches ? '30%' : '100%', maxWidth: '350px'}}>
                     <Stack spacing={'1.5rem'} alignItems="flex-start" sx={{border: isBorder ? '2px solid orange' : 'none', borderRadius: '10px', height: 'fitContent', backgroundColor: WhiteTheme.palette.primary.contrastText, padding: '1rem 1rem 2rem 1rem'}} >
                         <Stack spacing={'.5rem'} direction="row" justifyContent="flex-start" alignItems="center">
                             <MenuOutlinedIcon sx={{color: 'white'}}/>
@@ -94,7 +98,7 @@ export default function FirstPage() {
                         </ThemeProvider>
                     </Stack>
                 </Stack>
-                <Stack spacing={'4rem'} direction="column" justifyContent="space-evenly" sx={{border: isBorder ? '2px solid orange' : 'none', width: '30%', maxWidth: '350px', height: '100%'}}>
+                <Stack spacing={'4rem'} direction="column" justifyContent="space-evenly" sx={{border: isBorder ? '2px solid orange' : 'none', width: matches ? '30%' : '100%', maxWidth: '350px', height: '100%'}}>
                     <Stack direction="column" sx={{border: '1px solid ' + WhiteTheme.palette.primary.contrastText, width: '200px',  borderTopLeftRadius: '20px', borderBottomLeftRadius: '20px', padding: '1rem', borderRight:'none'}}>
                         {
                             locations.map((item, i) => (
