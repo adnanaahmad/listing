@@ -6,6 +6,10 @@ import WelcomeImage from '../../assets/All Listings Assets/flower.png';
 import SecondPage from './components/second-page';
 import ThirdPage from './components/third-page';
 import FourthPage from './components/fourth-page';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
+
+const theme = createTheme();
 
 function ScreenSix() {
   const welcomePage = {
@@ -18,12 +22,14 @@ function ScreenSix() {
   }
   return (
     <React.Fragment>
-      <WelcomePageVariantOne data = {welcomePage}/>
-      <SecondPage/>
-      <ThirdPage/>
-      <FourthPage/>
-      <ClientsReviewPage/>
-      <FooterPrimary/>
+        <ThemeProvider theme={theme}>
+          <WelcomePageVariantOne data = {welcomePage}/>
+          <SecondPage/>
+          <ThirdPage/>
+          <FourthPage/>
+          <ClientsReviewPage/>
+          <FooterPrimary/>
+        </ThemeProvider>
     </React.Fragment>
   );
 }
