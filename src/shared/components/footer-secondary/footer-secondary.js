@@ -3,7 +3,6 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Stack from '@mui/material/Stack';
 import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
-import SearchIcon from '@mui/icons-material/Search';
 import Button from '@mui/material/Button';
 import {toggleBorder} from './../../../shared/styles/debugging-border';
 import {ThemeProvider} from '@mui/material/styles';
@@ -11,6 +10,7 @@ import {WhiteTheme} from './../../../shared/styles/themes/white-theme'
 import divImage from './../../../assets/Book a Meeting Asset/Mask Group 5@2x.png';
 import Box from '@mui/material/Box';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import EmailTextField from '../email-textfield/email-textfield';
 import { makeStyles, createStyles } from '@mui/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
@@ -87,10 +87,7 @@ export default function FooterSecondary() {
                                 <Typography color="primary" variant={matches ? "h4" : "h5"} sx={{fontWeight: 600}}>Want To Find</Typography>
                                 <Typography color="primary" variant={matches ? "h4" : "h5"} sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
                             </Stack>
-                            <Stack color="primary" direction="row" alignItems="center" sx={{ border: 1, borderColor: WhiteTheme.palette.primary.main, borderRadius: 2, minWidth: '50%', py: 1, px: 4}}>
-                                <SearchIcon color="primary" fontSize='large'/>
-                                <Typography color="primary" variant="h5">Your Email</Typography>
-                            </Stack>
+                            <EmailTextField/>
                             <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
                                 Enquire
                             </Button>
