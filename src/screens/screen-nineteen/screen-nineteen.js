@@ -6,7 +6,10 @@ import FooterSecondary from '../../shared/components/footer-secondary/footer-sec
 import WelcomePageVariantTwo from '../../shared/pages/welcome-page-v2';
 import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
 
+const theme = createTheme();
 function ScreenNineteen() {
     const welcomePage = {
         titleOne: "",
@@ -26,9 +29,11 @@ function ScreenNineteen() {
     };
     return (
         <React.Fragment>
-            <WelcomePageVariantTwo data = {welcomePage} />
-            <PolicyTermsPage data = {Cards}/>
-            <FooterSecondary/>
+            <ThemeProvider theme={theme}>
+                <WelcomePageVariantTwo data = {welcomePage} />
+                <PolicyTermsPage data = {Cards}/>
+                <FooterSecondary/>
+            </ThemeProvider>
         </React.Fragment>
     );
 }
