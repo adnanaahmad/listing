@@ -11,7 +11,10 @@ import iconOne from '../../assets/All Listings Assets/Group 3@2x.png';
 import iconTwo from '../../assets/All Listings Assets/Group 60@2x.png';
 import iconThree from '../../assets/All Listings Assets/Group 4@2x.png';
 import FlatListingPage from '../../shared/pages/flat-listing-page';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
 
+const theme = createTheme();
 
 function ScreenEighteen() {
     const welcomePage = {
@@ -53,11 +56,13 @@ function ScreenEighteen() {
     }
     return (
         <React.Fragment>
-        <WelcomePageVariantTwo data = {welcomePage}/>
-        <FlatListingPage data={flatListing}/>
-        <ListingProcessPage data={listingProcess}/>
-        <SecondSpacePage data={spacePage}/>
-        <FooterSecondary/>
+            <ThemeProvider theme={theme}>
+                <WelcomePageVariantTwo data = {welcomePage}/>
+                <FlatListingPage data={flatListing}/>
+                <ListingProcessPage data={listingProcess}/>
+                <SecondSpacePage data={spacePage}/>
+                <FooterSecondary/>
+            </ThemeProvider>
         </React.Fragment>
     );
 }
