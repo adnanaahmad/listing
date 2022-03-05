@@ -9,7 +9,10 @@ import CommitmentSatisfactionPage from '../../shared/pages/commitment-satisfacti
 import ThirdPage from './components/third-page';
 import lightImage from '../../assets/Maintenance Assets/DSC02466@2x.png';
 import MaintenancePage from '../../shared/pages/maintenance-page';
+import { createTheme } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/styles';
 
+const theme = createTheme();
 function ScreenTwenty() {
     const welcomePage = {
         titleOne: "",
@@ -34,11 +37,13 @@ function ScreenTwenty() {
     }
     return (
         <React.Fragment>
-            <WelcomePageVariantTwo data = {welcomePage} />
-            <CommitmentSatisfactionPage data={commitment} />
-            <ThirdPage/>
-            <MaintenancePage data={maintenance} />
-            <FooterSecondary/>
+            <ThemeProvider theme={theme}>
+                <WelcomePageVariantTwo data = {welcomePage} />
+                <CommitmentSatisfactionPage data={commitment} />
+                <ThirdPage/>
+                <MaintenancePage data={maintenance} />
+                <FooterSecondary/>
+            </ThemeProvider>
         </React.Fragment>
     );
 }
