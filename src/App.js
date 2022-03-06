@@ -2,6 +2,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Redirect
 } from "react-router-dom";
 import ScreenOne from './screens/screen-one/screen-one';
 import ScreenTwo from './screens/screen-two/screen-two';
@@ -25,10 +26,16 @@ import ScreenEighteen from "./screens/screen-eighteen/screen-eighteen";
 import ScreenNineteen from "./screens/screen-nineteen/screen-nineteen";
 import ScreenTwenty from "./screens/screen-twenty/screen-twenty";
 function App() {
+  const defaultRouteHanler = () => {
+    return (
+      <Redirect to='/1'/>
+    )
+  }
   return (
     <Router>
       <div>
         <Switch>
+          <Route exact path={'/'} render={defaultRouteHanler}/>
           <Route path="/1">
             <ScreenOne/>
           </Route>
