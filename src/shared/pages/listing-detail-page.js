@@ -34,6 +34,7 @@ const styleObject = {
 export default function ListingDetailPage(props) {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
+    const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isBorder = toggleBorder;
     const paragrpahs = [
         'Comfortable City Centre Apartment', 
@@ -101,7 +102,7 @@ export default function ListingDetailPage(props) {
                             </Stack>
                         </ThemeProvider>
                         <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: matches ? '35%' : '100%', maxWidth: '350px'}}>
-                            <Stack spacing={'1rem'} alignItems="center" sx={{border: isBorder ? '2px solid orange' : 'none', borderRadius: '10px', height: 'fitContent', backgroundColor: WhiteTheme.palette.primary.contrastText, padding: '1rem 2rem'}} >
+                            <Stack spacing={'1rem'} alignItems="center" sx={{border: isBorder ? '2px solid orange' : 'none', borderRadius: '10px', height: 'fitContent', backgroundColor: WhiteTheme.palette.primary.contrastText, padding: matchesMobile ? '1rem' : '1rem 2rem'}} >
                                 <Typography variant="h5" display="block" sx={{color: 'white'}}>Enquire</Typography>
                                     <ThemeProvider theme={DarkGreenTheme}>
                                         <Stack sx={{border: isBorder ? 1 : 'none', backgroundColor: 'white', width: '100%', borderRadius: '10px', paddingY: '.5rem'}} spacing={'.5rem'}>
