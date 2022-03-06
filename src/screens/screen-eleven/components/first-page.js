@@ -5,8 +5,26 @@ import {WhiteTheme} from '../../../shared/styles/themes/white-theme';
 import {DarkGreenTheme} from '../../../shared/styles/themes/dark-green-theme';
 import {ThemeProvider} from '@mui/material/styles';
 import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+
+const styleObject = {
+    "& ::-webkit-input-placeholder": {
+        color: WhiteTheme.palette.primary.contrastText + '!important',
+        opacity: '.8 !important',
+        fontSize: '.8rem'
+    },
+    ".MuiOutlinedInput-input": {
+        padding: '0 1rem'
+    },
+    ".MuiOutlinedInput-notchedOutline": {
+        border: '0 !important'
+    },
+    ".MuiOutlinedInput-root": {
+        padding: 0
+    }
+}
 
 export default function FirstPage() {
     const theme = useTheme();
@@ -20,14 +38,20 @@ export default function FirstPage() {
                         <Typography variant="h5" display="block" sx={{color: 'white'}}>Enquire</Typography>
                             <ThemeProvider theme={DarkGreenTheme}>
                                 <Stack sx={{border: isBorder ? 1 : 'none', backgroundColor: 'white', width: '100%', borderRadius: '10px', paddingY: '.5rem'}} spacing={'.5rem'}>
-                                    <Typography sx={{paddingLeft: '1rem'}} color="primary" variant="caption">Your Name</Typography>
+                                    <TextField id={'name'} variant="outlined" placeholder={'Your Name'} sx={styleObject} />
                                     <Stack style={{border: `.5px solid ${WhiteTheme.palette.primary.contrastText}`, width: '100%'}}></Stack>
-                                    <Typography sx={{paddingLeft: '1rem'}} color="primary" variant="caption">Email</Typography>
+                                    <TextField id={'email'} variant="outlined" placeholder={'Email'} sx={styleObject} />
                                     <Stack style={{border: `.5px solid ${WhiteTheme.palette.primary.contrastText}`, width: '100%'}}></Stack>
-                                    <Typography sx={{paddingLeft: '1rem'}} color="primary" variant="caption">Phone Number</Typography>
+                                    <TextField id={'number'} variant="outlined" placeholder={'Phone Number'} sx={styleObject} />
                                 </Stack>
-                                <Stack sx={{border: isBorder ? 1 : 'none', backgroundColor: 'white', width: '100%', borderRadius: '10px', padding: '.5rem 0', height: '100px'}}>
-                                    <Typography sx={{paddingX: '1rem'}} color="primary" variant="caption" display="block">Your message...</Typography>
+                                <Stack sx={{border: isBorder ? 1 : 'none', backgroundColor: 'white', width: '100%', borderRadius: '10px', padding: '.5rem 0', height: '100%', minHeight: '100px'}}>
+                                    <TextField
+                                    id="outlined-multiline-flexible"
+                                    multiline
+                                    maxRows={4}
+                                    placeholder='Your message...'
+                                    sx={styleObject}
+                                    />
                                 </Stack>
                             </ThemeProvider>
                             <ThemeProvider theme={WhiteTheme}>
