@@ -34,6 +34,11 @@ const useStyles = makeStyles((theme) =>
             maxWidth: '600px',
             margin: 'auto',
         },
+        [theme.breakpoints.down('sm')]: {
+            width: '100%',
+            maxWidth: '300px',
+            margin: 'auto',
+        },
     },
     footerInfo: {
         [theme.breakpoints.down('md')]: {
@@ -56,6 +61,7 @@ export default function FooterSecondary() {
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
+    const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const firstColumn = ['Rent a Room', 'Rent a House', 'Homeowners', 'Property Management'];
     const secondColumn = ['FAQs', 'Privacy Policy', 'Terms and Conditions', 'Maintenance'];
     const thirdColumn = [ 'info@friendlyflats.co.nz', '0800 123 4567', 'Auckland, NZ'];
@@ -83,14 +89,15 @@ export default function FooterSecondary() {
                             spacing={'1rem'}
                             className={classes.fc}
                         >
-                            <Stack className={classes.fcTxt} direction={matches ? "column" : "row"} spacing={ matches ? 0: '.5rem'}>
-                                <Typography color="primary" variant={matches ? "h4" : "h5"} sx={{fontWeight: 600}}>Want To Find</Typography>
-                                <Typography color="primary" variant={matches ? "h4" : "h5"} sx={{fontWeight: 600}}>A Friendly Flat?</Typography>
+                            <Stack className={classes.fcTxt} spacing={ matches ? 0: '.5rem'}>
+                                <Typography color="primary" variant={matches ? "h4" : "h5"} sx={{fontWeight: 600}}>Want To Find A Friendly Flat?</Typography>
                             </Stack>
-                            <EmailTextField/>
-                            <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
-                                Enquire
-                            </Button>
+                            <Stack direction={matchesMobile ? "column" : "row"} justifyContent="space-between" spacing={'1rem'} sx={{width: '100%'}}>
+                                <EmailTextField/>
+                                <Button variant="contained" size="large" sx={{px: 5, py: 1, borderRadius: 2, fontWeight: 600, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1.2rem'}}>
+                                    Enquire
+                                </Button>
+                            </Stack>
                         </Stack>
                     </Container>
                     <div style={{borderBottom: '2px solid white', width: '100%', top: matches ? '45%' : '24%', position: 'absolute'}}></div>
