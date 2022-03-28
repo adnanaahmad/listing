@@ -77,7 +77,9 @@ function WelcomePageVariantTwo(props) {
                     src={props.data.image}
                     />
                     <Stack sx={{ border: isBorder ? '1px solid orange' : 'none', paddingTop: '20px'}}>
-                        <Button sx={{borderRadius: '20px', padding: '.5rem 1rem'}} color="primary" variant="contained">Enquire</Button>
+                        <Button component={Link} to={'11'} sx={{borderRadius: '20px', padding: '.5rem 1rem'}} color="primary" variant="contained">
+                            Enquire
+                        </Button>
                     </Stack>
                 </Stack>
             </ThemeProvider>

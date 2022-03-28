@@ -4,3 +4,10 @@ export const menu = [
     {name: 'Maintainance', route: '4'}, 
     {name: 'Property Management', route: '17'}
   ];
+
+export const footerColumn = [
+  {name: 'ABOUT US', route: "6"},
+  {name: 'FAQs', route: ""}, 
+  {name: 'Terms & Conditions', route: "8"}, 
+  {name: 'Privacy Policy', route: "5"}
+];

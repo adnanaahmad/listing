@@ -14,6 +14,8 @@ import EmailTextField from '../email-textfield/email-textfield';
 import { makeStyles, createStyles } from '@mui/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
+import { footerColumn } from '../../utils/constants';
 
 const isBorder = toggleBorder;
 const useStyles = makeStyles((theme) =>
@@ -63,7 +65,7 @@ export default function FooterSecondary() {
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const firstColumn = ['Rent a Room', 'Rent a House', 'Homeowners', 'Property Management'];
-    const secondColumn = ['FAQs', 'Privacy Policy', 'Terms and Conditions', 'Maintenance'];
+    const secondColumn = footerColumn;
     const thirdColumn = [ 'info@friendlyflats.co.nz', '0800 123 4567', 'Auckland, NZ'];
     return (
         <React.Fragment>
@@ -131,8 +133,8 @@ export default function FooterSecondary() {
                                 <Typography color="primary" variant="body1" component="div" sx={{fontWeight: 600, fontSize: '1.2rem'}}>RESOURCES</Typography>
                                 {
                                     secondColumn.map((item, i) => (
-                                        <Typography color="primary"  key={i} variant="body1" component="div" sx={{}}>
-                                            {item}
+                                        <Typography color="primary"  key={i} variant="body1" component={item.route ? Link : "div"} to={item.route} sx={{textDecoration: 'none'}}>
+                                            {item.name}
                                         </Typography>
                                     ))
                                 }
