@@ -6,8 +6,8 @@ export const menu = [
   ];
 
 export const footerColumn = [
-  {name: 'ABOUT US', route: "6"},
-  {name: 'FAQs', route: ""}, 
+  {name: 'About Us', route: "6"},
+  //{name: 'FAQs', route: ""}, 
   {name: 'Terms & Conditions', route: "8"}, 
   {name: 'Privacy Policy', route: "5"}
 ];

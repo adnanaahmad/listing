@@ -110,6 +110,9 @@ export default function FooterPrimary() {
                             }
                         </Stack>
                         <Stack spacing={2} className={classes.footerInfoCol}>
+                            <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
+                                Resources
+                            </Typography>
                             {
                                 secondColumn.map((item, i) => (
                                     <Typography key={i} variant="h5" component={item.route ? Link : "div"} to={item.route} sx={{fontWeight: 700, color: "black", textDecoration: "none"}}>
