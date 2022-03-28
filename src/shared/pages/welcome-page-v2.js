@@ -9,7 +9,8 @@ import {toggleBorder} from '../styles/debugging-border';
 import MenuButton from '../components/menu-button/menu-button';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
-
+import IconButton from '@mui/material/IconButton';
+import { Link } from 'react-router-dom';
 
 function WelcomePageVariantTwo(props) {
     const theme = useTheme();
@@ -23,9 +24,11 @@ function WelcomePageVariantTwo(props) {
             <ThemeProvider theme={props.data.menuTheme}>
                 <Stack spacing={'1rem'} direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', height: '100vh', width: '90%', marginX: 'auto'}}>       
                     <Stack justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none', width: '58%', paddingTop: '20px'}}>
-                        <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
-                        <HomeOutlinedIcon color="primary" sx={{ fontSize: '4rem'}}/>
-                        <MenuBar data = {props.data.menu}/>
+                        <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none'}}>                       
+                            <IconButton color="primary" component={Link} to={'1'}>
+                                <HomeOutlinedIcon color="primary" sx={{ fontSize: '4rem'}}/>
+                            </IconButton>
+                            <MenuBar data = {props.data.menu}/>
                         </Stack>
                         <Box sx={{height: '15%', border: isBorder ? 1 : 'none'}}>
                         </Box>
@@ -85,7 +88,9 @@ function WelcomePageVariantTwo(props) {
                 <Stack spacing={'1rem'} justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fitContent', paddingX: matchesMobile ? '.5rem' : '2rem', marginX: 'auto', paddingBottom: '4rem'}}>       
                     <Stack justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none',}}>
                         <Stack direction="row" alignItems="flex-start" justifyContent={'space-between'} sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
-                            <HomeOutlinedIcon color="primary" sx={{ fontSize: matchesMobile ? '3rem' : '5rem'}}/>
+                            <IconButton color="primary" component={Link} to={'1'}>
+                                <HomeOutlinedIcon color="primary"  sx={{ fontSize: matchesMobile ? '3rem' : '5rem'}}/>
+                            </IconButton>
                             <Box component="img"
                             sx={{
                                 height: matchesMobile ? '40vh' : '80vh',

@@ -10,6 +10,8 @@ import {toggleBorder} from '../styles/debugging-border'
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import MenuButton from '../components/menu-button/menu-button';
+import IconButton from '@mui/material/IconButton';
+import { Link } from 'react-router-dom';
 
 const FirstPageButton = styled(Button)(({ theme }) => ({
   color: 'primary',
@@ -34,7 +36,9 @@ function WelcomePageVariantOne(props) {
           <ThemeProvider theme={BrownTheme}>
             <Stack justifyContent="space-between" sx={{ border: isBorder ? '1px solid green' : 'none', width: '60%', paddingTop: '20px'}}>
               <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
-                <HomeOutlinedIcon sx={{ fontSize: '4rem', color: 'rgb(155 85 30)', marginRight: '5%'}}/>
+                <IconButton color="primary" component={Link} to={'1'} sx={{color: 'rgb(155 85 30)', marginRight: '5%'}}>
+                  <HomeOutlinedIcon sx={{fontSize: '4rem'}}/>
+                </IconButton>
                 <MenuBar data = {props.data.menu}/>
               </Stack>
               <Box sx={{height: '15%', border: isBorder ? 1 : 'none'}}>
@@ -76,9 +80,11 @@ function WelcomePageVariantOne(props) {
       {
         !matches &&
         <Stack spacing={'4rem'} direction="column" sx={{ border: isBorder ? '3px solid red' : 'none', height: 'fitContent', marginX: 'auto', paddingX: matchesMobile ? '.5rem' : '2rem', paddingBottom: '4rem'}}>
-          <Stack spacing={'1rem'} direction="row" justifyContent="space-between" sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
+          <Stack spacing={'1rem'} direction="row" justifyContent="space-between" alignItems={'flex-start'} sx={{ border: isBorder ? '1px solid purple' : 'none'}}>
             <ThemeProvider theme={BrownTheme}>
-              <HomeOutlinedIcon sx={{ fontSize: matchesMobile ? '3rem' : '5rem', color: 'rgb(155 85 30)'}}/>
+              <IconButton color="primary" component={Link} to={'1'}>
+                  <HomeOutlinedIcon color="primary"  sx={{ fontSize: matchesMobile ? '3rem' : '5rem'}}/>
+              </IconButton>
             </ThemeProvider>
             <Box component="img"
               sx={{

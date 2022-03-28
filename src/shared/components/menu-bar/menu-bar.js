@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import {toggleBorder} from './../../../shared/styles/debugging-border'
+import { Link } from 'react-router-dom';
 
 const Item = styled(Button)(({ theme }) => ({
   color: 'primary',
@@ -19,7 +20,7 @@ export default function MenuBar(props) {
         <Stack direction="row" spacing={'.5rem'} justifyContent="space-between" sx={{ border: isBorder ? 1 : 'none', width: '100%' }}>
         {
           props.data.map((item, i) => (
-            <Item key={i}>{item.name}</Item>
+            <Item component={Link} to={item.route} key={i}>{item.name}</Item>
           ))
         }
         </Stack>

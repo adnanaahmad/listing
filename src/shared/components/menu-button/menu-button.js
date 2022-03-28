@@ -6,6 +6,7 @@ import IconButton from '@mui/material/IconButton';
 import {ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 
 function MenuButton(props) {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -44,7 +45,7 @@ function MenuButton(props) {
                 >
                     {
                         props.data.menu.map((item, i) => (
-                            <MenuItem key={i} color="primary" onClick={handleClose}>{item.name}</MenuItem>
+                            <MenuItem key={i} color="primary" component={Link} to={item.route} onClick={handleClose}>{item.name}</MenuItem>
                         ))
                     }
                 </Menu>
