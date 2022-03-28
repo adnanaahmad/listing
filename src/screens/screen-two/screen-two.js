@@ -14,6 +14,7 @@ import iconThree from '../../assets/Property Management Assets/three.png';
 import WelcomeImage from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 function ScreenTwo() {
@@ -23,7 +24,7 @@ function ScreenTwo() {
         description: "Once you are in contact with us, one of our friendly property managers will talk you through the process of listing your property. We offer you an appraisal a",
         image: WelcomeImage,
         showButtonGroup: false,
-        menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management']
+        menu
     }
     const commitmentWorkPage = {
         imageOne,

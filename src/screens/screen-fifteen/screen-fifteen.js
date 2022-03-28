@@ -17,6 +17,7 @@ import AboutUsPage from '../../shared/pages/about-us-page';
 import SpacePage from '../../shared/pages/space-page';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 
@@ -29,7 +30,7 @@ function ScreenFifteen() {
         image: WelcomeImage,
         showButtonGroup: true,
         buttonGroup : ['Rent a Room', 'Rent a House', 'List a Property'],
-        menu: ['House Owners', 'Listings', 'Maintainance', 'Property Management'],
+        menu,
         menuTheme: DarkGreenTheme,
         headingTheme: BrownTheme,
       }

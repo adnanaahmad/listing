@@ -15,6 +15,7 @@ import iconTwo from '../../assets/Index Assets/Group 5@2x.png';
 import iconThree from '../../assets/Index Assets/Group 4@2x.png';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 
@@ -25,7 +26,7 @@ function ScreenFourteen() {
         description: "Once you are in contact with us, one of our friendly property managers will talk you through the process of listing your property. We offer you an appraisal free of charge",
         image: WelcomeImage,
         showButtonGroup: false,
-        menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management'],
+        menu,
         menuTheme: DarkGreenTheme,
         headingTheme: BrownTheme,
       }

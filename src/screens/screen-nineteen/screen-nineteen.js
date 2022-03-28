@@ -8,6 +8,7 @@ import { DarkGreenTheme } from '../../shared/styles/themes/dark-green-theme';
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 function ScreenNineteen() {
@@ -18,7 +19,7 @@ function ScreenNineteen() {
         image: WelcomeImage,
         showButtonGroup: false,
         buttonGroup : ['Rent a Room', 'Rent a House', 'List a Property'],
-        menu: ['House Owners', 'Listings', 'Maintainance', 'Property Management'],
+        menu,
         menuTheme: DarkGreenTheme,
         headingTheme: BrownTheme,
     }

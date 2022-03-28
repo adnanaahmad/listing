@@ -8,6 +8,7 @@ import ThirdPage from './components/third-page';
 import FourthPage from './components/fourth-page';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 
@@ -18,7 +19,7 @@ function ScreenSix() {
     description: "Auckland central has always seen a surge in the number of people trying to find a place. A place where they can feel safe, secure and have a friendly atmosphere. Hear our story.",
     image: WelcomeImage,
     showButtonGroup: false,
-    menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] 
+    menu
   }
   return (
     <React.Fragment>

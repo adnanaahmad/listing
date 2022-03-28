@@ -44,7 +44,7 @@ function MenuButton(props) {
                 >
                     {
                         props.data.menu.map((item, i) => (
-                            <MenuItem key={i} color="primary" onClick={handleClose}>{item}</MenuItem>
+                            <MenuItem key={i} color="primary" onClick={handleClose}>{item.name}</MenuItem>
                         ))
                     }
                 </Menu>

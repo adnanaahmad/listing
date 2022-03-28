@@ -11,6 +11,7 @@ import lightImage from '../../assets/Maintenance Assets/DSC02466@2x.png';
 import MaintenancePage from '../../shared/pages/maintenance-page';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 function ScreenTwenty() {
@@ -21,7 +22,7 @@ function ScreenTwenty() {
         image: WelcomeImage,
         showButtonGroup: false,
         buttonGroup : ['Rent a Room', 'Rent a House', 'List a Property'],
-        menu: ['House Owners', 'Listings', 'Maintainance', 'Property Management'],
+        menu,
         menuTheme: DarkGreenTheme,
         headingTheme: BrownTheme,
     }

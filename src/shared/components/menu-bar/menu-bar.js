@@ -19,7 +19,7 @@ export default function MenuBar(props) {
         <Stack direction="row" spacing={'.5rem'} justifyContent="space-between" sx={{ border: isBorder ? 1 : 'none', width: '100%' }}>
         {
           props.data.map((item, i) => (
-            <Item key={i}>{item}</Item>
+            <Item key={i}>{item.name}</Item>
           ))
         }
         </Stack>

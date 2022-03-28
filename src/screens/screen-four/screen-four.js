@@ -11,6 +11,7 @@ import BulbImage from '../../assets/All Listings Assets/bulb.png';
 import MaintenancePage from '../../shared/pages/maintenance-page';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 function ScreenFour() {
@@ -20,7 +21,7 @@ function ScreenFour() {
     description: "",
     image: WelcomeImage,
     showButtonGroup: false,
-    menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] 
+    menu
   }
 
   const commitment = {

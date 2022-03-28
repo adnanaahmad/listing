@@ -15,6 +15,7 @@ import FlatListingPage from '../../shared/pages/flat-listing-page';
 import { GreenTheme } from '../../shared/styles/themes/green-theme';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 function ScreenThree() {
@@ -24,7 +25,7 @@ function ScreenThree() {
     description: "Properties For Rent In New Zealand",
     image: WelcomeImage,
     showButtonGroup: false,
-    menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] 
+    menu
   }
   const listingProcess = {
     title: 'Our Listing Process',

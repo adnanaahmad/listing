@@ -13,6 +13,7 @@ import iconThree from '../../assets/All Listings Assets/Group 4@2x.png';
 import FlatListingPage from '../../shared/pages/flat-listing-page';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 
@@ -25,7 +26,7 @@ function ScreenEighteen() {
         image: WelcomeImage,
         showButtonGroup: true,
         buttonGroup : ['Room', 'House'],
-        menu: ['House Owners', 'Listings', 'Maintainance', 'Property Management'],
+        menu,
         menuTheme: DarkGreenTheme,
         headingTheme: BrownTheme,
     }

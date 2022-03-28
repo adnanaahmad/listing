@@ -40,11 +40,11 @@ function WelcomePageVariantThree(props) {
               <HomeOutlinedIcon color="primary" sx={{ fontSize: matches ? '4rem' : matchesMobile ? '3rem' : '5rem'}}/>
               {
                 matches &&
-                <MenuBar data = {['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] }/>
+                <MenuBar data = {props.data.menu }/>
               }
               {
                 !matches &&
-                <MenuButton data = {{menu:['House Owners', 'Flatmates', 'Maintainance', 'Property Management'], menuTheme: props.data.theme}}/>
+                <MenuButton data = {{menu: props.data.menu, menuTheme: props.data.theme}}/>
               }
             </Stack>
             {

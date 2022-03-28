@@ -8,6 +8,7 @@ import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import { LightTheme } from '../../shared/styles/themes/light-theme';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 
@@ -18,7 +19,7 @@ function ScreenEight() {
     description: "Friendly Flats takes your privacy seriously. Please read this Privacy Policy so you understand how we collect, store, and use information. This Privacy Policy describes the collection of technical and web browsing information through www.friendlyflats.co.nz",
     image: WelcomeImage,
     showButtonGroup: false,
-    menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] 
+    menu
   };
   const CardsContent = 
     [

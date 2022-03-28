@@ -9,6 +9,7 @@ import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import { LightTheme } from '../../shared/styles/themes/light-theme';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 function ScreenFive() {
@@ -18,7 +19,7 @@ function ScreenFive() {
     description: "",
     image: WelcomeImage,
     showButtonGroup: false,
-    menu: ['House Owners', 'Flatmates', 'Maintainance', 'Property Management'] 
+    menu
   };
   const Cards = {
     cards: CardsContent,

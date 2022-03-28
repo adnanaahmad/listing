@@ -6,13 +6,15 @@ import FooterSecondary from '../../shared/components/footer-secondary/footer-sec
 import { BrownTheme } from '../../shared/styles/themes/brown-theme';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
+import { menu } from '../../shared/utils/constants';
 
 const theme = createTheme();
 
 function ScreenSixteen() {
   const welcomePage = {
     theme: DarkGreenTheme,
-    showButton: true
+    showButton: true,
+    menu
   };
   const detailPage = {
     theme: BrownTheme,
