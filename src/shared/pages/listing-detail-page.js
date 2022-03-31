@@ -16,6 +16,7 @@ import { useTheme } from '@mui/material/styles';
 import axios from "axios";
 import { baseURL, httpMethod, apiRoute } from '../utils/constants';
 import {useLocation} from "react-router-dom";
+import { useFormik } from 'formik';
 
 const styleObject = {
     "& ::-webkit-input-placeholder": {
@@ -35,20 +36,25 @@ const styleObject = {
 }
 
 export default function ListingDetailPage(props) {
+    const isBorder = toggleBorder;
     const useEffect = React.useEffect;
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const search = useLocation().search;
     const listingId = new URLSearchParams(search).get('id');
-    const isBorder = toggleBorder;
-    // const paragrpahs = [
-    //     'Comfortable City Centre Apartment', 
-    //     'Partially furnished 5th floor apartment. Very light and bright with views of sky tower, Close to K road and all its amenities, cafes and restaurants. Close to motorway links. Full bathroom and laundry in apartment.', 
-    //     'Move in costs include two weeks rent and two weeks bond. Pet friendly apartments or not?  How many rooms are available in each aparmtnet? are there two for friends or just one? Will you put them all in one listing or one listing each?', 
-    //     'state what bills are included. be very clear. this is what happens. Thus electricity will be included in the rent but water and internet is not included. make it clear how many extra bills will come along with the website.', 
-    //     'Close to Auckland University, AUT, Auckland International, K Road'
-    // ];
+    const formik = useFormik({
+        initialValues: {
+            name: "",
+            email: "",
+            phone: "",
+            message: "",
+            enquiry_type: "enquiry"
+        },
+        onSubmit: (form) => {
+            axios.post(baseURL + apiRoute.enquiry, {enquiry : form}).then(res => console.log(res.data)).catch(err => console.log(err));
+        },
+    });
     const [listingDetail, setListingDetail] = React.useState({});
     useEffect(() => {
         const getListing = axios.create({
@@ -127,15 +133,36 @@ export default function ListingDetailPage(props) {
                             </Stack>
                         </ThemeProvider>
                         <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: matches ? '35%' : '100%', maxWidth: '350px'}}>
-                            <Stack spacing={'1rem'} alignItems="center" sx={{border: isBorder ? '2px solid orange' : 'none', borderRadius: '10px', height: 'fitContent', backgroundColor: WhiteTheme.palette.primary.contrastText, padding: matchesMobile ? '1rem' : '1rem 2rem'}} >
+                            <Stack component={'form'} spacing={'1rem'} alignItems="center" sx={{border: isBorder ? '2px solid orange' : 'none', borderRadius: '10px', height: 'fitContent', backgroundColor: WhiteTheme.palette.primary.contrastText, padding: matchesMobile ? '1rem' : '1rem 2rem'}} >
                                 <Typography variant="h5" display="block" sx={{color: 'white'}}>Enquire</Typography>
                                     <ThemeProvider theme={DarkGreenTheme}>
                                         <Stack sx={{border: isBorder ? 1 : 'none', backgroundColor: 'white', width: '100%', borderRadius: '10px', paddingY: '.5rem'}} spacing={'.5rem'}>
-                                            <TextField id={'name'} variant="outlined" placeholder={'Your Name'} sx={styleObject} />
+                                            <TextField variant="outlined" placeholder={'Your Name'} sx={styleObject} 
+                                            id="name"
+                                            name="name"
+                                            value={formik.values.name}
+                                            onChange={formik.handleChange}
+                                            error={formik.touched.name && Boolean(formik.errors.name)}
+                                            type="text"
+                                            />
                                             <Stack style={{border: `.5px solid ${WhiteTheme.palette.primary.contrastText}`, width: '100%'}}></Stack>
-                                            <TextField id={'email'} variant="outlined" placeholder={'Email'} sx={styleObject} />
+                                            <TextField variant="outlined" placeholder={'Email'} sx={styleObject} 
+                                            id="email"
+                                            name="email"
+                                            value={formik.values.email}
+                                            onChange={formik.handleChange}
+                                            error={formik.touched.email && Boolean(formik.errors.email)}
+                                            type="email"
+                                            />
                                             <Stack style={{border: `.5px solid ${WhiteTheme.palette.primary.contrastText}`, width: '100%'}}></Stack>
-                                            <TextField id={'number'} variant="outlined" placeholder={'Phone Number'} sx={styleObject} />
+                                            <TextField variant="outlined" placeholder={'Phone Number'} sx={styleObject} 
+                                            id="phone"
+                                            name="phone"
+                                            value={formik.values.phone}
+                                            onChange={formik.handleChange}
+                                            error={formik.touched.phone && Boolean(formik.errors.phone)}
+                                            type="number"
+                                            />
                                         </Stack>
                                         {
                                             props.data.showButtonGroup &&
@@ -150,16 +177,21 @@ export default function ListingDetailPage(props) {
                                         }
                                         <Stack sx={{border: isBorder ? 1 : 'none', backgroundColor: 'white', width: '100%', borderRadius: '10px', padding: '.5rem 0', height: '100%', minHeight: '80px'}}>
                                             <TextField
-                                            id="outlined-multiline-flexible"
                                             multiline
                                             maxRows={3}
                                             placeholder='Ask a question or request a viewing...'
                                             sx={styleObject}
+                                            id="message"
+                                            name="message"
+                                            value={formik.values.message}
+                                            onChange={formik.handleChange}
+                                            error={formik.touched.message && Boolean(formik.errors.message)}
+                                            type="text"
                                             />
                                         </Stack>
                                     </ThemeProvider>
                                     <ThemeProvider theme={WhiteTheme}>
-                                        <Button variant="contained" sx={{px: 2, py: .5, borderRadius: 2, fontWeight: 400, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1rem'}}>
+                                        <Button variant="contained" onClick={formik.handleSubmit} sx={{px: 2, py: .5, borderRadius: 2, fontWeight: 400, textTransform: 'none', whiteSpace: 'nowrap', fontSize: '1rem'}}>
                                             Submit
                                         </Button>
                                 </ThemeProvider>
