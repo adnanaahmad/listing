@@ -6,8 +6,8 @@ import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import {ThemeProvider } from '@mui/material/styles';
-import homeImageOne from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
-import homeImageTwo from '../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png';
+//import homeImageOne from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
+//import homeImageTwo from '../../assets/All Listings Assets/francesca-tosolini-DmOhItSo49k-unsplash@2x.png';
 import ListCard from '../components/list-card/list-card';
 import {WhiteTheme} from '../styles/themes/white-theme';
 import divImage from '../../assets/All Listings Assets/mareks-steins-ankYj7GOgjw-unsplash@2x.png';
@@ -15,6 +15,8 @@ import Container from '@mui/material/Container';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import { makeStyles, createStyles } from '@mui/styles';
+import axios from "axios";
+import { baseURL, httpMethod, apiRoute } from '../utils/constants';
 
 const isBorder = toggleBorder;
 const styleObject = {
@@ -119,16 +121,39 @@ function Footer() {
 }
 
 function FlatListingPage(props) {
+    const useEffect = React.useEffect;
     const classes = useStyles();
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const sortBy = ['Highest Price', 'Lowest Price', 'Earliest Move In', 'Recently Listed'];
-    let Cards = [
-        {price : '$450', address: '230 Queen Street', bed: 2, bath: 1, image: homeImageOne},
-        {price : '$300', address: '120 Shortlant Street', bed: 5, bath: 2, image: homeImageTwo},
-        {price : '$500', address: '4 Alma Street', bed: 3, bath: 1, image: homeImageOne},
-    ];
+    // let Cards = [
+    //    {price : '$450', address: '230 Queen Street', bed: 2, bath: 1, image: homeImageOne},
+    //     {price : '$300', address: '120 Shortlant Street', bed: 5, bath: 2, image: homeImageTwo},
+    //     {price : '$500', address: '4 Alma Street', bed: 3, bath: 1, image: homeImageOne},
+    // ];
+    const [cards, setCards] = React.useState([]);
+    
+    useEffect(() => {
+        const getListings = axios.create({
+            baseURL: baseURL + apiRoute.getRooms,
+            method: httpMethod.get,
+        });
+        getListings().then( res => {
+            const rooms = res.data.rooms;
+            rooms.forEach(room => {
+                setCards( C => [...C, {
+                    price: room.rent,
+                    address: room.house.address.house_number +' '+room.house.address.street,
+                    bed: room.house.number_of_kitchen,
+                    bath: room.house.number_of_washrooms,
+                    image: room.house.images[0].thumb
+                }]);
+            })
+        }).catch(err => {
+            console.log(err);
+        });
+    }, []);
     return (
     <React.Fragment>
         <Stack spacing={15} direction="column" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: matches ? '255vh' : 'fit-content'}}>
@@ -162,26 +187,22 @@ function FlatListingPage(props) {
                         <ThemeProvider theme={props.data.filterTheme}>
                             <Typography color="primary" variant="body1" sx={{fontWeight: 500, fontSize: '1.1rem', fontFamily: 'inherit'}}>Showing 1 - 48 Of 100 Properties</Typography>
                         </ThemeProvider>
-                        {
-                            [1,2,3].map((item, y) => (
-                                <Stack className={classes.cardsParent} key={y} direction={ matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: matches ? '400px' : 'fit-content'}} spacing={'2rem'}>
-                                    {
-                                        matches &&
-                                        Cards.map((card, i) => (
-                                            <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card}/>
-                                        )
-                                    )}
-                                    {
-                                        !matches &&
-                                        Cards.map((card, i) => (
-                                            <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card}
-                                                styles={{imageHeight: '200px', cardMargin: 'auto', cardWidth: '250px'}}
-                                            />
-                                        )
-                                    )}
-                                </Stack>
-                            ))
-                        }
+                        <Stack className={classes.cardsParent} direction={ matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: matches ? '400px' : 'fit-content'}} spacing={'2rem'}>
+                            {
+                                matches &&
+                                cards.map((card, i) => (
+                                    <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card}/>
+                                )
+                            )}
+                            {
+                                !matches &&
+                                cards.map((card, i) => (
+                                    <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card}
+                                        styles={{imageHeight: '200px', cardMargin: 'auto', cardWidth: '250px'}}
+                                    />
+                                )
+                            )}
+                        </Stack>
                     </Stack>                    
                 </Stack>
             </Stack>
