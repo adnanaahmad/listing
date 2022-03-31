@@ -15,6 +15,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import axios from "axios";
 import { baseURL, httpMethod, apiRoute } from '../utils/constants';
+import {useLocation} from "react-router-dom";
 
 const styleObject = {
     "& ::-webkit-input-placeholder": {
@@ -38,6 +39,8 @@ export default function ListingDetailPage(props) {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
+    const search = useLocation().search;
+    const listingId = new URLSearchParams(search).get('id');
     const isBorder = toggleBorder;
     // const paragrpahs = [
     //     'Comfortable City Centre Apartment', 
@@ -49,7 +52,7 @@ export default function ListingDetailPage(props) {
     const [listingDetail, setListingDetail] = React.useState({});
     useEffect(() => {
         const getListing = axios.create({
-            baseURL: baseURL + apiRoute.getRooms + '/1',
+            baseURL: baseURL + apiRoute.getRooms + `/${listingId}`,
             method: httpMethod.get,
         });
         getListing().then( res => {
@@ -62,13 +65,13 @@ export default function ListingDetailPage(props) {
                    description: room.house.description,
                    bath: room.house.number_of_washrooms,
                    bed: room.house.number_of_kitchen,
-                   id: room.house_id
+                   id: room.id
                }}
             })
         }).catch(err => {
             console.log(err);
         });
-    }, []);
+    }, [listingId]);
     return (
         <React.Fragment>
             <Stack spacing={'5rem'} direction="column" justifyContent="center" alignItems="center" sx={{border: isBorder ? 'px solid red' : 'none', height: 'fitContent', paddingY: '4rem'}}>

@@ -148,7 +148,7 @@ function FlatListingPage(props) {
                     bed: room.house.number_of_kitchen,
                     bath: room.house.number_of_washrooms,
                     image: room.house.images[0].thumb,
-                    id: room.house_id
+                    id: room.id
                 }]);
             })
         }).catch(err => {
