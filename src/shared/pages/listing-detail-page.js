@@ -13,6 +13,8 @@ import Box from '@mui/material/Box';
 import mapsImage from '../../assets/All Listings Assets/maps.png';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import axios from "axios";
+import { baseURL, httpMethod, apiRoute } from '../utils/constants';
 
 const styleObject = {
     "& ::-webkit-input-placeholder": {
@@ -32,17 +34,41 @@ const styleObject = {
 }
 
 export default function ListingDetailPage(props) {
+    const useEffect = React.useEffect;
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
     const isBorder = toggleBorder;
-    const paragrpahs = [
-        'Comfortable City Centre Apartment', 
-        'Partially furnished 5th floor apartment. Very light and bright with views of sky tower, Close to K road and all its amenities, cafes and restaurants. Close to motorway links. Full bathroom and laundry in apartment.', 
-        'Move in costs include two weeks rent and two weeks bond. Pet friendly apartments or not?  How many rooms are available in each aparmtnet? are there two for friends or just one? Will you put them all in one listing or one listing each?', 
-        'state what bills are included. be very clear. this is what happens. Thus electricity will be included in the rent but water and internet is not included. make it clear how many extra bills will come along with the website.', 
-        'Close to Auckland University, AUT, Auckland International, K Road'
-    ]
+    // const paragrpahs = [
+    //     'Comfortable City Centre Apartment', 
+    //     'Partially furnished 5th floor apartment. Very light and bright with views of sky tower, Close to K road and all its amenities, cafes and restaurants. Close to motorway links. Full bathroom and laundry in apartment.', 
+    //     'Move in costs include two weeks rent and two weeks bond. Pet friendly apartments or not?  How many rooms are available in each aparmtnet? are there two for friends or just one? Will you put them all in one listing or one listing each?', 
+    //     'state what bills are included. be very clear. this is what happens. Thus electricity will be included in the rent but water and internet is not included. make it clear how many extra bills will come along with the website.', 
+    //     'Close to Auckland University, AUT, Auckland International, K Road'
+    // ];
+    const [listingDetail, setListingDetail] = React.useState({});
+    useEffect(() => {
+        const getListing = axios.create({
+            baseURL: baseURL + apiRoute.getRooms + '/1',
+            method: httpMethod.get,
+        });
+        getListing().then( res => {
+            const room = res.data.room;
+            setListingDetail(prev => {
+               return {...prev, ...{
+                   rent: room.rent,
+                   images: room.images,
+                   address: room.house.address.house_number + ' ' + room.house.address.street,
+                   description: room.house.description,
+                   bath: room.house.number_of_washrooms,
+                   bed: room.house.number_of_kitchen,
+                   id: room.house_id
+               }}
+            })
+        }).catch(err => {
+            console.log(err);
+        });
+    }, []);
     return (
         <React.Fragment>
             <Stack spacing={'5rem'} direction="column" justifyContent="center" alignItems="center" sx={{border: isBorder ? 'px solid red' : 'none', height: 'fitContent', paddingY: '4rem'}}>
@@ -60,17 +86,17 @@ export default function ListingDetailPage(props) {
                             <Stack sx={{border: isBorder ? '1px solid red' : 'none'}} spacing={'4rem'}>
                                 <Stack spacing={'.5rem'}>
                                     <Typography color="primary" variant="h3" sx={{fontWeight: 500}}>Lovely 3 Bedroom Apartment</Typography>
-                                    <Typography color="primary" variant="h3" sx={{fontWeight: 500, fontSize: '2.5rem'}}>230 Queen Street</Typography>
+                                    <Typography color="primary" variant="h3" sx={{fontWeight: 500, fontSize: '2.5rem'}}>{listingDetail.address}</Typography>
                                 </Stack>
                                 <Stack direction="row" alignItems="flex-end">
                                     <BedIcon sx={{fontSize: '3rem'}}/>
-                                    <Typography color="primary" variant="body1" sx={{fontSize: '1.8rem', marginRight: '1rem'}}>2 Beds</Typography>
+                                    <Typography color="primary" variant="body1" sx={{fontSize: '1.8rem', marginRight: '1rem'}}>{listingDetail.bed} Beds</Typography>
                                     <BathtubOutlinedIcon  sx={{fontSize: '3rem'}}/>
-                                    <Typography color="primary" variant="body1" sx={{fontSize: '1.8rem'}}>1 Bath</Typography>
+                                    <Typography color="primary" variant="body1" sx={{fontSize: '1.8rem'}}>{listingDetail.bath} Bath</Typography>
                                 </Stack>
                             </Stack>
                             <Stack alignItems="flex-end" spacing={'.5rem'} sx={{border: isBorder ? '1px solid red' : 'none'}}>
-                                <Typography color="primary" variant="h3" sx={{fontWeight: 500}}>$230</Typography>
+                                <Typography color="primary" variant="h3" sx={{fontWeight: 500}}>${listingDetail.rent}</Typography>
                                 <Typography color="primary" variant="h3" sx={{fontWeight: 500, fontSize: '2rem'}}>per week</Typography>
                             </Stack>
                         </Stack>
@@ -84,21 +110,17 @@ export default function ListingDetailPage(props) {
                             <Stack direction="row" spacing={'1rem'} alignItems="center" sx={{border: isBorder ? 1 : 'none', marginLeft: matches ? 'auto' : 0}}>
                                 <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>Property ID#</Typography>
                                 <Typography variant="body1" sx={{fontSize: '1.8rem'}}>|</Typography>
-                                <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>HCJ703</Typography>
+                                <Typography color="primary" variant="body1" sx={{fontSize: '1.2rem'}}>{listingDetail.id}</Typography>
                             </Stack>
                         </Stack>
                     </ThemeProvider>
                     {/* third component */}
                     <Stack spacing={matches ? 0 : '1rem'} direction={matches ? "row" : "column"} justifyContent="flex-end" alignItems={matches ? 'flex-start' : 'center'} sx={{border: isBorder ? 1 : 'none', width: '100%', height: 'fitContent'}}>
                         <ThemeProvider theme={props.data.theme}>
-                            <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '400px', marginX: 'auto'}} spacing={'2rem'}>                        
-                                {
-                                    paragrpahs.map((item, y) => (                                
-                                        <Typography key={y} color="primary" variant="body1" display="block">
-                                            {item}
-                                        </Typography> 
-                                    ))
-                                }
+                            <Stack direction="column" justifyContent="center" alignItems="flex-start" sx={{ border: isBorder ? '1px solid green' : 'none', width: '100%', maxWidth: '400px', marginX: 'auto'}} spacing={'2rem'}>                                                        
+                                <Typography color="primary" variant="body1" display="block">
+                                    {listingDetail.description}
+                                </Typography> 
                             </Stack>
                         </ThemeProvider>
                         <Stack sx={{border: isBorder ? '2px solid yellow' : 'none', height: 'fitContent', width: matches ? '35%' : '100%', maxWidth: '350px'}}>
