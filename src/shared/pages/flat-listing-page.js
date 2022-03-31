@@ -147,7 +147,8 @@ function FlatListingPage(props) {
                     address: room.house.address.house_number +' '+room.house.address.street,
                     bed: room.house.number_of_kitchen,
                     bath: room.house.number_of_washrooms,
-                    image: room.house.images[0].thumb
+                    image: room.house.images[0].thumb,
+                    id: room.house_id
                 }]);
             })
         }).catch(err => {

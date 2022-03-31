@@ -5,11 +5,18 @@ import {toggleBorder} from '../../styles/debugging-border';
 import BedIcon from '@mui/icons-material/Bed';
 import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
 import { ThemeProvider } from '@emotion/react';
+import { useHistory } from "react-router-dom";
 
 const isBorder = toggleBorder;
 export default function ListCard(props) {
+    const history = useHistory();
+    function handleClick(id) {
+        history.push(`/7?id=${id}`);
+    }
     return (
-        <Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={'1rem'} sx={{
+        <Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={'1rem'}
+        onClick={() => handleClick(props.data.id)}
+        sx={{
             border: isBorder ? 1 : 'none',
             width: props.styles ? props.styles.cardWidth : '30%',
             borderTopRightRadius: '40px',
@@ -17,7 +24,8 @@ export default function ListCard(props) {
             padding: '.7rem',
             backgroundColor: 'white',
             boxShadow: props.boxShadow ? 'rgb(203 146 108 / 35%) 0px 4px 12px' : 'none',
-            margin: props.styles ? props.styles.cardMargin : '0'
+            margin: props.styles ? props.styles.cardMargin : '0',
+            cursor: 'pointer'
         }}>
             <Box component="img"
                 sx={{
