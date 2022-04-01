@@ -8,16 +8,25 @@ import Paper from '@mui/material/Paper';
 import {DarkTheme} from '../../styles/themes/dark-theme';
 import {ThemeProvider} from '@mui/material/styles';
 import { useHistory } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
+import { screens as screen } from '../../utils/constants';
 
 export default function FixedBottomNavigation() {
     const history = useHistory();
+    const location = useLocation();
 
     function handleClick(direction) {
-        let pageNumber = Number((window.location.href).split('/').at(-1));
+        let pageNumber = null;
+        Object.entries(screen).forEach(([key, value]) => {
+            if (value === location.pathname) {
+                pageNumber = Number(key);
+            }
+        });
+        if (!pageNumber) return;
         direction === 'forward' ? pageNumber++ : pageNumber--;
         pageNumber === 0 ? pageNumber = 20 : pageNumber &= pageNumber;
         pageNumber === 21 ? pageNumber = 1 : pageNumber &= pageNumber;
-        history.push(`/${pageNumber.toString()}`);
+        history.push(screen[pageNumber]);
     }
     return (
         <ThemeProvider theme={DarkTheme}>
