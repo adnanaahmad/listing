@@ -25,10 +25,11 @@ import ScreenSeventeen from "./screens/screen-seventeen/screen-seventeen";
 import ScreenEighteen from "./screens/screen-eighteen/screen-eighteen";
 import ScreenNineteen from "./screens/screen-nineteen/screen-nineteen";
 import ScreenTwenty from "./screens/screen-twenty/screen-twenty";
+import { screens as screen } from "./shared/utils/constants";
 function App() {
   const defaultRouteHanler = () => {
     return (
-      <Redirect to='/1'/>
+      <Redirect to={screen[1]}/>
     )
   }
   return (
@@ -36,64 +37,64 @@ function App() {
       <div>
         <Switch>
           <Route exact path={'/'} render={defaultRouteHanler}/>
-          <Route path="/1">
+          <Route path={screen[1]}>
             <ScreenOne/>
           </Route>
-          <Route path="/2">
+          <Route path={screen[2]}>
             <ScreenTwo/>
           </Route>
-          <Route path="/3">
+          <Route path={screen[3]}>
             <ScreenThree/>
           </Route>
-          <Route path="/4">
+          <Route path={screen[4]}>
             <ScreenFour/>
           </Route>
-          <Route path="/5">
+          <Route path={screen[5]}>
             <ScreenFive/>
           </Route>
-          <Route path="/6">
+          <Route path={screen[6]}>
             <ScreenSix/>
           </Route>
-          <Route path="/7">
+          <Route path={screen[7]}>
             <ScreenSeven/>
           </Route>
-          <Route path="/8">
+          <Route path={screen[8]}>
             <ScreenEight/>
           </Route>
-          <Route path="/9">
+          <Route path={screen[9]}>
             <ScreenNine/>
           </Route>
-          <Route path="/10">
+          <Route path={screen[10]}>
             <ScreenTen/>
           </Route>
-          <Route path="/11">
+          <Route path={screen[11]}>
             <ScreenEleven/>
           </Route>
-          <Route path="/12">
+          <Route path={screen[12]}>
             <ScreenTwelve/>
           </Route>
-          <Route path="/13">
+          <Route path={screen[13]}>
             <ScreenThirteen/>
           </Route>
-          <Route path="/14">
+          <Route path={screen[14]}>
             <ScreenFourteen/>
           </Route>
-          <Route path="/15">
+          <Route path={screen[15]}>
             <ScreenFifteen/>
           </Route>
-          <Route path="/16">
+          <Route path={screen[16]}>
             <ScreenSixteen/>
           </Route>
-          <Route path="/17">
+          <Route path={screen[17]}>
             <ScreenSeventeen/>
           </Route>
-          <Route path="/18">
+          <Route path={screen[18]}>
             <ScreenEighteen/>
           </Route>
-          <Route path="/19">
+          <Route path={screen[19]}>
             <ScreenNineteen/>
           </Route>
-          <Route path="/20">
+          <Route path={screen[20]}>
             <ScreenTwenty/>
           </Route>
         </Switch>

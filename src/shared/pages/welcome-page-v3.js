@@ -12,6 +12,7 @@ import { useTheme } from '@mui/material/styles';
 import MenuButton from '../components/menu-button/menu-button';
 import IconButton from '@mui/material/IconButton';
 import { Link } from 'react-router-dom';
+import { screens as screen } from '../utils/constants';
 
 const isBorder = toggleBorder;
 
@@ -42,7 +43,7 @@ function WelcomePageVariantThree(props) {
         <ThemeProvider theme={props.data.theme}>
           <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid orange' : 'none', width: '90%', margin: 'auto'}}>
             <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none', width: matches ? '70%' : '100%', maxWidth: '900px', justifyContent: 'space-between'}}>
-              <IconButton color="primary" component={Link} to={'1'}>
+              <IconButton color="primary" component={Link} to={screen[1]}>
                   <HomeOutlinedIcon sx={{ fontSize: matches ? '4rem' : matchesMobile ? '3rem' : '5rem'}}/>
                 </IconButton>
               {
