@@ -10,6 +10,8 @@ import doorImage from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import MenuButton from '../components/menu-button/menu-button';
+import IconButton from '@mui/material/IconButton';
+import { Link } from 'react-router-dom';
 
 const isBorder = toggleBorder;
 
@@ -37,7 +39,9 @@ function WelcomePageVariantThree(props) {
         <ThemeProvider theme={props.data.theme}>
           <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid orange' : 'none', width: '90%', margin: 'auto'}}>
             <Stack direction="row" alignItems="center" sx={{ border: isBorder ? '1px solid purple' : 'none', width: matches ? '70%' : '100%', maxWidth: '900px', justifyContent: 'space-between'}}>
-              <HomeOutlinedIcon color="primary" sx={{ fontSize: matches ? '4rem' : matchesMobile ? '3rem' : '5rem'}}/>
+              <IconButton color="primary" component={Link} to={'1'}>
+                  <HomeOutlinedIcon sx={{ fontSize: matches ? '4rem' : matchesMobile ? '3rem' : '5rem'}}/>
+                </IconButton>
               {
                 matches &&
                 <MenuBar data = {props.data.menu }/>
