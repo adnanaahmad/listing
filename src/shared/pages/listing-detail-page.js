@@ -14,8 +14,7 @@ import mapsImage from '../../assets/All Listings Assets/maps.png';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import axios from "axios";
-import { baseURL, httpMethod, apiRoute } from '../utils/constants';
-import {useLocation} from "react-router-dom";
+import { baseURL, apiRoute } from '../utils/constants';
 import { useFormik } from 'formik';
 
 const styleObject = {
@@ -37,12 +36,10 @@ const styleObject = {
 
 export default function ListingDetailPage(props) {
     const isBorder = toggleBorder;
-    const useEffect = React.useEffect;
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const search = useLocation().search;
-    const listingId = new URLSearchParams(search).get('id');
+
     const formik = useFormik({
         initialValues: {
             name: "",
@@ -55,29 +52,8 @@ export default function ListingDetailPage(props) {
             axios.post(baseURL + apiRoute.enquiry, {enquiry : form}).then(res => console.log(res.data)).catch(err => console.log(err));
         },
     });
-    const [listingDetail, setListingDetail] = React.useState({});
-    useEffect(() => {
-        const getListing = axios.create({
-            baseURL: baseURL + apiRoute.getRooms + `/${listingId}`,
-            method: httpMethod.get,
-        });
-        getListing().then( res => {
-            const room = res.data.room;
-            setListingDetail(prev => {
-               return {...prev, ...{
-                   rent: room.rent,
-                   images: room.images,
-                   address: room.house.address.house_number + ' ' + room.house.address.street,
-                   description: room.house.description,
-                   bath: room.house.number_of_washrooms,
-                   bed: room.house.number_of_kitchen,
-                   id: room.id
-               }}
-            })
-        }).catch(err => {
-            console.log(err);
-        });
-    }, [listingId]);
+    const listingDetail = props.data.listingDetail;
+
     return (
         <React.Fragment>
             <Stack spacing={'5rem'} direction="column" justifyContent="center" alignItems="center" sx={{border: isBorder ? 'px solid red' : 'none', height: 'fitContent', paddingY: '4rem'}}>
