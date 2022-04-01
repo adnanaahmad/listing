@@ -11,6 +11,8 @@ import Carousel from 'react-material-ui-carousel';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import axios from "axios";
 import { baseURL, httpMethod, apiRoute } from '../utils/constants';
+import IconButton from '@mui/material/IconButton';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -80,7 +82,9 @@ function RecentlyListedPage(props) {
                         <Typography variant="body1" sx={{fontWeight: 500, fontSize: '40px', color: 'white'}}>Recently Listed Properties</Typography>
                         <Stack className={classes.moreDiv} direction="row" alignItems="center" spacing={'2rem'} sx={{marginRight: '10%'}}>
                             <Typography variant="body1" sx={{fontWeight: 500, fontSize: '20px', color: 'white'}}>Find More Listings</Typography>
-                            <ArrowForwardIcon sx={{color: 'white'}}/>
+                            <IconButton color="primary" component={Link} to={'3'}>
+                                <ArrowForwardIcon sx={{color: 'white'}}/>
+                            </IconButton>
                         </Stack>
                     </Stack>
                     {
