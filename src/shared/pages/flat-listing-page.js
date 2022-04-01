@@ -147,7 +147,7 @@ function FlatListingPage(props) {
                     address: room.house.address.house_number +' '+room.house.address.street,
                     bed: room.house.number_of_kitchen,
                     bath: room.house.number_of_washrooms,
-                    image: room.house.images[0].thumb,
+                    image: room.images && room.images.length > 0 ? room.images[0].url : '',
                     id: room.id
                 }]);
             })
@@ -188,11 +188,15 @@ function FlatListingPage(props) {
                         <ThemeProvider theme={props.data.filterTheme}>
                             <Typography color="primary" variant="body1" sx={{fontWeight: 500, fontSize: '1.1rem', fontFamily: 'inherit'}}>Showing 1 - 48 Of 100 Properties</Typography>
                         </ThemeProvider>
-                        <Stack className={classes.cardsParent} direction={ matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: matches ? '400px' : 'fit-content'}} spacing={'2rem'}>
+                        <Stack className={classes.cardsParent} direction={ matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: matches ? '400px' : 'fit-content', flexWrap: matches ? 'wrap':'nowrap'}} 
+                        spacing={matches ? 0 : '2rem'}
+                        >
                             {
                                 matches &&
                                 cards.map((card, i) => (
-                                    <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card}/>
+                                    <ListCard key={i} boxShadow = {true} theme={props.data.cardTheme} data = {card}
+                                    styles={{imageHeight: '250px', cardMargin: '0 0 50px 0', cardWidth: '250px'}}
+                                    />
                                 )
                             )}
                             {
