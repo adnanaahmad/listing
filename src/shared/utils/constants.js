@@ -48,3 +48,5 @@ export const httpMethod = {
     patch: 'patch',
     delete: 'delete'
 }
+
+export const showBottomNavigation = false;
