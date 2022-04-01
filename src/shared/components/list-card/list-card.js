@@ -6,12 +6,13 @@ import BedIcon from '@mui/icons-material/Bed';
 import BathtubOutlinedIcon from '@mui/icons-material/BathtubOutlined';
 import { ThemeProvider } from '@emotion/react';
 import { useHistory } from "react-router-dom";
+import { screens as screen } from '../../utils/constants';
 
 const isBorder = toggleBorder;
 export default function ListCard(props) {
     const history = useHistory();
     function handleClick(id) {
-        history.push(`/7?id=${id}`);
+        history.push(`${screen[7]}?id=${id}`);
     }
     return (
         <Stack direction="column" justifyContent="flex-start" alignItems="center" spacing={'1rem'}
