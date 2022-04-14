@@ -70,7 +70,7 @@ export default function ListingDetailPage(props) {
                         <Stack direction={matches ? "row" : "column"} justifyContent="space-between" alignItems={'flex-start'} sx={{border: isBorder ? '1px solid blue' : 'none', width: '100%'}} spacing={'1rem'}>
                             <Stack sx={{border: isBorder ? '1px solid red' : 'none'}} spacing={'4rem'}>
                                 <Stack spacing={'.5rem'}>
-                                    <Typography color="primary" variant="h3" sx={{fontWeight: 500}}>Lovely 3 Bedroom Apartment</Typography>
+                                    <Typography color="primary" variant="h3" sx={{fontWeight: 500}}>Lovely {listingDetail.bed} Bedroom Apartment</Typography>
                                     <Typography color="primary" variant="h3" sx={{fontWeight: 500, fontSize: '2.5rem'}}>{listingDetail.address}</Typography>
                                 </Stack>
                                 <Stack direction="row" alignItems="flex-end">

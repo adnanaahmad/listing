@@ -42,7 +42,7 @@ export default function ListCard(props) {
             <ThemeProvider theme={props.theme}>
                 <Stack sx={{border: isBorder ? '1px solid blue' : 'none', width: '100%'}} spacing={'1rem'}>
                     <Stack sx={{border: isBorder ? '1px solid red' : 'none'}} direction="row" justifyContent="flex-end" alignItems="flex-end">
-                        <Typography color="primary" variant="body1" sx={{fontWeight: 500, fontSize: '1.3rem', lineHeight: 1}}>{props.data.price}</Typography>
+                        <Typography color="primary" variant="body1" sx={{fontWeight: 500, fontSize: '1.3rem', lineHeight: 1}}>${props.data.price}</Typography>
                         <Typography color="primary" variant="body1" sx={{fontSize: '.6rem',}}>Per Week</Typography>
                     </Stack>
                     <Stack sx={{border: isBorder ? '1px solid red' : 'none'}} direction="row" justifyContent="space-between" alignItems="center">

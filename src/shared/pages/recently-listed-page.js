@@ -65,8 +65,8 @@ function RecentlyListedPage(props) {
                 setCards( C => [...C, {
                     price: room.rent,
                     address: room.house.address.house_number +' '+room.house.address.street,
-                    bed: room.house.number_of_kitchen,
-                    bath: room.house.number_of_washrooms,
+                    bed: room.house.number_of_bedrooms || 0,
+                    bath: room.house.number_of_washrooms || 0,
                     image: room.images && room.images.length > 0 ? room.images[0].url : '',
                     id: room.id
                 }]);
