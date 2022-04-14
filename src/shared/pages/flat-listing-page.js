@@ -157,7 +157,7 @@ function FlatListingPage(props) {
     }, []);
     return (
     <React.Fragment>
-        <Stack spacing={15} direction="column" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: matches ? '255vh' : 'fit-content'}}>
+        <Stack spacing={15} direction="column" justifyContent="space-between" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', height: 'fit-content'}}>
             <Stack spacing={3} style={{maxWidth: '1440px', width: '100%', border: isBorder ? '2px solid yellow' : 'none',}}>
                 <Stack direction="row" justifyContent="center" sx={{width: '100%'}}>
                     {
@@ -183,12 +183,12 @@ function FlatListingPage(props) {
                         </ThemeProvider>
                     }
                 </Stack>
-                <Stack direction="column" alignItems="center" style={{width: matchesMobile ? '100%' : '80%', border: isBorder ? '2px solid orange' : 'none', marginLeft: 'auto', marginRight: 'auto', height: '100%'}}>
-                    <Stack spacing={'6rem'} justifyContent="space-between" style={{width: '90%', border: isBorder ? '2px solid purple' : 'none', height: '100%'}}>
+                <Stack direction="column" alignItems="center" style={{width: matchesMobile ? '100%' : '80%', border: isBorder ? '2px solid orange' : 'none', marginLeft: 'auto', marginRight: 'auto', height: 'fit-content'}}>
+                    <Stack spacing={'6rem'} justifyContent="space-between" style={{width: '90%', border: isBorder ? '2px solid purple' : 'none', height: 'fit-content'}}>
                         <ThemeProvider theme={props.data.filterTheme}>
                             <Typography color="primary" variant="body1" sx={{fontWeight: 500, fontSize: '1.1rem', fontFamily: 'inherit'}}>Showing 1 - 48 Of 100 Properties</Typography>
                         </ThemeProvider>
-                        <Stack className={classes.cardsParent} direction={ matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: matches ? '400px' : 'fit-content', flexWrap: matches ? 'wrap':'nowrap'}} 
+                        <Stack className={classes.cardsParent} direction={ matches ? "row" : "column"} justifyContent="space-between" sx={{ border: isBorder ? '1px solid red' : 'none', maxWidth: '100%',  height: 'fit-content', flexWrap: matches ? 'wrap':'nowrap'}} 
                         spacing={matches ? 0 : '2rem'}
                         >
                             {
