@@ -42,7 +42,7 @@ function ScreenSeven() {
                rent: room.rent,
                images: room.images,
                address: room.house.address.house_number + ' ' + room.house.address.street,
-               description: room.house.description,
+               description: room.description,
                bath: room.house.number_of_washrooms || 0,
                bed: room.house.number_of_bedrooms || 0,
                id: room.id
