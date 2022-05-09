@@ -26,6 +26,8 @@ import ScreenEighteen from "./screens/screen-eighteen/screen-eighteen";
 import ScreenNineteen from "./screens/screen-nineteen/screen-nineteen";
 import ScreenTwenty from "./screens/screen-twenty/screen-twenty";
 import { screens as screen, showBottomNavigation } from "./shared/utils/constants";
+import ScrollToTop from './shared/utils/scrollToTop';
+
 function App() {
   const defaultRouteHanler = () => {
     return (
@@ -34,6 +36,7 @@ function App() {
   }
   return (
     <Router>
+      <ScrollToTop />
       <div>
         <Switch>
           <Route exact path={'/'} render={defaultRouteHanler}/>
