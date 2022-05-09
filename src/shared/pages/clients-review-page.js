@@ -33,7 +33,7 @@ function ClientsReviewPage() {
                 indicatorContainerProps = {{
                     style: {
                         position: 'absolute',
-                        bottom: 0
+                        bottom: -5
                     }
                 }}
                 >
