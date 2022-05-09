@@ -20,16 +20,20 @@ function ClientsReviewPage() {
     <React.Fragment>
         <Stack direction="column" justifyContent="center" alignItems="center" sx={{ border: isBorder ? '1px solid red' : 'none', minHeight: '100vh', height: 'fit-content'}}>
             <Stack direction="column" justifyContent="center" alignItems="center" sx={{ border: isBorder ? '1px solid maroon' : 'none', height: '75%', paddingX: '1rem'}} spacing={'2rem'}>
-                <Typography variant="h3" sx={{textAlign: 'center'}}>Hear From Our Clients</Typography>
+                <Typography variant="h3" sx={{textAlign: 'center', marginBottom: 5}}>Hear From Our Clients</Typography>
                 <Carousel sx={{height: 'fitContent', width: '100%', minHeight: '600px', minWidth: matches ? '800px' : '100%'}}
-                indicators={ matches ? true : false}
-                navButtonsAlwaysVisible={matches ? false : true}
+                indicators={true}
+                navButtonsAlwaysVisible={false}
                 autoPlay = {false}
                 indicatorIconButtonProps={{
                     style: {
                         padding: '5px',
-                        // color: GreenTheme.palette.primary.main,
-                        marginTop: '400px'
+                    }
+                }}
+                indicatorContainerProps = {{
+                    style: {
+                        position: 'absolute',
+                        bottom: 0
                     }
                 }}
                 >
