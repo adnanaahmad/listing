@@ -64,7 +64,7 @@ export default function FooterSecondary() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const firstColumn = ['Rent a Room', 'Rent a House', 'Homeowners', 'Property Management'];
+    // const firstColumn = ['Rent a Room', 'Rent a House', 'Homeowners', 'Property Management'];
     const secondColumn = footerColumn;
     const thirdColumn = [ 'info@friendlyflats.co.nz', '0800 123 4567', 'Auckland, NZ'];
     return (
@@ -103,7 +103,7 @@ export default function FooterSecondary() {
                         </Stack>
                     </Container>
                     <div style={{borderBottom: '2px solid white', width: '100%', top: matches ? '45%' : '24%', position: 'absolute'}}></div>
-                    <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', padding: matches ? '50px' : 0, position: 'absolute', top: matches ? '50%' : '30%'}}>
+                    <Container disableGutters maxWidth="xlg" sx={{ border: isBorder ? 1: 'none', padding: matches ? '50px 50px 0 50px' : 0, position: 'absolute', top: matches ? '47%' : '30%'}}>
                         <Stack
                         direction={matches ? "row" : "column"}
                         justifyContent="space-between"
@@ -119,7 +119,7 @@ export default function FooterSecondary() {
                                 </Stack>
                             </Stack>
                             
-                            <Stack spacing={2} className={classes.footerInfoCol}>
+                            {/* <Stack spacing={2} className={classes.footerInfoCol}>
                                 <Typography color="primary" variant="body1" component="div" sx={{fontWeight: 600, fontSize: '1.2rem'}}>SERVICES</Typography>
                                 {
                                     firstColumn.map((item, i) => (
@@ -128,9 +128,9 @@ export default function FooterSecondary() {
                                         </Typography>
                                     ))
                                 }
-                            </Stack>
+                            </Stack> */}
                             <Stack spacing={2} className={classes.footerInfoCol}>
-                                <Typography color="primary" variant="body1" component="div" sx={{fontWeight: 600, fontSize: '1.2rem'}}>RESOURCES</Typography>
+                                {/* <Typography color="primary" variant="body1" component="div" sx={{fontWeight: 600, fontSize: '1.2rem'}}>RESOURCES</Typography> */}
                                 {
                                     secondColumn.map((item, i) => (
                                         <Typography color="primary"  key={i} variant="body1" component={item.route ? Link : "div"} to={item.route} sx={{textDecoration: 'none'}}>

@@ -54,7 +54,7 @@ export default function FooterPrimary() {
     const theme = useTheme();
     const matches = useMediaQuery(theme.breakpoints.up('md'));
     const matchesMobile = useMediaQuery(theme.breakpoints.down('sm'));
-    const firstColumn = ['Services', 'Landlords', 'Tenants', 'Management'];
+    // const firstColumn = ['Services', 'Landlords', 'Tenants', 'Management'];
     const secondColumn = footerColumn;
     const thirdColumn = ['CONTACT', 'hk@friendlyflats.co.nz', '0800 123 4567', 'Auckland City'];
     return (
@@ -94,13 +94,13 @@ export default function FooterPrimary() {
                     <HomeOutlinedIcon sx={{ fontSize: 200 }}/>
                     <Stack                    
                     direction={matches ? "row" : "column"}
-                    justifyContent="space-between"
+                    justifyContent="space-around"
                     alignItems="center"
                     sx={{width: '100%'}}
                     className={classes.footerInfo}
                     spacing = {matches ? '1rem' : '2rem'}
                     >
-                        <Stack spacing={2} className={classes.footerInfoCol}>
+                        {/* <Stack spacing={2} className={classes.footerInfoCol}>
                             {
                                 firstColumn.map((item, i) => (
                                     <Typography key={i} variant="h5" component="div" sx={{fontWeight: 700}}>
@@ -108,11 +108,11 @@ export default function FooterPrimary() {
                                     </Typography>
                                 ))
                             }
-                        </Stack>
+                        </Stack> */}
                         <Stack spacing={2} className={classes.footerInfoCol}>
-                            <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
+                            {/* <Typography variant="h5" component="div" sx={{fontWeight: 700}}>
                                 Resources
-                            </Typography>
+                            </Typography> */}
                             {
                                 secondColumn.map((item, i) => (
                                     <Typography key={i} variant="h5" component={item.route ? Link : "div"} to={item.route} sx={{fontWeight: 700, color: "black", textDecoration: "none"}}>
