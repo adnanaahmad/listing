@@ -96,7 +96,7 @@ function WelcomePageVariantTwo(props) {
                             </IconButton>
                             <Box component="img"
                             sx={{
-                                height: matchesMobile ? '40vh' : '80vh',
+                                height: matchesMobile ? '231px' : '80vh',
                                 minWidth: '150px',
                                 border: isBorder ? '2px solid red' : 'none',
                                 objectFit: 'cover',

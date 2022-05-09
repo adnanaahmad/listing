@@ -15,6 +15,7 @@ import WelcomeImage from '../../assets/Homeowners Assets/Mask Group 4@2x.png';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
 import { menu } from '../../shared/utils/constants';
+import { Stack } from '@mui/material';
 
 const theme = createTheme();
 function ScreenTwo() {
@@ -47,14 +48,16 @@ function ScreenTwo() {
     }
     return (
         <React.Fragment>
-            <ThemeProvider theme={theme}>
-                <WelcomePageVariantOne data = {welcomePage}/>
-                <CommitmentWorkPage data = {commitmentWorkPage}/>
-                <ListingProcessPage data={listingProcess} />
-                <PropertiesTcoPage data = {showHouse}/>
-                <ClientsReviewPage/>
-                <FooterPrimary/>
-            </ThemeProvider>
+            <Stack spacing={20}>
+                <ThemeProvider theme={theme}>
+                    <WelcomePageVariantOne data = {welcomePage}/>
+                    <CommitmentWorkPage data = {commitmentWorkPage}/>
+                    <ListingProcessPage data={listingProcess} />
+                    <PropertiesTcoPage data = {showHouse}/>
+                    <ClientsReviewPage/>
+                    <FooterPrimary/>
+                </ThemeProvider>
+            </Stack>
         </React.Fragment>
     );
 }

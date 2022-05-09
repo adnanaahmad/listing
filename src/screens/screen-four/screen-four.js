@@ -12,6 +12,7 @@ import MaintenancePage from '../../shared/pages/maintenance-page';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
 import { menu } from '../../shared/utils/constants';
+import { Stack } from '@mui/material';
 
 const theme = createTheme();
 function ScreenFour() {
@@ -36,14 +37,16 @@ function ScreenFour() {
   }
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
-        <WelcomePageVariantOne data = {welcomePage}/>
-        <CommitmentSatisfactionPage data={commitment} />
-        <ThirdPage/>
-        <MaintenancePage data={maintenance} />
-        <ClientsReviewPage/>
-        <FooterPrimary/>
-      </ThemeProvider>
+      <Stack spacing={30}>
+        <ThemeProvider theme={theme}>
+          <WelcomePageVariantOne data = {welcomePage}/>
+          <CommitmentSatisfactionPage data={commitment} />
+          <ThirdPage/>
+          <MaintenancePage data={maintenance} />
+          <ClientsReviewPage/>
+          <FooterPrimary/>
+        </ThemeProvider>
+      </Stack>
     </React.Fragment>
   );
 }

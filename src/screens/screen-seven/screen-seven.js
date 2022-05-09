@@ -11,6 +11,7 @@ import { menu } from '../../shared/utils/constants';
 import axios from "axios";
 import { baseURL, httpMethod, apiRoute } from '../../shared/utils/constants';
 import {useLocation} from "react-router-dom";
+import { Stack } from '@mui/material';
 
 const theme = createTheme();
 
@@ -54,12 +55,14 @@ function ScreenSeven() {
 }, [listingId]);
   return (
     <React.Fragment>
+      <Stack spacing={20}>
         <ThemeProvider theme={theme}>
           <WelcomePageVariantThree data={welcomePage}/>
           <ListingDetailPage data={detailPage}/>
           <ClientsReviewPage/>
           <FooterPrimary/>
         </ThemeProvider>
+      </Stack>
     </React.Fragment>
   );
 }

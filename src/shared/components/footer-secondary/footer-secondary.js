@@ -69,7 +69,7 @@ export default function FooterSecondary() {
     const thirdColumn = [ 'info@friendlyflats.co.nz', '0800 123 4567', 'Auckland, NZ'];
     return (
         <React.Fragment>
-            <Stack className={classes.parent} sx={{border: isBorder ? '2px solid red' : 'none', position: 'relative', height: '55vh'}}>
+            <Stack className={classes.parent} sx={{border: isBorder ? '2px solid red' : 'none', position: 'relative', height: '500px'}}>
                 <Box component="img"
                         sx={{
                             height: '100%',

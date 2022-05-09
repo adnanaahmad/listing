@@ -10,6 +10,7 @@ import { LightTheme } from '../../shared/styles/themes/light-theme';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
 import { menu } from '../../shared/utils/constants';
+import { Stack } from '@mui/material';
 
 const theme = createTheme();
 function ScreenFive() {
@@ -28,12 +29,14 @@ function ScreenFive() {
   };
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
-        <WelcomePageVariantOne data = {welcomePage}/>
-        <PolicyTermsPage data = {Cards}/>
-        <ClientsReviewPage/>
-        <FooterPrimary/>
-      </ThemeProvider>
+      <Stack spacing={10}>
+        <ThemeProvider theme={theme}>
+          <WelcomePageVariantOne data = {welcomePage}/>
+          <PolicyTermsPage data = {Cards}/>
+          <ClientsReviewPage/>
+          <FooterPrimary/>
+        </ThemeProvider>
+      </Stack>
     </React.Fragment>
   );
 }

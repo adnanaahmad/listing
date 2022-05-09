@@ -8,6 +8,7 @@ import SecondPage from './components/second-page';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
 import { menu } from '../../shared/utils/constants';
+import { Stack } from '@mui/material';
 
 const theme = createTheme();
 
@@ -25,11 +26,13 @@ function ScreenSeventeen() {
     }
     return (
         <React.Fragment>
-            <ThemeProvider theme={theme}>
-                <WelcomePageVariantTwo data = {welcomePage}/>
-                <SecondPage/>
-                <FooterSecondary/>
-            </ThemeProvider>
+            <Stack spacing={40}>
+                <ThemeProvider theme={theme}>
+                    <WelcomePageVariantTwo data = {welcomePage}/>
+                    <SecondPage/>
+                    <FooterSecondary/>
+                </ThemeProvider>
+            </Stack>
         </React.Fragment>
     );
 }

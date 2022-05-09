@@ -16,6 +16,7 @@ import { GreenTheme } from '../../shared/styles/themes/green-theme';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
 import { menu } from '../../shared/utils/constants';
+import { Stack } from '@mui/material';
 
 const theme = createTheme();
 function ScreenThree() {
@@ -54,14 +55,16 @@ function ScreenThree() {
   }
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
-        <WelcomePageVariantOne data = {welcomePage}/>
-        <FlatListingPage data={flatListing}/>
-        <ListingProcessPage data={listingProcess}/>
-        <SecondSpacePage data={spacePage}/>
-        <ClientsReviewPage/>
-        <FooterPrimary/>
-      </ThemeProvider>
+      <Stack spacing={30}>
+        <ThemeProvider theme={theme}>
+          <WelcomePageVariantOne data = {welcomePage}/>
+          <FlatListingPage data={flatListing}/>
+          <ListingProcessPage data={listingProcess}/>
+          <SecondSpacePage data={spacePage}/>
+          <ClientsReviewPage/>
+          <FooterPrimary/>
+        </ThemeProvider>
+      </Stack>
     </React.Fragment>
   );
 }

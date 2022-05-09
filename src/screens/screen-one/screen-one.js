@@ -17,6 +17,7 @@ import SpacePage from '../../shared/pages/space-page';
 import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/styles';
 import { menu } from '../../shared/utils/constants';
+import { Stack } from '@mui/material';
 
 const theme = createTheme();
 
@@ -55,16 +56,18 @@ function ScreenOne() {
   }
   return (
     <React.Fragment>
-      <ThemeProvider theme={theme}>
-        <WelcomePageVariantOne data = {welcomePage}/>
-        <WorkPage data={work}/>
-        <ListingProcessPage data={listingProcess} />
-        <RecentlyListedPage data = {recentlyListed}/>
-        <SpacePage data={space}/>
-        <AboutUsPage/>
-        <ClientsReviewPage/>
-        <FooterPrimary/>
-      </ThemeProvider>
+      <Stack spacing={20}>
+        <ThemeProvider theme={theme}>
+          <WelcomePageVariantOne data = {welcomePage}/>
+          <WorkPage data={work}/>
+          <ListingProcessPage data={listingProcess} />
+          <RecentlyListedPage data = {recentlyListed}/>
+          <SpacePage data={space}/>
+          <AboutUsPage/>
+          <ClientsReviewPage/>
+          <FooterPrimary/>
+        </ThemeProvider>
+      </Stack>
     </React.Fragment>
   );
 }
